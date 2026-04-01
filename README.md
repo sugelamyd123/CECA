@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/noisy-correspondence-learning-for-text-to/text-based-person-retrieval-with-noisy)](https://paperswithcode.com/sota/text-based-person-retrieval-with-noisy?p=noisy-correspondence-learning-for-text-to)
 ## Introduction
 PyTorch implementation for [Noisy-Correspondence Learning for Text-to-Image Person Re-identification](./src/RDE_main.pdf) (CVPR 2024). The solution to [the noisy correspondence problem](https://github.com/QinYang79/Noisy-Correspondence-Summary)  in TIReID.
@@ -81,3 +82,15 @@ If RDE is useful for your research, you can cite the following papers:
 
 ## Acknowledgements
 The code is based on [IRRA](https://github.com/anosorae/IRRA) licensed under Apache 2.0.
+=======
+# CECA
+PyTorch code for *Tackling Alignment Ambiguity in Person Retrieval through Conversational Attribute Mining*
+
+## 🚧 Code Release Status
+
+The code is currently under preparation.
+
+I am currently busy with my graduation requirements and related work. The code will be released as soon as possible during my spare time.
+
+Thank you for your patience and understanding.
+>>>>>>> ee81e09a610653ab0948bd61ad6afa12970b88c6
