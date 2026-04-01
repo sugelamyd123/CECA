@@ -2,7 +2,6 @@
 
 ## Introduction
 PyTorch code for *Tackling Alignment Ambiguity in Person Retrieval through Conversational Attribute Mining*
-⚠️⚠️⚠️ 20241128 - Fixing [issue 8](https://github.com/QinYang79/RDE/issues/8) will cause some performance degradation in noisy scenes. You can comment out "line217 model.train()" in processor/processor.py. Thanks to *Xiangwen Deng* for pointing this out.
 
 ### News!
 
