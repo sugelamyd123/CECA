@@ -1,0 +1,2 @@
+Image Path: /data01/zh_2023/text-image_retrival/CUHK-PEDES/imgs/test_query/p6402_s8407.jpg
+Caption: The lady has on a black shirt and a white shirt on white shorts

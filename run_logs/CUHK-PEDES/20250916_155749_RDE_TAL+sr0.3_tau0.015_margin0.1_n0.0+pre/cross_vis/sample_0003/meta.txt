@@ -1,0 +1,2 @@
+Image Path: /data01/zh_2023/text-image_retrival/CUHK-PEDES/imgs/test_query/p9424_s15820.jpg
+Caption: A man in a blue jacket and blue jeans is walking in the dirt.

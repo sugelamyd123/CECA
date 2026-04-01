@@ -1,0 +1,2 @@
+Image Path: /data01/zh_2023/text-image_retrival/CUHK-PEDES/imgs/Market/0414_c2s1_116966_00.jpg
+Caption: A man in a white shirt, a black vest and a pair of black pants.

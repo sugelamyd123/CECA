@@ -1,0 +1,20 @@
+2025-11-12 21:27:45,773 RDE INFO: {'alpha': 0.9, 'batch_size': 64, 'beta': 0.999, 'bias_lr_factor': 2.0, 'chat_dirs': 'chats', 'chat_exts': '.txt,.json', 'chat_json_map': '{"CUHK-PEDES": "/data01/zh_2023/text-image_retrival/CUHK-PEDES/caption_chat.json", "ICFG-PEDES": "/data01/zh_2023/text-image_retrival/ICFG-PEDES/chat_ICFG-PEDES.json", "RSTPReid": "/data01/zh_2023/text-image_retrival/RSTPReid/chat_captions.json"}', 'chat_length': 77, 'cmt_depth': 4, 'dataset_name': 'RSTPReid', 'dataset_roots_json': '{"CUHK-PEDES": "/data01/zh_2023/text-image_retrival/CUHK-PEDES", "ICFG-PEDES": "/data01/zh_2023/text-image_retrival/ICFG-PEDES", "RSTPReid": "/data01/zh_2023/text-image_retrival/RSTPReid"}', 'distributed': False, 'eval_period': 1, 'gamma': 0.1, 'img_aug': True, 'img_size': (384, 128), 'local_rank': 0, 'log_period': 100, 'loss_names': 'TAL+sr0.3_tau0.015_margin0.1_n0.0', 'lr': 1e-05, 'lr_factor': 5.0, 'lrscheduler': 'cosine', 'margin': 0.1, 'masked_token_rate': 0.8, 'masked_token_unchanged_rate': 0.1, 'milestones': (20, 50), 'momentum': 0.9, 'name': 'RDE', 'noisy_file': './noiseindex/RSTPReid_0.0.npy', 'noisy_rate': 0.0, 'num_epoch': 60, 'num_instance': 4, 'num_workers': 12, 'optimizer': 'Adam', 'output_dir': 'run_logs/RSTPReid/20251022_151728_RDE_TAL+sr0.3_tau0.015_margin0.1_n0.0', 'power': 0.9, 'pretrain_choice': 'ViT-B/16', 'require_chat': True, 'resume': False, 'resume_ckpt_file': '', 'root_dir': '/data01/zh_2023/text-image_retrival', 'sampler': 'random', 'select_ratio': 0.3, 'stride_size': 16, 'target_lr': 0, 'tau': 0.015, 'temperature': 0.02, 'test_batch_size': 512, 'text_length': 77, 'training': False, 'txt_aug': True, 'val_dataset': 'test', 'vocab_size': 49408, 'warmup_epochs': 5, 'warmup_factor': 0.1, 'warmup_method': 'linear', 'weight_decay': 4e-05, 'weight_decay_bias': 0.0}
+2025-11-12 21:27:45,860 RDE.dataset INFO: => RSTPReid Images and Captions are loaded
+2025-11-12 21:27:45,860 RDE.dataset INFO: RSTPReid Dataset statistics:
+2025-11-12 21:27:45,860 RDE.dataset INFO: 
++--------+------+--------+----------+
+| subset | ids  | images | captions |
++--------+------+--------+----------+
+| train  | 3701 | 18505  |  37010   |
+|  test  | 200  |  1000  |   2000   |
+|  val   | 200  |  1000  |   2000   |
++--------+------+--------+----------+
+2025-11-12 21:27:50,874 RDE.test INFO: Enter inferencing
+2025-11-12 21:27:57,081 RDE.eval INFO: 
++-------------+-------+-------+-------+-------+-------+-----------+
+|     task    |   R1  |   R5  |  R10  |  mAP  |  mINP |    rSum   |
++-------------+-------+-------+-------+-------+-------+-----------+
+|   BGE-t2i   | 66.35 | 84.70 | 90.95 | 49.80 | 26.30 | 241.99998 |
+|   TSE-t2i   | 21.80 | 43.10 | 52.30 | 11.89 |  1.94 |   117.2   |
+| BGE+TSE-t2i | 66.50 | 84.70 | 90.70 | 49.79 | 26.28 |   241.9   |
++-------------+-------+-------+-------+-------+-------+-----------+

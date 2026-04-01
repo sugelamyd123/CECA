@@ -1,0 +1,2 @@
+Image Path: /data01/zh_2023/text-image_retrival/CUHK-PEDES/imgs/CUHK01/0867001.png
+Caption: The young women has on a red coat, black pants, and a hand bag.

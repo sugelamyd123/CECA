@@ -1,0 +1,2 @@
+Image Path: /data01/zh_2023/text-image_retrival/CUHK-PEDES/imgs/Market/0528_c3s1_148583_00.jpg
+Caption: The boy is wearing grey shorts and his shirt is a red tank top.

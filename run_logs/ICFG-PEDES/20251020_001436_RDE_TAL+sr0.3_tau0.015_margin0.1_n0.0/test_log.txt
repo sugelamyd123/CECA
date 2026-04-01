@@ -1,0 +1,80 @@
+2025-11-06 16:41:10,232 RDE INFO: {'alpha': 0.9, 'batch_size': 64, 'beta': 0.999, 'bias_lr_factor': 2.0, 'chat_dirs': 'chats', 'chat_exts': '.txt,.json', 'chat_json_map': '{"CUHK-PEDES": "/data01/zh_2023/text-image_retrival/CUHK-PEDES/caption_chat.json", "ICFG-PEDES": "/data01/zh_2023/text-image_retrival/ICFG-PEDES/chat_ICFG-PEDES.json", "RSTPReid": "/data01/zh_2023/text-image_retrival/RSTPReid/chat_captions.json"}', 'chat_length': 77, 'cmt_depth': 4, 'dataset_name': 'ICFG-PEDES', 'dataset_roots_json': '{"CUHK-PEDES": "/data01/zh_2023/text-image_retrival/CUHK-PEDES", "ICFG-PEDES": "/data01/zh_2023/text-image_retrival/ICFG-PEDES", "RSTPReid": "/data01/zh_2023/text-image_retrival/RSTPReid"}', 'distributed': False, 'eval_period': 1, 'gamma': 0.1, 'img_aug': True, 'img_size': (384, 128), 'local_rank': 0, 'log_period': 100, 'loss_names': 'TAL+sr0.3_tau0.015_margin0.1_n0.0', 'lr': 1e-05, 'lr_factor': 5.0, 'lrscheduler': 'cosine', 'margin': 0.1, 'masked_token_rate': 0.8, 'masked_token_unchanged_rate': 0.1, 'milestones': (20, 50), 'momentum': 0.9, 'name': 'RDE', 'noisy_file': './noiseindex/ICFG-PEDES_0.0.npy', 'noisy_rate': 0.0, 'num_epoch': 60, 'num_instance': 4, 'num_workers': 12, 'optimizer': 'Adam', 'output_dir': 'run_logs/ICFG-PEDES/20251020_001436_RDE_TAL+sr0.3_tau0.015_margin0.1_n0.0', 'power': 0.9, 'pretrain_choice': 'ViT-B/16', 'require_chat': True, 'resume': False, 'resume_ckpt_file': '', 'root_dir': '/data01/zh_2023/text-image_retrival', 'sampler': 'random', 'select_ratio': 0.3, 'stride_size': 16, 'target_lr': 0, 'tau': 0.015, 'temperature': 0.02, 'test_batch_size': 512, 'text_length': 77, 'training': False, 'txt_aug': True, 'val_dataset': 'test', 'vocab_size': 49408, 'warmup_epochs': 5, 'warmup_factor': 0.1, 'warmup_method': 'linear', 'weight_decay': 4e-05, 'weight_decay_bias': 0.0}
+2025-11-06 16:41:10,849 RDE.dataset INFO: => ICFG-PEDES Images and Captions are loaded
+2025-11-06 16:41:10,849 RDE.dataset INFO: ICFGPEDES Dataset statistics:
+2025-11-06 16:41:10,850 RDE.dataset INFO: 
++--------+------+--------+----------+
+| subset | ids  | images | captions |
++--------+------+--------+----------+
+| train  | 3102 | 34674  |  34674   |
+|  test  | 1000 | 19848  |  19848   |
+|  val   |  0   |   0    |    0     |
++--------+------+--------+----------+
+2025-11-06 16:41:15,715 RDE.test INFO: Enter inferencing
+2025-11-06 16:42:40,522 RDE.eval INFO: 
++-------------+-------+-------+-------+-------+------+-----------+
+|     task    |   R1  |   R5  |  R10  |  mAP  | mINP |    rSum   |
++-------------+-------+-------+-------+-------+------+-----------+
+|   BGE-t2i   | 69.07 | 83.43 | 88.14 | 36.35 | 6.13 | 240.64893 |
+|   TSE-t2i   | 69.94 | 84.22 | 88.59 | 33.60 | 2.27 | 242.74486 |
+| BGE+TSE-t2i | 71.64 | 84.95 | 89.16 | 36.64 | 4.92 | 245.74768 |
++-------------+-------+-------+-------+-------+------+-----------+
+2025-11-10 00:19:24,575 RDE INFO: {'alpha': 0.9, 'batch_size': 64, 'beta': 0.999, 'bias_lr_factor': 2.0, 'chat_dirs': 'chats', 'chat_exts': '.txt,.json', 'chat_json_map': '{"CUHK-PEDES": "/data01/zh_2023/text-image_retrival/CUHK-PEDES/caption_chat.json", "ICFG-PEDES": "/data01/zh_2023/text-image_retrival/ICFG-PEDES/chat_ICFG-PEDES.json", "RSTPReid": "/data01/zh_2023/text-image_retrival/RSTPReid/chat_captions.json"}', 'chat_length': 77, 'cmt_depth': 4, 'dataset_name': 'CUHK-PEDES', 'dataset_roots_json': '{"CUHK-PEDES": "/data01/zh_2023/text-image_retrival/CUHK-PEDES", "ICFG-PEDES": "/data01/zh_2023/text-image_retrival/ICFG-PEDES", "RSTPReid": "/data01/zh_2023/text-image_retrival/RSTPReid"}', 'distributed': False, 'eval_period': 1, 'gamma': 0.1, 'img_aug': True, 'img_size': (384, 128), 'local_rank': 0, 'log_period': 100, 'loss_names': 'TAL+sr0.3_tau0.015_margin0.1_n0.0', 'lr': 1e-05, 'lr_factor': 5.0, 'lrscheduler': 'cosine', 'margin': 0.1, 'masked_token_rate': 0.8, 'masked_token_unchanged_rate': 0.1, 'milestones': (20, 50), 'momentum': 0.9, 'name': 'RDE', 'noisy_file': './noiseindex/ICFG-PEDES_0.0.npy', 'noisy_rate': 0.0, 'num_epoch': 60, 'num_instance': 4, 'num_workers': 12, 'optimizer': 'Adam', 'output_dir': 'run_logs/ICFG-PEDES/20251020_001436_RDE_TAL+sr0.3_tau0.015_margin0.1_n0.0', 'power': 0.9, 'pretrain_choice': 'ViT-B/16', 'require_chat': True, 'resume': False, 'resume_ckpt_file': '', 'root_dir': '/data01/zh_2023/text-image_retrival', 'sampler': 'random', 'select_ratio': 0.3, 'stride_size': 16, 'target_lr': 0, 'tau': 0.015, 'temperature': 0.02, 'test_batch_size': 512, 'text_length': 77, 'training': False, 'txt_aug': True, 'val_dataset': 'test', 'vocab_size': 49408, 'warmup_epochs': 5, 'warmup_factor': 0.1, 'warmup_method': 'linear', 'weight_decay': 4e-05, 'weight_decay_bias': 0.0}
+2025-11-10 00:19:24,880 RDE.dataset INFO: => CUHK-PEDES Images and Captions are loaded
+2025-11-10 00:19:24,880 RDE.dataset INFO: CUHKPEDES Dataset statistics:
+2025-11-10 00:19:24,881 RDE.dataset INFO: 
++--------+-------+--------+----------+
+| subset |  ids  | images | captions |
++--------+-------+--------+----------+
+| train  | 11003 | 34054  |  68126   |
+|  test  |  1000 |  3074  |   6156   |
+|  val   |  1000 |  3078  |   6158   |
++--------+-------+--------+----------+
+2025-11-10 00:19:29,330 RDE.test INFO: Enter inferencing
+2025-11-10 00:19:40,529 RDE.eval INFO: 
++-------------+-------+-------+-------+-------+-------+-----------+
+|     task    |   R1  |   R5  |  R10  |  mAP  |  mINP |    rSum   |
++-------------+-------+-------+-------+-------+-------+-----------+
+|   BGE-t2i   | 41.98 | 61.48 | 69.77 | 30.03 | 13.51 | 173.22937 |
+|   TSE-t2i   | 40.81 | 61.68 | 70.32 | 30.30 | 13.78 | 172.80702 |
+| BGE+TSE-t2i | 44.54 | 65.04 | 73.26 | 33.05 | 15.97 | 182.84601 |
++-------------+-------+-------+-------+-------+-------+-----------+
+2025-11-10 00:21:59,319 RDE INFO: {'alpha': 0.9, 'batch_size': 64, 'beta': 0.999, 'bias_lr_factor': 2.0, 'chat_dirs': 'chats', 'chat_exts': '.txt,.json', 'chat_json_map': '{"CUHK-PEDES": "/data01/zh_2023/text-image_retrival/CUHK-PEDES/caption_chat.json", "ICFG-PEDES": "/data01/zh_2023/text-image_retrival/ICFG-PEDES/chat_ICFG-PEDES.json", "RSTPReid": "/data01/zh_2023/text-image_retrival/RSTPReid/chat_captions.json"}', 'chat_length': 77, 'cmt_depth': 4, 'dataset_name': 'CUHK-PEDES', 'dataset_roots_json': '{"CUHK-PEDES": "/data01/zh_2023/text-image_retrival/CUHK-PEDES", "ICFG-PEDES": "/data01/zh_2023/text-image_retrival/ICFG-PEDES", "RSTPReid": "/data01/zh_2023/text-image_retrival/RSTPReid"}', 'distributed': False, 'eval_period': 1, 'gamma': 0.1, 'img_aug': True, 'img_size': (384, 128), 'local_rank': 0, 'log_period': 100, 'loss_names': 'TAL+sr0.3_tau0.015_margin0.1_n0.0', 'lr': 1e-05, 'lr_factor': 5.0, 'lrscheduler': 'cosine', 'margin': 0.1, 'masked_token_rate': 0.8, 'masked_token_unchanged_rate': 0.1, 'milestones': (20, 50), 'momentum': 0.9, 'name': 'RDE', 'noisy_file': './noiseindex/ICFG-PEDES_0.0.npy', 'noisy_rate': 0.0, 'num_epoch': 60, 'num_instance': 4, 'num_workers': 12, 'optimizer': 'Adam', 'output_dir': 'run_logs/ICFG-PEDES/20251020_001436_RDE_TAL+sr0.3_tau0.015_margin0.1_n0.0', 'power': 0.9, 'pretrain_choice': 'ViT-B/16', 'require_chat': True, 'resume': False, 'resume_ckpt_file': '', 'root_dir': '/data01/zh_2023/text-image_retrival', 'sampler': 'random', 'select_ratio': 0.3, 'stride_size': 16, 'target_lr': 0, 'tau': 0.015, 'temperature': 0.02, 'test_batch_size': 512, 'text_length': 77, 'training': False, 'txt_aug': True, 'val_dataset': 'test', 'vocab_size': 49408, 'warmup_epochs': 5, 'warmup_factor': 0.1, 'warmup_method': 'linear', 'weight_decay': 4e-05, 'weight_decay_bias': 0.0}
+2025-11-10 00:21:59,636 RDE.dataset INFO: => CUHK-PEDES Images and Captions are loaded
+2025-11-10 00:21:59,636 RDE.dataset INFO: CUHKPEDES Dataset statistics:
+2025-11-10 00:21:59,636 RDE.dataset INFO: 
++--------+-------+--------+----------+
+| subset |  ids  | images | captions |
++--------+-------+--------+----------+
+| train  | 11003 | 34054  |  68126   |
+|  test  |  1000 |  3074  |   6156   |
+|  val   |  1000 |  3078  |   6158   |
++--------+-------+--------+----------+
+2025-11-10 00:22:03,456 RDE.test INFO: Enter inferencing
+2025-11-10 00:22:14,294 RDE.eval INFO: 
++-------------+-------+-------+-------+-------+-------+-----------+
+|     task    |   R1  |   R5  |  R10  |  mAP  |  mINP |    rSum   |
++-------------+-------+-------+-------+-------+-------+-----------+
+|   BGE-t2i   | 41.33 | 62.64 | 71.10 | 33.82 | 18.26 | 175.06497 |
+|   TSE-t2i   | 35.53 | 57.16 | 66.31 | 28.31 | 13.01 | 158.99936 |
+| BGE+TSE-t2i | 42.92 | 64.20 | 72.68 | 34.68 | 18.29 | 179.79207 |
++-------------+-------+-------+-------+-------+-------+-----------+
+2025-11-10 00:22:52,105 RDE INFO: {'alpha': 0.9, 'batch_size': 64, 'beta': 0.999, 'bias_lr_factor': 2.0, 'chat_dirs': 'chats', 'chat_exts': '.txt,.json', 'chat_json_map': '{"CUHK-PEDES": "/data01/zh_2023/text-image_retrival/CUHK-PEDES/caption_chat.json", "ICFG-PEDES": "/data01/zh_2023/text-image_retrival/ICFG-PEDES/chat_ICFG-PEDES.json", "RSTPReid": "/data01/zh_2023/text-image_retrival/RSTPReid/chat_captions.json"}', 'chat_length': 77, 'cmt_depth': 4, 'dataset_name': 'RSTPReid', 'dataset_roots_json': '{"CUHK-PEDES": "/data01/zh_2023/text-image_retrival/CUHK-PEDES", "ICFG-PEDES": "/data01/zh_2023/text-image_retrival/ICFG-PEDES", "RSTPReid": "/data01/zh_2023/text-image_retrival/RSTPReid"}', 'distributed': False, 'eval_period': 1, 'gamma': 0.1, 'img_aug': True, 'img_size': (384, 128), 'local_rank': 0, 'log_period': 100, 'loss_names': 'TAL+sr0.3_tau0.015_margin0.1_n0.0', 'lr': 1e-05, 'lr_factor': 5.0, 'lrscheduler': 'cosine', 'margin': 0.1, 'masked_token_rate': 0.8, 'masked_token_unchanged_rate': 0.1, 'milestones': (20, 50), 'momentum': 0.9, 'name': 'RDE', 'noisy_file': './noiseindex/ICFG-PEDES_0.0.npy', 'noisy_rate': 0.0, 'num_epoch': 60, 'num_instance': 4, 'num_workers': 12, 'optimizer': 'Adam', 'output_dir': 'run_logs/ICFG-PEDES/20251020_001436_RDE_TAL+sr0.3_tau0.015_margin0.1_n0.0', 'power': 0.9, 'pretrain_choice': 'ViT-B/16', 'require_chat': True, 'resume': False, 'resume_ckpt_file': '', 'root_dir': '/data01/zh_2023/text-image_retrival', 'sampler': 'random', 'select_ratio': 0.3, 'stride_size': 16, 'target_lr': 0, 'tau': 0.015, 'temperature': 0.02, 'test_batch_size': 512, 'text_length': 77, 'training': False, 'txt_aug': True, 'val_dataset': 'test', 'vocab_size': 49408, 'warmup_epochs': 5, 'warmup_factor': 0.1, 'warmup_method': 'linear', 'weight_decay': 4e-05, 'weight_decay_bias': 0.0}
+2025-11-10 00:22:52,188 RDE.dataset INFO: => RSTPReid Images and Captions are loaded
+2025-11-10 00:22:52,188 RDE.dataset INFO: RSTPReid Dataset statistics:
+2025-11-10 00:22:52,188 RDE.dataset INFO: 
++--------+------+--------+----------+
+| subset | ids  | images | captions |
++--------+------+--------+----------+
+| train  | 3701 | 18505  |  37010   |
+|  test  | 200  |  1000  |   2000   |
+|  val   | 200  |  1000  |   2000   |
++--------+------+--------+----------+
+2025-11-10 00:22:55,681 RDE.test INFO: Enter inferencing
+2025-11-10 00:23:01,030 RDE.eval INFO: 
++-------------+-------+-------+-------+-------+-------+-----------+
+|     task    |   R1  |   R5  |  R10  |  mAP  |  mINP |    rSum   |
++-------------+-------+-------+-------+-------+-------+-----------+
+|   BGE-t2i   | 58.25 | 77.60 | 84.45 | 37.77 | 14.44 |   220.3   |
+|   TSE-t2i   | 58.00 | 78.15 | 85.20 | 38.73 | 14.75 | 221.34999 |
+| BGE+TSE-t2i | 61.10 | 79.70 | 85.95 | 40.42 | 16.46 | 226.74998 |
++-------------+-------+-------+-------+-------+-------+-----------+

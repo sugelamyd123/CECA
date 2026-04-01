@@ -1,0 +1,2259 @@
+2024-03-18 20:30:25,640 RDE INFO: Using 1 GPUs
+2024-03-18 20:30:25,642 RDE INFO: Namespace(noisy_rate=0.0
+ noisy_file='/home/qinyang/projects/Text2ImagepPerson/NoiseRID/RDE_release/noiseindex/ICFG-PEDES_0.0.npy'
+ tau=0.015
+ select_ratio=0.3
+ margin=0.1
+ local_rank=0
+ name='RDE'
+ output_dir='run_logs/ICFG-PEDES/20240318_203025_RDE_TAL+sr0.3_tau0.015_margin0.1_n0.0'
+ log_period=100
+ eval_period=1
+ val_dataset='test'
+ resume=False
+ resume_ckpt_file=''
+ pretrain_choice='ViT-B/16'
+ temperature=0.02
+ img_aug=True
+ txt_aug=True
+ cmt_depth=4
+ masked_token_rate=0.8
+ masked_token_unchanged_rate=0.1
+ lr_factor=5.0
+ loss_names='TAL+sr0.3_tau0.015_margin0.1_n0.0'
+ img_size=(384
+ 128)
+ stride_size=16
+ text_length=77
+ vocab_size=49408
+ optimizer='Adam'
+ lr=1e-05
+ bias_lr_factor=2.0
+ momentum=0.9
+ weight_decay=4e-05
+ weight_decay_bias=0.0
+ alpha=0.9
+ beta=0.999
+ num_epoch=60
+ milestones=(20
+ 50)
+ gamma=0.1
+ warmup_factor=0.1
+ warmup_epochs=5
+ warmup_method='linear'
+ lrscheduler='cosine'
+ target_lr=0
+ power=0.9
+ dataset_name='ICFG-PEDES'
+ sampler='random'
+ num_instance=4
+ root_dir='/home/qinyang/projects/Text2ImagepPerson/IRRA/data'
+ batch_size=64
+ test_batch_size=512
+ num_workers=8
+ training=True
+ distributed=False)
+2024-03-18 20:30:27,831 RDE.dataset INFO: => ICFG-PEDES Images and Captions are loaded
+2024-03-18 20:30:27,840 RDE.dataset INFO: ICFGPEDES Dataset statistics:
+2024-03-18 20:30:27,844 RDE.dataset INFO: 
++--------+------+--------+----------+
+| subset | ids  | images | captions |
++--------+------+--------+----------+
+| train  | 3102 | 34674  |  34674   |
+|  test  | 1000 | 19848  |  19848   |
+|  val   |  0   |   0    |    0     |
++--------+------+--------+----------+
+2024-03-18 20:30:27,964 RDE.dataset INFO: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+2024-03-18 20:30:27,968 RDE.dataset INFO: =>Noisy rate: 0.0,  clean pairs: 34674, noisy pairs: 0, total pairs: 34674
+2024-03-18 20:30:34,429 RDE INFO: Total params: 153M
+2024-03-18 20:30:37,369 RDE.train INFO: start training
+2024-03-18 20:30:54,981 RDE.train INFO: compute loss batch 0
+2024-03-18 20:33:11,891 RDE.train INFO: compute loss batch 100
+2024-03-18 20:35:36,393 RDE.train INFO: compute loss batch 200
+2024-03-18 20:37:46,806 RDE.train INFO: compute loss batch 300
+2024-03-18 20:39:55,361 RDE.train INFO: compute loss batch 400
+2024-03-18 20:41:56,150 RDE.train INFO: compute loss batch 500
+2024-03-18 20:42:41,938 RDE.train INFO: 
+Fitting GMM ...
+2024-03-18 20:42:41,948 RDE.train INFO: clean samples: 34674 	 noisy samples: 0
+2024-03-18 20:42:41,949 RDE.train INFO: 
+Fitting GMM ...
+2024-03-18 20:42:45,544 RDE.train INFO: Confusion Matrix by A
+2024-03-18 20:42:45,549 RDE.train INFO: 
+[[    0     0]
+ [22026 12648]]
+2024-03-18 20:42:45,550 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.36475847152126895
+2024-03-18 20:42:45,550 RDE.train INFO: Confusion Matrix by B
+2024-03-18 20:42:45,553 RDE.train INFO: 
+[[    0     0]
+ [14982 19692]]
+2024-03-18 20:42:45,554 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.5679019466474405
+2024-03-18 20:43:51,645 RDE.train INFO: Epoch[1] Iteration[100/542], loss: 18.0329, bge_loss: 8.4000, tse_loss: 9.6329, Base Lr: 1.00e-06
+2024-03-18 20:44:50,237 RDE.train INFO: Epoch[1] Iteration[200/542], loss: 17.4191, bge_loss: 8.1372, tse_loss: 9.2819, Base Lr: 1.00e-06
+2024-03-18 20:45:50,165 RDE.train INFO: Epoch[1] Iteration[300/542], loss: 16.8924, bge_loss: 7.9818, tse_loss: 8.9105, Base Lr: 1.00e-06
+2024-03-18 20:46:50,052 RDE.train INFO: Epoch[1] Iteration[400/542], loss: 16.3299, bge_loss: 7.7997, tse_loss: 8.5303, Base Lr: 1.00e-06
+2024-03-18 20:47:50,730 RDE.train INFO: Epoch[1] Iteration[500/542], loss: 15.9666, bge_loss: 7.7255, tse_loss: 8.2411, Base Lr: 1.00e-06
+2024-03-18 20:48:17,319 RDE.train INFO: Epoch 1 done. Time per batch: 1.955[s] Speed: 32.7[samples/s]
+2024-03-18 20:48:17,320 RDE.train INFO: Validation Results - Epoch: 1
+2024-03-18 20:57:30,675 RDE.eval INFO: 
++-------------+-------+-------+-------+-------+------+------------+
+|     task    |   R1  |   R5  |  R10  |  mAP  | mINP |    rSum    |
++-------------+-------+-------+-------+-------+------+------------+
+|   BGE-t2i   | 20.71 | 38.62 | 47.28 |  9.88 | 0.96 | 106.610245 |
+|   TSE-t2i   | 23.12 | 43.41 | 53.41 | 11.36 | 1.08 | 119.93652  |
+| BGE+TSE-t2i | 28.42 | 48.76 | 58.04 | 14.31 | 1.40 | 135.21765  |
++-------------+-------+-------+-------+-------+------+------------+
+2024-03-18 20:58:06,296 RDE.train INFO: compute loss batch 0
+2024-03-18 20:58:37,664 RDE.train INFO: compute loss batch 100
+2024-03-18 20:59:08,568 RDE.train INFO: compute loss batch 200
+2024-03-18 20:59:39,798 RDE.train INFO: compute loss batch 300
+2024-03-18 21:00:09,568 RDE.train INFO: compute loss batch 400
+2024-03-18 21:00:40,628 RDE.train INFO: compute loss batch 500
+2024-03-18 21:00:53,635 RDE.train INFO: 
+Fitting GMM ...
+2024-03-18 21:00:53,636 RDE.train INFO: clean samples: 34674 	 noisy samples: 0
+2024-03-18 21:00:53,637 RDE.train INFO: 
+Fitting GMM ...
+2024-03-18 21:00:54,949 RDE.train INFO: Confusion Matrix by A
+2024-03-18 21:00:54,964 RDE.train INFO: 
+[[    0     0]
+ [19427 15247]]
+2024-03-18 21:00:54,966 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.43971160778658974
+2024-03-18 21:00:54,966 RDE.train INFO: Confusion Matrix by B
+2024-03-18 21:00:54,968 RDE.train INFO: 
+[[    0     0]
+ [16632 18042]]
+2024-03-18 21:00:54,969 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.5203172314347513
+2024-03-18 21:01:59,218 RDE.train INFO: Epoch[2] Iteration[100/542], loss: 11.4330, bge_loss: 6.2032, tse_loss: 5.2298, Base Lr: 2.80e-06
+2024-03-18 21:02:59,558 RDE.train INFO: Epoch[2] Iteration[200/542], loss: 10.8298, bge_loss: 5.8744, tse_loss: 4.9555, Base Lr: 2.80e-06
+2024-03-18 21:03:57,486 RDE.train INFO: Epoch[2] Iteration[300/542], loss: 10.2385, bge_loss: 5.5901, tse_loss: 4.6484, Base Lr: 2.80e-06
+2024-03-18 21:04:56,520 RDE.train INFO: Epoch[2] Iteration[400/542], loss: 9.7475, bge_loss: 5.3450, tse_loss: 4.4026, Base Lr: 2.80e-06
+2024-03-18 21:05:57,302 RDE.train INFO: Epoch[2] Iteration[500/542], loss: 9.4016, bge_loss: 5.1729, tse_loss: 4.2288, Base Lr: 2.80e-06
+2024-03-18 21:06:23,167 RDE.train INFO: Epoch 2 done. Time per batch: 0.931[s] Speed: 68.7[samples/s]
+2024-03-18 21:06:23,168 RDE.train INFO: Validation Results - Epoch: 2
+2024-03-18 21:10:51,404 RDE.eval INFO: 
++-------------+-------+-------+-------+-------+------+-----------+
+|     task    |   R1  |   R5  |  R10  |  mAP  | mINP |    rSum   |
++-------------+-------+-------+-------+-------+------+-----------+
+|   BGE-t2i   | 34.36 | 53.29 | 62.12 | 18.46 | 2.33 | 149.76825 |
+|   TSE-t2i   | 40.63 | 61.28 | 69.32 | 21.19 | 2.35 | 171.22632 |
+| BGE+TSE-t2i | 43.49 | 62.92 | 70.51 | 23.39 | 2.91 | 176.92462 |
++-------------+-------+-------+-------+-------+------+-----------+
+2024-03-18 21:11:41,389 RDE.train INFO: compute loss batch 0
+2024-03-18 21:12:11,263 RDE.train INFO: compute loss batch 100
+2024-03-18 21:12:44,040 RDE.train INFO: compute loss batch 200
+2024-03-18 21:13:16,857 RDE.train INFO: compute loss batch 300
+2024-03-18 21:13:49,108 RDE.train INFO: compute loss batch 400
+2024-03-18 21:14:17,935 RDE.train INFO: compute loss batch 500
+2024-03-18 21:14:31,605 RDE.train INFO: 
+Fitting GMM ...
+2024-03-18 21:14:31,609 RDE.train INFO: clean samples: 34674 	 noisy samples: 0
+2024-03-18 21:14:31,611 RDE.train INFO: 
+Fitting GMM ...
+2024-03-18 21:14:33,147 RDE.train INFO: Confusion Matrix by A
+2024-03-18 21:14:33,157 RDE.train INFO: 
+[[    0     0]
+ [14147 20527]]
+2024-03-18 21:14:33,159 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.5919826964671954
+2024-03-18 21:14:33,160 RDE.train INFO: Confusion Matrix by B
+2024-03-18 21:14:33,166 RDE.train INFO: 
+[[    0     0]
+ [11553 23121]]
+2024-03-18 21:14:33,167 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.6667916366258111
+2024-03-18 21:15:12,754 RDE.train INFO: Epoch[3] Iteration[100/542], loss: 10.5312, bge_loss: 5.7957, tse_loss: 4.7354, Base Lr: 4.60e-06
+2024-03-18 21:16:13,136 RDE.train INFO: Epoch[3] Iteration[200/542], loss: 10.2478, bge_loss: 5.6201, tse_loss: 4.6277, Base Lr: 4.60e-06
+2024-03-18 21:17:16,799 RDE.train INFO: Epoch[3] Iteration[300/542], loss: 9.9433, bge_loss: 5.4548, tse_loss: 4.4886, Base Lr: 4.60e-06
+2024-03-18 21:18:20,602 RDE.train INFO: Epoch[3] Iteration[400/542], loss: 9.6215, bge_loss: 5.2816, tse_loss: 4.3399, Base Lr: 4.60e-06
+2024-03-18 21:19:20,801 RDE.train INFO: Epoch[3] Iteration[500/542], loss: 9.2929, bge_loss: 5.1127, tse_loss: 4.1802, Base Lr: 4.60e-06
+2024-03-18 21:19:47,287 RDE.train INFO: Epoch 3 done. Time per batch: 0.911[s] Speed: 70.3[samples/s]
+2024-03-18 21:19:47,292 RDE.train INFO: Validation Results - Epoch: 3
+2024-03-18 21:24:51,150 RDE.eval INFO: 
++-------------+-------+-------+-------+-------+------+-----------+
+|     task    |   R1  |   R5  |  R10  |  mAP  | mINP |    rSum   |
++-------------+-------+-------+-------+-------+------+-----------+
+|   BGE-t2i   | 42.46 | 62.08 | 70.06 | 22.81 | 3.03 | 174.60199 |
+|   TSE-t2i   | 49.40 | 67.77 | 74.93 | 25.91 | 3.12 | 192.09996 |
+| BGE+TSE-t2i | 50.65 | 68.61 | 75.46 | 27.36 | 3.69 | 194.72995 |
++-------------+-------+-------+-------+-------+------+-----------+
+2024-03-18 21:25:26,496 RDE.train INFO: compute loss batch 0
+2024-03-18 21:25:49,910 RDE.train INFO: compute loss batch 100
+2024-03-18 21:26:05,255 RDE.train INFO: compute loss batch 200
+2024-03-18 21:26:28,109 RDE.train INFO: compute loss batch 300
+2024-03-18 21:26:53,066 RDE.train INFO: compute loss batch 400
+2024-03-18 21:27:17,834 RDE.train INFO: compute loss batch 500
+2024-03-18 21:27:27,376 RDE.train INFO: 
+Fitting GMM ...
+2024-03-18 21:27:27,378 RDE.train INFO: clean samples: 34674 	 noisy samples: 0
+2024-03-18 21:27:27,379 RDE.train INFO: 
+Fitting GMM ...
+2024-03-18 21:27:28,301 RDE.train INFO: Confusion Matrix by A
+2024-03-18 21:27:28,305 RDE.train INFO: 
+[[    0     0]
+ [11093 23581]]
+2024-03-18 21:27:28,306 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.6800576784426821
+2024-03-18 21:27:28,306 RDE.train INFO: Confusion Matrix by B
+2024-03-18 21:27:28,308 RDE.train INFO: 
+[[    0     0]
+ [ 9801 24873]]
+2024-03-18 21:27:28,308 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.7173179524152847
+2024-03-18 21:28:07,798 RDE.train INFO: Epoch[4] Iteration[100/542], loss: 8.9620, bge_loss: 4.8930, tse_loss: 4.0690, Base Lr: 6.40e-06
+2024-03-18 21:28:43,266 RDE.train INFO: Epoch[4] Iteration[200/542], loss: 8.6215, bge_loss: 4.6951, tse_loss: 3.9264, Base Lr: 6.40e-06
+2024-03-18 21:29:18,668 RDE.train INFO: Epoch[4] Iteration[300/542], loss: 8.4899, bge_loss: 4.6238, tse_loss: 3.8661, Base Lr: 6.40e-06
+2024-03-18 21:29:53,511 RDE.train INFO: Epoch[4] Iteration[400/542], loss: 8.3231, bge_loss: 4.5478, tse_loss: 3.7754, Base Lr: 6.40e-06
+2024-03-18 21:30:27,139 RDE.train INFO: Epoch[4] Iteration[500/542], loss: 8.1836, bge_loss: 4.4651, tse_loss: 3.7186, Base Lr: 6.40e-06
+2024-03-18 21:30:40,881 RDE.train INFO: Epoch 4 done. Time per batch: 0.593[s] Speed: 107.9[samples/s]
+2024-03-18 21:30:40,881 RDE.train INFO: Validation Results - Epoch: 4
+2024-03-18 21:34:18,836 RDE.eval INFO: 
++-------------+-------+-------+-------+-------+------+-----------+
+|     task    |   R1  |   R5  |  R10  |  mAP  | mINP |    rSum   |
++-------------+-------+-------+-------+-------+------+-----------+
+|   BGE-t2i   | 46.43 | 65.69 | 73.56 | 25.56 | 3.64 | 185.68622 |
+|   TSE-t2i   | 53.04 | 71.36 | 78.31 | 29.08 | 3.83 |  202.7106 |
+| BGE+TSE-t2i | 53.63 | 71.43 | 78.27 | 29.94 | 4.38 |  203.3303 |
++-------------+-------+-------+-------+-------+------+-----------+
+2024-03-18 21:35:23,636 RDE.train INFO: compute loss batch 0
+2024-03-18 21:35:59,813 RDE.train INFO: compute loss batch 100
+2024-03-18 21:36:31,372 RDE.train INFO: compute loss batch 200
+2024-03-18 21:36:59,906 RDE.train INFO: compute loss batch 300
+2024-03-18 21:37:27,328 RDE.train INFO: compute loss batch 400
+2024-03-18 21:37:56,084 RDE.train INFO: compute loss batch 500
+2024-03-18 21:38:08,850 RDE.train INFO: 
+Fitting GMM ...
+2024-03-18 21:38:08,851 RDE.train INFO: clean samples: 34674 	 noisy samples: 0
+2024-03-18 21:38:08,852 RDE.train INFO: 
+Fitting GMM ...
+2024-03-18 21:38:09,683 RDE.train INFO: Confusion Matrix by A
+2024-03-18 21:38:09,691 RDE.train INFO: 
+[[    0     0]
+ [ 9603 25071]]
+2024-03-18 21:38:09,691 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.7230281182408075
+2024-03-18 21:38:09,691 RDE.train INFO: Confusion Matrix by B
+2024-03-18 21:38:09,693 RDE.train INFO: 
+[[    0     0]
+ [ 8619 26055]]
+2024-03-18 21:38:09,693 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.7514059120403749
+2024-03-18 21:38:47,153 RDE.train INFO: Epoch[5] Iteration[100/542], loss: 7.7143, bge_loss: 4.1620, tse_loss: 3.5523, Base Lr: 8.20e-06
+2024-03-18 21:39:20,092 RDE.train INFO: Epoch[5] Iteration[200/542], loss: 7.7758, bge_loss: 4.1848, tse_loss: 3.5910, Base Lr: 8.20e-06
+2024-03-18 21:39:52,986 RDE.train INFO: Epoch[5] Iteration[300/542], loss: 7.7036, bge_loss: 4.1470, tse_loss: 3.5567, Base Lr: 8.20e-06
+2024-03-18 21:40:25,274 RDE.train INFO: Epoch[5] Iteration[400/542], loss: 7.6016, bge_loss: 4.0781, tse_loss: 3.5234, Base Lr: 8.20e-06
+2024-03-18 21:40:57,190 RDE.train INFO: Epoch[5] Iteration[500/542], loss: 7.5390, bge_loss: 4.0335, tse_loss: 3.5056, Base Lr: 8.20e-06
+2024-03-18 21:41:11,468 RDE.train INFO: Epoch 5 done. Time per batch: 0.658[s] Speed: 97.2[samples/s]
+2024-03-18 21:41:11,468 RDE.train INFO: Validation Results - Epoch: 5
+2024-03-18 21:44:01,523 RDE.eval INFO: 
++-------------+-------+-------+-------+-------+------+-----------+
+|     task    |   R1  |   R5  |  R10  |  mAP  | mINP |    rSum   |
++-------------+-------+-------+-------+-------+------+-----------+
+|   BGE-t2i   | 50.50 | 69.67 | 76.83 | 27.77 | 4.08 | 197.00223 |
+|   TSE-t2i   | 55.31 | 72.78 | 79.54 | 30.93 | 4.54 | 207.62798 |
+| BGE+TSE-t2i | 55.86 | 73.48 | 79.88 | 31.47 | 4.88 | 209.22006 |
++-------------+-------+-------+-------+-------+------+-----------+
+2024-03-18 21:44:40,555 RDE.train INFO: compute loss batch 0
+2024-03-18 21:45:26,056 RDE.train INFO: compute loss batch 100
+2024-03-18 21:45:56,564 RDE.train INFO: compute loss batch 200
+2024-03-18 21:46:29,133 RDE.train INFO: compute loss batch 300
+2024-03-18 21:46:57,770 RDE.train INFO: compute loss batch 400
+2024-03-18 21:47:19,025 RDE.train INFO: compute loss batch 500
+2024-03-18 21:47:31,704 RDE.train INFO: 
+Fitting GMM ...
+2024-03-18 21:47:31,717 RDE.train INFO: clean samples: 34674 	 noisy samples: 0
+2024-03-18 21:47:31,718 RDE.train INFO: 
+Fitting GMM ...
+2024-03-18 21:47:32,587 RDE.train INFO: Confusion Matrix by A
+2024-03-18 21:47:32,590 RDE.train INFO: 
+[[    0     0]
+ [ 8216 26458]]
+2024-03-18 21:47:32,591 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.7630281182408075
+2024-03-18 21:47:32,591 RDE.train INFO: Confusion Matrix by B
+2024-03-18 21:47:32,593 RDE.train INFO: 
+[[    0     0]
+ [ 8569 26105]]
+2024-03-18 21:47:32,593 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.7528478731074261
+2024-03-18 21:48:11,753 RDE.train INFO: Epoch[6] Iteration[100/542], loss: 7.2360, bge_loss: 3.8669, tse_loss: 3.3691, Base Lr: 1.00e-05
+2024-03-18 21:48:46,261 RDE.train INFO: Epoch[6] Iteration[200/542], loss: 7.0502, bge_loss: 3.7587, tse_loss: 3.2915, Base Lr: 1.00e-05
+2024-03-18 21:49:20,906 RDE.train INFO: Epoch[6] Iteration[300/542], loss: 7.0474, bge_loss: 3.7392, tse_loss: 3.3082, Base Lr: 1.00e-05
+2024-03-18 21:49:55,639 RDE.train INFO: Epoch[6] Iteration[400/542], loss: 6.9535, bge_loss: 3.6847, tse_loss: 3.2688, Base Lr: 1.00e-05
+2024-03-18 21:50:29,949 RDE.train INFO: Epoch[6] Iteration[500/542], loss: 6.9512, bge_loss: 3.6784, tse_loss: 3.2728, Base Lr: 1.00e-05
+2024-03-18 21:50:44,822 RDE.train INFO: Epoch 6 done. Time per batch: 0.685[s] Speed: 93.4[samples/s]
+2024-03-18 21:50:44,823 RDE.train INFO: Validation Results - Epoch: 6
+2024-03-18 21:53:34,980 RDE.eval INFO: 
++-------------+-------+-------+-------+-------+------+-----------+
+|     task    |   R1  |   R5  |  R10  |  mAP  | mINP |    rSum   |
++-------------+-------+-------+-------+-------+------+-----------+
+|   BGE-t2i   | 51.39 | 69.98 | 77.02 | 28.43 | 3.95 |  198.3827 |
+|   TSE-t2i   | 54.60 | 72.61 | 79.28 | 30.20 | 4.32 | 206.49435 |
+| BGE+TSE-t2i | 55.68 | 73.42 | 79.57 | 31.33 | 4.70 | 208.66586 |
++-------------+-------+-------+-------+-------+------+-----------+
+2024-03-18 21:53:42,322 RDE.train INFO: compute loss batch 0
+2024-03-18 21:54:19,649 RDE.train INFO: compute loss batch 100
+2024-03-18 21:54:48,550 RDE.train INFO: compute loss batch 200
+2024-03-18 21:55:13,240 RDE.train INFO: compute loss batch 300
+2024-03-18 21:55:34,860 RDE.train INFO: compute loss batch 400
+2024-03-18 21:55:52,019 RDE.train INFO: compute loss batch 500
+2024-03-18 21:55:58,816 RDE.train INFO: 
+Fitting GMM ...
+2024-03-18 21:55:58,817 RDE.train INFO: clean samples: 34674 	 noisy samples: 0
+2024-03-18 21:55:58,817 RDE.train INFO: 
+Fitting GMM ...
+2024-03-18 21:55:59,539 RDE.train INFO: Confusion Matrix by A
+2024-03-18 21:55:59,542 RDE.train INFO: 
+[[    0     0]
+ [ 8219 26455]]
+2024-03-18 21:55:59,542 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.7629416005767844
+2024-03-18 21:55:59,542 RDE.train INFO: Confusion Matrix by B
+2024-03-18 21:55:59,543 RDE.train INFO: 
+[[    0     0]
+ [ 8564 26110]]
+2024-03-18 21:55:59,543 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.7529920692141312
+2024-03-18 21:56:35,503 RDE.train INFO: Epoch[7] Iteration[100/542], loss: 6.0716, bge_loss: 3.1721, tse_loss: 2.8995, Base Lr: 9.99e-06
+2024-03-18 21:57:08,598 RDE.train INFO: Epoch[7] Iteration[200/542], loss: 6.1839, bge_loss: 3.2401, tse_loss: 2.9438, Base Lr: 9.99e-06
+2024-03-18 21:57:44,431 RDE.train INFO: Epoch[7] Iteration[300/542], loss: 6.0328, bge_loss: 3.1592, tse_loss: 2.8736, Base Lr: 9.99e-06
+2024-03-18 21:58:19,862 RDE.train INFO: Epoch[7] Iteration[400/542], loss: 5.9877, bge_loss: 3.1319, tse_loss: 2.8558, Base Lr: 9.99e-06
+2024-03-18 21:58:54,934 RDE.train INFO: Epoch[7] Iteration[500/542], loss: 5.9251, bge_loss: 3.1043, tse_loss: 2.8208, Base Lr: 9.99e-06
+2024-03-18 21:59:10,398 RDE.train INFO: Epoch 7 done. Time per batch: 0.618[s] Speed: 103.6[samples/s]
+2024-03-18 21:59:10,401 RDE.train INFO: Validation Results - Epoch: 7
+2024-03-18 22:02:36,211 RDE.eval INFO: 
++-------------+-------+-------+-------+-------+------+-----------+
+|     task    |   R1  |   R5  |  R10  |  mAP  | mINP |    rSum   |
++-------------+-------+-------+-------+-------+------+-----------+
+|   BGE-t2i   | 53.77 | 71.85 | 78.64 | 30.28 | 4.78 | 204.25735 |
+|   TSE-t2i   | 57.64 | 75.05 | 81.25 | 32.54 | 4.70 | 213.93591 |
+| BGE+TSE-t2i | 58.25 | 75.32 | 81.46 | 33.31 | 5.30 | 215.03424 |
++-------------+-------+-------+-------+-------+------+-----------+
+2024-03-18 22:03:15,005 RDE.train INFO: compute loss batch 0
+2024-03-18 22:03:51,537 RDE.train INFO: compute loss batch 100
+2024-03-18 22:04:26,401 RDE.train INFO: compute loss batch 200
+2024-03-18 22:04:58,643 RDE.train INFO: compute loss batch 300
+2024-03-18 22:05:32,315 RDE.train INFO: compute loss batch 400
+2024-03-18 22:06:05,677 RDE.train INFO: compute loss batch 500
+2024-03-18 22:06:20,169 RDE.train INFO: 
+Fitting GMM ...
+2024-03-18 22:06:20,171 RDE.train INFO: clean samples: 34674 	 noisy samples: 0
+2024-03-18 22:06:20,172 RDE.train INFO: 
+Fitting GMM ...
+2024-03-18 22:06:21,268 RDE.train INFO: Confusion Matrix by A
+2024-03-18 22:06:21,274 RDE.train INFO: 
+[[    0     0]
+ [ 8424 26250]]
+2024-03-18 22:06:21,276 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.7570295602018745
+2024-03-18 22:06:21,279 RDE.train INFO: Confusion Matrix by B
+2024-03-18 22:06:21,282 RDE.train INFO: 
+[[    0     0]
+ [ 7949 26725]]
+2024-03-18 22:06:21,283 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.7707281903388609
+2024-03-18 22:07:03,528 RDE.train INFO: Epoch[8] Iteration[100/542], loss: 5.5410, bge_loss: 2.8942, tse_loss: 2.6468, Base Lr: 9.97e-06
+2024-03-18 22:07:38,745 RDE.train INFO: Epoch[8] Iteration[200/542], loss: 5.4122, bge_loss: 2.8159, tse_loss: 2.5963, Base Lr: 9.97e-06
+2024-03-18 22:08:12,453 RDE.train INFO: Epoch[8] Iteration[300/542], loss: 5.4607, bge_loss: 2.8386, tse_loss: 2.6221, Base Lr: 9.97e-06
+2024-03-18 22:08:47,956 RDE.train INFO: Epoch[8] Iteration[400/542], loss: 5.4254, bge_loss: 2.8206, tse_loss: 2.6048, Base Lr: 9.97e-06
+2024-03-18 22:09:24,156 RDE.train INFO: Epoch[8] Iteration[500/542], loss: 5.4188, bge_loss: 2.8104, tse_loss: 2.6084, Base Lr: 9.97e-06
+2024-03-18 22:09:39,529 RDE.train INFO: Epoch 8 done. Time per batch: 0.724[s] Speed: 88.4[samples/s]
+2024-03-18 22:09:39,530 RDE.train INFO: Validation Results - Epoch: 8
+2024-03-18 22:13:30,168 RDE.eval INFO: 
++-------------+-------+-------+-------+-------+------+-----------+
+|     task    |   R1  |   R5  |  R10  |  mAP  | mINP |    rSum   |
++-------------+-------+-------+-------+-------+------+-----------+
+|   BGE-t2i   | 54.56 | 72.73 | 79.85 | 31.01 | 4.93 | 207.14934 |
+|   TSE-t2i   | 58.21 | 75.76 | 81.96 | 33.10 | 5.20 | 215.93108 |
+| BGE+TSE-t2i | 58.81 | 75.58 | 81.86 | 33.81 | 5.63 | 216.24345 |
++-------------+-------+-------+-------+-------+------+-----------+
+2024-03-18 22:13:55,169 RDE.train INFO: compute loss batch 0
+2024-03-18 22:14:20,355 RDE.train INFO: compute loss batch 100
+2024-03-18 22:14:43,155 RDE.train INFO: compute loss batch 200
+2024-03-18 22:15:12,147 RDE.train INFO: compute loss batch 300
+2024-03-18 22:15:42,797 RDE.train INFO: compute loss batch 400
+2024-03-18 22:16:12,404 RDE.train INFO: compute loss batch 500
+2024-03-18 22:16:23,685 RDE.train INFO: 
+Fitting GMM ...
+2024-03-18 22:16:23,688 RDE.train INFO: clean samples: 34674 	 noisy samples: 0
+2024-03-18 22:16:23,688 RDE.train INFO: 
+Fitting GMM ...
+2024-03-18 22:16:24,712 RDE.train INFO: Confusion Matrix by A
+2024-03-18 22:16:24,719 RDE.train INFO: 
+[[    0     0]
+ [ 6178 28496]]
+2024-03-18 22:16:24,719 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.821802451333814
+2024-03-18 22:16:24,719 RDE.train INFO: Confusion Matrix by B
+2024-03-18 22:16:24,722 RDE.train INFO: 
+[[    0     0]
+ [ 7548 27126]]
+2024-03-18 22:16:24,723 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.7822927180966114
+2024-03-18 22:17:06,184 RDE.train INFO: Epoch[9] Iteration[100/542], loss: 5.3558, bge_loss: 2.8001, tse_loss: 2.5557, Base Lr: 9.93e-06
+2024-03-18 22:17:43,343 RDE.train INFO: Epoch[9] Iteration[200/542], loss: 5.5249, bge_loss: 2.8775, tse_loss: 2.6474, Base Lr: 9.93e-06
+2024-03-18 22:18:17,202 RDE.train INFO: Epoch[9] Iteration[300/542], loss: 5.4535, bge_loss: 2.8287, tse_loss: 2.6248, Base Lr: 9.93e-06
+2024-03-18 22:18:50,469 RDE.train INFO: Epoch[9] Iteration[400/542], loss: 5.4063, bge_loss: 2.8125, tse_loss: 2.5939, Base Lr: 9.93e-06
+2024-03-18 22:19:24,190 RDE.train INFO: Epoch[9] Iteration[500/542], loss: 5.4098, bge_loss: 2.8101, tse_loss: 2.5997, Base Lr: 9.93e-06
+2024-03-18 22:19:38,593 RDE.train INFO: Epoch 9 done. Time per batch: 0.645[s] Speed: 99.2[samples/s]
+2024-03-18 22:19:38,594 RDE.train INFO: Validation Results - Epoch: 9
+2024-03-18 22:22:29,121 RDE.eval INFO: 
++-------------+-------+-------+-------+-------+------+-----------+
+|     task    |   R1  |   R5  |  R10  |  mAP  | mINP |    rSum   |
++-------------+-------+-------+-------+-------+------+-----------+
+|   BGE-t2i   | 56.31 | 74.25 | 81.16 | 32.14 | 5.24 | 211.72914 |
+|   TSE-t2i   | 59.37 | 76.28 | 82.56 | 34.34 | 5.63 | 218.21341 |
+| BGE+TSE-t2i | 59.83 | 76.89 | 82.83 | 34.87 | 6.00 | 219.55359 |
++-------------+-------+-------+-------+-------+------+-----------+
+2024-03-18 22:22:48,278 RDE.train INFO: compute loss batch 0
+2024-03-18 22:23:11,834 RDE.train INFO: compute loss batch 100
+2024-03-18 22:23:33,601 RDE.train INFO: compute loss batch 200
+2024-03-18 22:23:55,985 RDE.train INFO: compute loss batch 300
+2024-03-18 22:24:16,758 RDE.train INFO: compute loss batch 400
+2024-03-18 22:24:35,402 RDE.train INFO: compute loss batch 500
+2024-03-18 22:24:42,985 RDE.train INFO: 
+Fitting GMM ...
+2024-03-18 22:24:42,986 RDE.train INFO: clean samples: 34674 	 noisy samples: 0
+2024-03-18 22:24:42,987 RDE.train INFO: 
+Fitting GMM ...
+2024-03-18 22:24:43,787 RDE.train INFO: Confusion Matrix by A
+2024-03-18 22:24:43,790 RDE.train INFO: 
+[[    0     0]
+ [ 6233 28441]]
+2024-03-18 22:24:43,790 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.8202162941600577
+2024-03-18 22:24:43,790 RDE.train INFO: Confusion Matrix by B
+2024-03-18 22:24:43,792 RDE.train INFO: 
+[[    0     0]
+ [ 6645 28029]]
+2024-03-18 22:24:43,792 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.8083345349675559
+2024-03-18 22:25:19,302 RDE.train INFO: Epoch[10] Iteration[100/542], loss: 5.0414, bge_loss: 2.6026, tse_loss: 2.4388, Base Lr: 9.87e-06
+2024-03-18 22:25:53,302 RDE.train INFO: Epoch[10] Iteration[200/542], loss: 4.9592, bge_loss: 2.5467, tse_loss: 2.4125, Base Lr: 9.87e-06
+2024-03-18 22:26:26,888 RDE.train INFO: Epoch[10] Iteration[300/542], loss: 5.0081, bge_loss: 2.5798, tse_loss: 2.4284, Base Lr: 9.87e-06
+2024-03-18 22:27:00,281 RDE.train INFO: Epoch[10] Iteration[400/542], loss: 5.0677, bge_loss: 2.6123, tse_loss: 2.4554, Base Lr: 9.87e-06
+2024-03-18 22:27:33,913 RDE.train INFO: Epoch[10] Iteration[500/542], loss: 5.1062, bge_loss: 2.6323, tse_loss: 2.4739, Base Lr: 9.87e-06
+2024-03-18 22:27:48,199 RDE.train INFO: Epoch 10 done. Time per batch: 0.564[s] Speed: 113.5[samples/s]
+2024-03-18 22:27:48,200 RDE.train INFO: Validation Results - Epoch: 10
+2024-03-18 22:30:34,165 RDE.eval INFO: 
++-------------+-------+-------+-------+-------+------+-----------+
+|     task    |   R1  |   R5  |  R10  |  mAP  | mINP |    rSum   |
++-------------+-------+-------+-------+-------+------+-----------+
+|   BGE-t2i   | 56.53 | 74.81 | 81.35 | 32.49 | 5.57 | 212.69649 |
+|   TSE-t2i   | 59.77 | 77.20 | 82.97 | 34.76 | 6.33 | 219.93652 |
+| BGE+TSE-t2i | 60.28 | 77.26 | 83.14 | 35.27 | 6.60 | 220.68219 |
++-------------+-------+-------+-------+-------+------+-----------+
+2024-03-18 22:30:51,471 RDE.train INFO: compute loss batch 0
+2024-03-18 22:31:11,260 RDE.train INFO: compute loss batch 100
+2024-03-18 22:31:23,769 RDE.train INFO: compute loss batch 200
+2024-03-18 22:31:37,733 RDE.train INFO: compute loss batch 300
+2024-03-18 22:31:59,457 RDE.train INFO: compute loss batch 400
+2024-03-18 22:32:21,705 RDE.train INFO: compute loss batch 500
+2024-03-18 22:32:30,681 RDE.train INFO: 
+Fitting GMM ...
+2024-03-18 22:32:30,701 RDE.train INFO: clean samples: 34674 	 noisy samples: 0
+2024-03-18 22:32:30,702 RDE.train INFO: 
+Fitting GMM ...
+2024-03-18 22:32:31,627 RDE.train INFO: Confusion Matrix by A
+2024-03-18 22:32:31,630 RDE.train INFO: 
+[[    0     0]
+ [ 6383 28291]]
+2024-03-18 22:32:31,632 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.8158904109589041
+2024-03-18 22:32:31,632 RDE.train INFO: Confusion Matrix by B
+2024-03-18 22:32:31,635 RDE.train INFO: 
+[[    0     0]
+ [ 6643 28031]]
+2024-03-18 22:32:31,635 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.8083922134102379
+2024-03-18 22:33:09,363 RDE.train INFO: Epoch[11] Iteration[100/542], loss: 4.5469, bge_loss: 2.3421, tse_loss: 2.2048, Base Lr: 9.80e-06
+2024-03-18 22:33:42,902 RDE.train INFO: Epoch[11] Iteration[200/542], loss: 4.6910, bge_loss: 2.4179, tse_loss: 2.2731, Base Lr: 9.80e-06
+2024-03-18 22:34:16,938 RDE.train INFO: Epoch[11] Iteration[300/542], loss: 4.6602, bge_loss: 2.4140, tse_loss: 2.2463, Base Lr: 9.80e-06
+2024-03-18 22:34:51,090 RDE.train INFO: Epoch[11] Iteration[400/542], loss: 4.6634, bge_loss: 2.4164, tse_loss: 2.2471, Base Lr: 9.80e-06
+2024-03-18 22:35:24,887 RDE.train INFO: Epoch[11] Iteration[500/542], loss: 4.6531, bge_loss: 2.4156, tse_loss: 2.2375, Base Lr: 9.80e-06
+2024-03-18 22:35:40,144 RDE.train INFO: Epoch 11 done. Time per batch: 0.543[s] Speed: 117.8[samples/s]
+2024-03-18 22:35:40,144 RDE.train INFO: Validation Results - Epoch: 11
+2024-03-18 22:39:06,619 RDE.eval INFO: 
++-------------+-------+-------+-------+-------+------+-----------+
+|     task    |   R1  |   R5  |  R10  |  mAP  | mINP |    rSum   |
++-------------+-------+-------+-------+-------+------+-----------+
+|   BGE-t2i   | 57.37 | 75.45 | 81.82 | 32.67 | 5.25 | 214.63623 |
+|   TSE-t2i   | 60.57 | 77.66 | 83.56 | 34.88 | 5.78 | 221.78055 |
+| BGE+TSE-t2i | 60.84 | 77.88 | 83.51 | 35.36 | 6.06 | 222.23398 |
++-------------+-------+-------+-------+-------+------+-----------+
+2024-03-18 22:39:28,280 RDE.train INFO: compute loss batch 0
+2024-03-18 22:39:54,823 RDE.train INFO: compute loss batch 100
+2024-03-18 22:40:21,780 RDE.train INFO: compute loss batch 200
+2024-03-18 22:40:42,573 RDE.train INFO: compute loss batch 300
+2024-03-18 22:41:02,518 RDE.train INFO: compute loss batch 400
+2024-03-18 22:41:20,703 RDE.train INFO: compute loss batch 500
+2024-03-18 22:41:27,461 RDE.train INFO: 
+Fitting GMM ...
+2024-03-18 22:41:27,463 RDE.train INFO: clean samples: 34674 	 noisy samples: 0
+2024-03-18 22:41:27,466 RDE.train INFO: 
+Fitting GMM ...
+2024-03-18 22:41:28,389 RDE.train INFO: Confusion Matrix by A
+2024-03-18 22:41:28,410 RDE.train INFO: 
+[[    0     0]
+ [ 6410 28264]]
+2024-03-18 22:41:28,410 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.8151117519826965
+2024-03-18 22:41:28,410 RDE.train INFO: Confusion Matrix by B
+2024-03-18 22:41:28,412 RDE.train INFO: 
+[[    0     0]
+ [ 6243 28431]]
+2024-03-18 22:41:28,412 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.8199279019466474
+2024-03-18 22:42:09,316 RDE.train INFO: Epoch[12] Iteration[100/542], loss: 4.4824, bge_loss: 2.2859, tse_loss: 2.1965, Base Lr: 9.71e-06
+2024-03-18 22:42:47,818 RDE.train INFO: Epoch[12] Iteration[200/542], loss: 4.4880, bge_loss: 2.2905, tse_loss: 2.1975, Base Lr: 9.71e-06
+2024-03-18 22:43:25,666 RDE.train INFO: Epoch[12] Iteration[300/542], loss: 4.5790, bge_loss: 2.3333, tse_loss: 2.2457, Base Lr: 9.71e-06
+2024-03-18 22:44:02,648 RDE.train INFO: Epoch[12] Iteration[400/542], loss: 4.5528, bge_loss: 2.3269, tse_loss: 2.2259, Base Lr: 9.71e-06
+2024-03-18 22:44:38,979 RDE.train INFO: Epoch[12] Iteration[500/542], loss: 4.4959, bge_loss: 2.2958, tse_loss: 2.2001, Base Lr: 9.71e-06
+2024-03-18 22:44:56,889 RDE.train INFO: Epoch 12 done. Time per batch: 0.618[s] Speed: 103.6[samples/s]
+2024-03-18 22:44:56,896 RDE.train INFO: Validation Results - Epoch: 12
+2024-03-18 22:48:56,261 RDE.eval INFO: 
++-------------+-------+-------+-------+-------+------+-----------+
+|     task    |   R1  |   R5  |  R10  |  mAP  | mINP |    rSum   |
++-------------+-------+-------+-------+-------+------+-----------+
+|   BGE-t2i   | 56.77 | 75.17 | 81.61 | 33.10 | 5.60 | 213.54294 |
+|   TSE-t2i   | 60.70 | 77.58 | 83.35 | 35.53 | 5.89 | 221.62434 |
+| BGE+TSE-t2i | 60.88 | 77.57 | 83.24 | 35.94 | 6.34 | 221.68985 |
++-------------+-------+-------+-------+-------+------+-----------+
+2024-03-18 22:49:23,358 RDE.train INFO: compute loss batch 0
+2024-03-18 22:49:51,261 RDE.train INFO: compute loss batch 100
+2024-03-18 22:50:16,154 RDE.train INFO: compute loss batch 200
+2024-03-18 22:50:40,084 RDE.train INFO: compute loss batch 300
+2024-03-18 22:51:03,636 RDE.train INFO: compute loss batch 400
+2024-03-18 22:51:24,080 RDE.train INFO: compute loss batch 500
+2024-03-18 22:51:31,062 RDE.train INFO: 
+Fitting GMM ...
+2024-03-18 22:51:31,063 RDE.train INFO: clean samples: 34674 	 noisy samples: 0
+2024-03-18 22:51:31,063 RDE.train INFO: 
+Fitting GMM ...
+2024-03-18 22:51:31,966 RDE.train INFO: Confusion Matrix by A
+2024-03-18 22:51:31,969 RDE.train INFO: 
+[[    0     0]
+ [ 6345 28329]]
+2024-03-18 22:51:31,969 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.816986301369863
+2024-03-18 22:51:31,970 RDE.train INFO: Confusion Matrix by B
+2024-03-18 22:51:31,971 RDE.train INFO: 
+[[    0     0]
+ [ 6213 28461]]
+2024-03-18 22:51:31,971 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.8207930785868781
+2024-03-18 22:52:08,402 RDE.train INFO: Epoch[13] Iteration[100/542], loss: 4.3297, bge_loss: 2.1931, tse_loss: 2.1366, Base Lr: 9.61e-06
+2024-03-18 22:52:41,278 RDE.train INFO: Epoch[13] Iteration[200/542], loss: 4.2680, bge_loss: 2.1881, tse_loss: 2.0799, Base Lr: 9.61e-06
+2024-03-18 22:53:15,843 RDE.train INFO: Epoch[13] Iteration[300/542], loss: 4.2303, bge_loss: 2.1653, tse_loss: 2.0650, Base Lr: 9.61e-06
+2024-03-18 22:53:51,113 RDE.train INFO: Epoch[13] Iteration[400/542], loss: 4.2339, bge_loss: 2.1666, tse_loss: 2.0673, Base Lr: 9.61e-06
+2024-03-18 22:54:27,667 RDE.train INFO: Epoch[13] Iteration[500/542], loss: 4.2716, bge_loss: 2.1854, tse_loss: 2.0862, Base Lr: 9.61e-06
+2024-03-18 22:54:42,678 RDE.train INFO: Epoch 13 done. Time per batch: 0.600[s] Speed: 106.7[samples/s]
+2024-03-18 22:54:42,687 RDE.train INFO: Validation Results - Epoch: 13
+2024-03-18 22:58:46,606 RDE.eval INFO: 
++-------------+-------+-------+-------+-------+------+-----------+
+|     task    |   R1  |   R5  |  R10  |  mAP  | mINP |    rSum   |
++-------------+-------+-------+-------+-------+------+-----------+
+|   BGE-t2i   | 58.22 | 76.14 | 82.42 | 33.49 | 5.58 | 216.78758 |
+|   TSE-t2i   | 61.56 | 78.65 | 84.17 | 35.90 | 6.13 | 224.38533 |
+| BGE+TSE-t2i | 62.05 | 78.47 | 84.12 | 36.22 | 6.41 | 224.64229 |
++-------------+-------+-------+-------+-------+------+-----------+
+2024-03-18 22:59:29,560 RDE.train INFO: compute loss batch 0
+2024-03-18 22:59:53,883 RDE.train INFO: compute loss batch 100
+2024-03-18 23:00:15,152 RDE.train INFO: compute loss batch 200
+2024-03-18 23:00:35,483 RDE.train INFO: compute loss batch 300
+2024-03-18 23:00:55,476 RDE.train INFO: compute loss batch 400
+2024-03-18 23:01:15,063 RDE.train INFO: compute loss batch 500
+2024-03-18 23:01:23,201 RDE.train INFO: 
+Fitting GMM ...
+2024-03-18 23:01:23,202 RDE.train INFO: clean samples: 34674 	 noisy samples: 0
+2024-03-18 23:01:23,204 RDE.train INFO: 
+Fitting GMM ...
+2024-03-18 23:01:24,135 RDE.train INFO: Confusion Matrix by A
+2024-03-18 23:01:24,139 RDE.train INFO: 
+[[    0     0]
+ [ 6169 28505]]
+2024-03-18 23:01:24,139 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.8220620043258832
+2024-03-18 23:01:24,139 RDE.train INFO: Confusion Matrix by B
+2024-03-18 23:01:24,141 RDE.train INFO: 
+[[    0     0]
+ [ 5689 28985]]
+2024-03-18 23:01:24,141 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.8359048305695747
+2024-03-18 23:02:00,657 RDE.train INFO: Epoch[14] Iteration[100/542], loss: 4.0077, bge_loss: 2.0644, tse_loss: 1.9433, Base Lr: 9.49e-06
+2024-03-18 23:02:33,175 RDE.train INFO: Epoch[14] Iteration[200/542], loss: 4.1631, bge_loss: 2.1317, tse_loss: 2.0315, Base Lr: 9.49e-06
+2024-03-18 23:03:05,452 RDE.train INFO: Epoch[14] Iteration[300/542], loss: 4.1264, bge_loss: 2.1136, tse_loss: 2.0128, Base Lr: 9.49e-06
+2024-03-18 23:03:37,912 RDE.train INFO: Epoch[14] Iteration[400/542], loss: 4.1120, bge_loss: 2.1065, tse_loss: 2.0055, Base Lr: 9.49e-06
+2024-03-18 23:04:10,478 RDE.train INFO: Epoch[14] Iteration[500/542], loss: 4.0998, bge_loss: 2.0991, tse_loss: 2.0007, Base Lr: 9.49e-06
+2024-03-18 23:04:24,131 RDE.train INFO: Epoch 14 done. Time per batch: 0.554[s] Speed: 115.6[samples/s]
+2024-03-18 23:04:24,131 RDE.train INFO: Validation Results - Epoch: 14
+2024-03-18 23:07:01,305 RDE.eval INFO: 
++-------------+-------+-------+-------+-------+------+-----------+
+|     task    |   R1  |   R5  |  R10  |  mAP  | mINP |    rSum   |
++-------------+-------+-------+-------+-------+------+-----------+
+|   BGE-t2i   | 58.10 | 76.12 | 82.38 | 33.49 | 5.42 | 216.59613 |
+|   TSE-t2i   | 61.21 | 77.97 | 83.70 | 35.80 | 6.23 | 222.87384 |
+| BGE+TSE-t2i | 61.44 | 78.05 | 83.80 | 36.08 | 6.34 | 223.28699 |
++-------------+-------+-------+-------+-------+------+-----------+
+2024-03-18 23:07:07,581 RDE.train INFO: compute loss batch 0
+2024-03-18 23:07:32,392 RDE.train INFO: compute loss batch 100
+2024-03-18 23:07:54,279 RDE.train INFO: compute loss batch 200
+2024-03-18 23:08:16,432 RDE.train INFO: compute loss batch 300
+2024-03-18 23:08:37,765 RDE.train INFO: compute loss batch 400
+2024-03-18 23:09:02,140 RDE.train INFO: compute loss batch 500
+2024-03-18 23:09:13,472 RDE.train INFO: 
+Fitting GMM ...
+2024-03-18 23:09:13,476 RDE.train INFO: clean samples: 34674 	 noisy samples: 0
+2024-03-18 23:09:13,483 RDE.train INFO: 
+Fitting GMM ...
+2024-03-18 23:09:14,472 RDE.train INFO: Confusion Matrix by A
+2024-03-18 23:09:14,476 RDE.train INFO: 
+[[    0     0]
+ [ 5472 29202]]
+2024-03-18 23:09:14,477 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.8421629416005768
+2024-03-18 23:09:14,477 RDE.train INFO: Confusion Matrix by B
+2024-03-18 23:09:14,479 RDE.train INFO: 
+[[    0     0]
+ [ 5491 29183]]
+2024-03-18 23:09:14,479 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.8416149963950973
+2024-03-18 23:09:53,283 RDE.train INFO: Epoch[15] Iteration[100/542], loss: 3.8703, bge_loss: 1.9705, tse_loss: 1.8998, Base Lr: 9.35e-06
+2024-03-18 23:10:27,430 RDE.train INFO: Epoch[15] Iteration[200/542], loss: 3.9905, bge_loss: 2.0214, tse_loss: 1.9691, Base Lr: 9.35e-06
+2024-03-18 23:11:01,063 RDE.train INFO: Epoch[15] Iteration[300/542], loss: 4.0187, bge_loss: 2.0420, tse_loss: 1.9767, Base Lr: 9.35e-06
+2024-03-18 23:11:35,002 RDE.train INFO: Epoch[15] Iteration[400/542], loss: 4.0214, bge_loss: 2.0473, tse_loss: 1.9741, Base Lr: 9.35e-06
+2024-03-18 23:12:08,010 RDE.train INFO: Epoch[15] Iteration[500/542], loss: 4.0511, bge_loss: 2.0560, tse_loss: 1.9951, Base Lr: 9.35e-06
+2024-03-18 23:12:22,168 RDE.train INFO: Epoch 15 done. Time per batch: 0.591[s] Speed: 108.4[samples/s]
+2024-03-18 23:12:22,169 RDE.train INFO: Validation Results - Epoch: 15
+2024-03-18 23:14:52,674 RDE.eval INFO: 
++-------------+-------+-------+-------+-------+------+-----------+
+|     task    |   R1  |   R5  |  R10  |  mAP  | mINP |    rSum   |
++-------------+-------+-------+-------+-------+------+-----------+
+|   BGE-t2i   | 59.10 | 77.30 | 83.37 | 34.26 | 5.86 | 219.77026 |
+|   TSE-t2i   | 62.04 | 78.93 | 84.66 | 36.45 | 6.29 | 225.63483 |
+| BGE+TSE-t2i | 62.48 | 79.20 | 84.83 | 36.84 | 6.62 | 226.52158 |
++-------------+-------+-------+-------+-------+------+-----------+
+2024-03-18 23:15:06,620 RDE.train INFO: compute loss batch 0
+2024-03-18 23:15:25,570 RDE.train INFO: compute loss batch 100
+2024-03-18 23:15:38,734 RDE.train INFO: compute loss batch 200
+2024-03-18 23:15:55,947 RDE.train INFO: compute loss batch 300
+2024-03-18 23:16:12,717 RDE.train INFO: compute loss batch 400
+2024-03-18 23:16:43,796 RDE.train INFO: compute loss batch 500
+2024-03-18 23:16:56,625 RDE.train INFO: 
+Fitting GMM ...
+2024-03-18 23:16:56,629 RDE.train INFO: clean samples: 34674 	 noisy samples: 0
+2024-03-18 23:16:56,632 RDE.train INFO: 
+Fitting GMM ...
+2024-03-18 23:16:57,725 RDE.train INFO: Confusion Matrix by A
+2024-03-18 23:16:57,731 RDE.train INFO: 
+[[    0     0]
+ [ 4889 29785]]
+2024-03-18 23:16:57,732 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.8589762076423937
+2024-03-18 23:16:57,734 RDE.train INFO: Confusion Matrix by B
+2024-03-18 23:16:57,739 RDE.train INFO: 
+[[    0     0]
+ [ 5156 29518]]
+2024-03-18 23:16:57,741 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.8512761355443403
+2024-03-18 23:17:38,327 RDE.train INFO: Epoch[16] Iteration[100/542], loss: 4.0875, bge_loss: 2.1198, tse_loss: 1.9678, Base Lr: 9.21e-06
+2024-03-18 23:18:14,574 RDE.train INFO: Epoch[16] Iteration[200/542], loss: 4.0852, bge_loss: 2.1070, tse_loss: 1.9781, Base Lr: 9.21e-06
+2024-03-18 23:18:49,639 RDE.train INFO: Epoch[16] Iteration[300/542], loss: 4.1437, bge_loss: 2.1315, tse_loss: 2.0122, Base Lr: 9.21e-06
+2024-03-18 23:19:26,198 RDE.train INFO: Epoch[16] Iteration[400/542], loss: 4.1589, bge_loss: 2.1310, tse_loss: 2.0279, Base Lr: 9.21e-06
+2024-03-18 23:20:03,302 RDE.train INFO: Epoch[16] Iteration[500/542], loss: 4.1373, bge_loss: 2.1180, tse_loss: 2.0193, Base Lr: 9.21e-06
+2024-03-18 23:20:19,026 RDE.train INFO: Epoch 16 done. Time per batch: 0.583[s] Speed: 109.8[samples/s]
+2024-03-18 23:20:19,029 RDE.train INFO: Validation Results - Epoch: 16
+2024-03-18 23:24:11,688 RDE.eval INFO: 
++-------------+-------+-------+-------+-------+------+-----------+
+|     task    |   R1  |   R5  |  R10  |  mAP  | mINP |    rSum   |
++-------------+-------+-------+-------+-------+------+-----------+
+|   BGE-t2i   | 59.45 | 77.04 | 83.19 | 34.58 | 6.38 | 219.67957 |
+|   TSE-t2i   | 62.57 | 78.99 | 84.68 | 36.87 | 6.89 | 226.22934 |
+| BGE+TSE-t2i | 62.94 | 79.00 | 84.67 | 37.22 | 7.23 | 226.61224 |
++-------------+-------+-------+-------+-------+------+-----------+
+2024-03-18 23:25:38,838 RDE.train INFO: compute loss batch 0
+2024-03-18 23:26:10,310 RDE.train INFO: compute loss batch 100
+2024-03-18 23:26:37,941 RDE.train INFO: compute loss batch 200
+2024-03-18 23:27:09,984 RDE.train INFO: compute loss batch 300
+2024-03-18 23:27:24,927 RDE.train INFO: compute loss batch 400
+2024-03-18 23:27:41,278 RDE.train INFO: compute loss batch 500
+2024-03-18 23:27:50,325 RDE.train INFO: 
+Fitting GMM ...
+2024-03-18 23:27:50,329 RDE.train INFO: clean samples: 34674 	 noisy samples: 0
+2024-03-18 23:27:50,343 RDE.train INFO: 
+Fitting GMM ...
+2024-03-18 23:27:51,567 RDE.train INFO: Confusion Matrix by A
+2024-03-18 23:27:51,571 RDE.train INFO: 
+[[    0     0]
+ [ 5548 29126]]
+2024-03-18 23:27:51,571 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.839971160778659
+2024-03-18 23:27:51,571 RDE.train INFO: Confusion Matrix by B
+2024-03-18 23:27:51,573 RDE.train INFO: 
+[[    0     0]
+ [ 5244 29430]]
+2024-03-18 23:27:51,573 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.8487382840663302
+2024-03-18 23:28:31,486 RDE.train INFO: Epoch[17] Iteration[100/542], loss: 3.6136, bge_loss: 1.8454, tse_loss: 1.7682, Base Lr: 9.05e-06
+2024-03-18 23:29:04,900 RDE.train INFO: Epoch[17] Iteration[200/542], loss: 3.6397, bge_loss: 1.8559, tse_loss: 1.7837, Base Lr: 9.05e-06
+2024-03-18 23:29:46,144 RDE.train INFO: Epoch[17] Iteration[300/542], loss: 3.7080, bge_loss: 1.8874, tse_loss: 1.8207, Base Lr: 9.05e-06
+2024-03-18 23:30:20,772 RDE.train INFO: Epoch[17] Iteration[400/542], loss: 3.6940, bge_loss: 1.8782, tse_loss: 1.8158, Base Lr: 9.05e-06
+2024-03-18 23:30:57,332 RDE.train INFO: Epoch[17] Iteration[500/542], loss: 3.7068, bge_loss: 1.8783, tse_loss: 1.8285, Base Lr: 9.05e-06
+2024-03-18 23:31:12,110 RDE.train INFO: Epoch 17 done. Time per batch: 0.628[s] Speed: 101.8[samples/s]
+2024-03-18 23:31:12,214 RDE.train INFO: Validation Results - Epoch: 17
+2024-03-18 23:35:16,622 RDE.eval INFO: 
++-------------+-------+-------+-------+-------+------+-----------+
+|     task    |   R1  |   R5  |  R10  |  mAP  | mINP |    rSum   |
++-------------+-------+-------+-------+-------+------+-----------+
+|   BGE-t2i   | 59.97 | 77.49 | 83.71 | 34.61 | 6.17 |  221.1709 |
+|   TSE-t2i   | 62.63 | 78.93 | 84.48 | 36.78 | 6.61 | 226.03787 |
+| BGE+TSE-t2i | 63.46 | 79.13 | 84.86 | 37.09 | 6.94 |  227.4587 |
++-------------+-------+-------+-------+-------+------+-----------+
+2024-03-18 23:35:55,425 RDE.train INFO: compute loss batch 0
+2024-03-18 23:36:17,877 RDE.train INFO: compute loss batch 100
+2024-03-18 23:36:36,744 RDE.train INFO: compute loss batch 200
+2024-03-18 23:36:55,379 RDE.train INFO: compute loss batch 300
+2024-03-18 23:37:14,448 RDE.train INFO: compute loss batch 400
+2024-03-18 23:37:33,047 RDE.train INFO: compute loss batch 500
+2024-03-18 23:37:40,282 RDE.train INFO: 
+Fitting GMM ...
+2024-03-18 23:37:40,284 RDE.train INFO: clean samples: 34674 	 noisy samples: 0
+2024-03-18 23:37:40,285 RDE.train INFO: 
+Fitting GMM ...
+2024-03-18 23:37:41,500 RDE.train INFO: Confusion Matrix by A
+2024-03-18 23:37:41,503 RDE.train INFO: 
+[[    0     0]
+ [ 5244 29430]]
+2024-03-18 23:37:41,503 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.8487382840663302
+2024-03-18 23:37:41,504 RDE.train INFO: Confusion Matrix by B
+2024-03-18 23:37:41,505 RDE.train INFO: 
+[[    0     0]
+ [ 5042 29632]]
+2024-03-18 23:37:41,506 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.854563806777217
+2024-03-18 23:38:17,672 RDE.train INFO: Epoch[18] Iteration[100/542], loss: 3.5032, bge_loss: 1.7822, tse_loss: 1.7210, Base Lr: 8.87e-06
+2024-03-18 23:38:49,007 RDE.train INFO: Epoch[18] Iteration[200/542], loss: 3.6414, bge_loss: 1.8576, tse_loss: 1.7838, Base Lr: 8.87e-06
+2024-03-18 23:39:21,225 RDE.train INFO: Epoch[18] Iteration[300/542], loss: 3.6152, bge_loss: 1.8383, tse_loss: 1.7769, Base Lr: 8.87e-06
+2024-03-18 23:39:52,641 RDE.train INFO: Epoch[18] Iteration[400/542], loss: 3.6798, bge_loss: 1.8742, tse_loss: 1.8056, Base Lr: 8.87e-06
+2024-03-18 23:40:24,113 RDE.train INFO: Epoch[18] Iteration[500/542], loss: 3.6185, bge_loss: 1.8416, tse_loss: 1.7769, Base Lr: 8.87e-06
+2024-03-18 23:40:37,535 RDE.train INFO: Epoch 18 done. Time per batch: 0.531[s] Speed: 120.6[samples/s]
+2024-03-18 23:40:37,536 RDE.train INFO: Validation Results - Epoch: 18
+2024-03-18 23:43:33,302 RDE.eval INFO: 
++-------------+-------+-------+-------+-------+------+-----------+
+|     task    |   R1  |   R5  |  R10  |  mAP  | mINP |    rSum   |
++-------------+-------+-------+-------+-------+------+-----------+
+|   BGE-t2i   | 59.26 | 76.84 | 82.70 | 33.92 | 6.03 | 218.79785 |
+|   TSE-t2i   | 61.97 | 78.46 | 84.27 | 36.21 | 6.52 | 224.69266 |
+| BGE+TSE-t2i | 62.15 | 78.67 | 84.34 | 36.44 | 6.80 | 225.15619 |
++-------------+-------+-------+-------+-------+------+-----------+
+2024-03-18 23:43:38,530 RDE.train INFO: compute loss batch 0
+2024-03-18 23:43:59,144 RDE.train INFO: compute loss batch 100
+2024-03-18 23:44:19,546 RDE.train INFO: compute loss batch 200
+2024-03-18 23:44:36,968 RDE.train INFO: compute loss batch 300
+2024-03-18 23:44:52,099 RDE.train INFO: compute loss batch 400
+2024-03-18 23:45:04,333 RDE.train INFO: compute loss batch 500
+2024-03-18 23:45:09,652 RDE.train INFO: 
+Fitting GMM ...
+2024-03-18 23:45:09,654 RDE.train INFO: clean samples: 34674 	 noisy samples: 0
+2024-03-18 23:45:09,654 RDE.train INFO: 
+Fitting GMM ...
+2024-03-18 23:45:10,368 RDE.train INFO: Confusion Matrix by A
+2024-03-18 23:45:10,372 RDE.train INFO: 
+[[    0     0]
+ [ 4508 30166]]
+2024-03-18 23:45:10,372 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.8699639509733237
+2024-03-18 23:45:10,372 RDE.train INFO: Confusion Matrix by B
+2024-03-18 23:45:10,373 RDE.train INFO: 
+[[    0     0]
+ [ 4633 30041]]
+2024-03-18 23:45:10,374 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.8663590483056958
+2024-03-18 23:45:43,451 RDE.train INFO: Epoch[19] Iteration[100/542], loss: 3.6505, bge_loss: 1.8273, tse_loss: 1.8231, Base Lr: 8.68e-06
+2024-03-18 23:46:14,705 RDE.train INFO: Epoch[19] Iteration[200/542], loss: 3.6909, bge_loss: 1.8640, tse_loss: 1.8269, Base Lr: 8.68e-06
+2024-03-18 23:46:45,557 RDE.train INFO: Epoch[19] Iteration[300/542], loss: 3.6965, bge_loss: 1.8762, tse_loss: 1.8204, Base Lr: 8.68e-06
+2024-03-18 23:47:16,559 RDE.train INFO: Epoch[19] Iteration[400/542], loss: 3.6025, bge_loss: 1.8324, tse_loss: 1.7701, Base Lr: 8.68e-06
+2024-03-18 23:47:47,670 RDE.train INFO: Epoch[19] Iteration[500/542], loss: 3.6229, bge_loss: 1.8388, tse_loss: 1.7841, Base Lr: 8.68e-06
+2024-03-18 23:48:01,221 RDE.train INFO: Epoch 19 done. Time per batch: 0.493[s] Speed: 129.8[samples/s]
+2024-03-18 23:48:01,222 RDE.train INFO: Validation Results - Epoch: 19
+2024-03-18 23:50:56,918 RDE.eval INFO: 
++-------------+-------+-------+-------+-------+------+-----------+
+|     task    |   R1  |   R5  |  R10  |  mAP  | mINP |    rSum   |
++-------------+-------+-------+-------+-------+------+-----------+
+|   BGE-t2i   | 60.22 | 77.43 | 83.59 | 34.95 | 5.99 | 221.24144 |
+|   TSE-t2i   | 62.93 | 79.16 | 84.64 | 36.71 | 6.57 | 226.72812 |
+| BGE+TSE-t2i | 63.14 | 79.14 | 84.99 | 37.13 | 6.80 | 227.26724 |
++-------------+-------+-------+-------+-------+------+-----------+
+2024-03-18 23:51:03,617 RDE.train INFO: compute loss batch 0
+2024-03-18 23:51:30,569 RDE.train INFO: compute loss batch 100
+2024-03-18 23:51:58,146 RDE.train INFO: compute loss batch 200
+2024-03-18 23:52:23,926 RDE.train INFO: compute loss batch 300
+2024-03-18 23:52:50,651 RDE.train INFO: compute loss batch 400
+2024-03-18 23:53:14,393 RDE.train INFO: compute loss batch 500
+2024-03-18 23:53:24,246 RDE.train INFO: 
+Fitting GMM ...
+2024-03-18 23:53:24,247 RDE.train INFO: clean samples: 34674 	 noisy samples: 0
+2024-03-18 23:53:24,247 RDE.train INFO: 
+Fitting GMM ...
+2024-03-18 23:53:25,421 RDE.train INFO: Confusion Matrix by A
+2024-03-18 23:53:25,429 RDE.train INFO: 
+[[    0     0]
+ [ 3961 30713]]
+2024-03-18 23:53:25,434 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.8857390050468638
+2024-03-18 23:53:25,436 RDE.train INFO: Confusion Matrix by B
+2024-03-18 23:53:25,440 RDE.train INFO: 
+[[    0     0]
+ [ 4356 30318]]
+2024-03-18 23:53:25,440 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.8743475126171594
+2024-03-18 23:54:04,628 RDE.train INFO: Epoch[20] Iteration[100/542], loss: 3.3178, bge_loss: 1.6591, tse_loss: 1.6587, Base Lr: 8.48e-06
+2024-03-18 23:54:38,791 RDE.train INFO: Epoch[20] Iteration[200/542], loss: 3.3600, bge_loss: 1.6854, tse_loss: 1.6746, Base Lr: 8.48e-06
+2024-03-18 23:55:13,010 RDE.train INFO: Epoch[20] Iteration[300/542], loss: 3.4117, bge_loss: 1.7172, tse_loss: 1.6945, Base Lr: 8.48e-06
+2024-03-18 23:55:45,983 RDE.train INFO: Epoch[20] Iteration[400/542], loss: 3.4089, bge_loss: 1.7151, tse_loss: 1.6937, Base Lr: 8.48e-06
+2024-03-18 23:56:19,654 RDE.train INFO: Epoch[20] Iteration[500/542], loss: 3.4538, bge_loss: 1.7438, tse_loss: 1.7100, Base Lr: 8.48e-06
+2024-03-18 23:56:34,646 RDE.train INFO: Epoch 20 done. Time per batch: 0.622[s] Speed: 102.9[samples/s]
+2024-03-18 23:56:34,648 RDE.train INFO: Validation Results - Epoch: 20
+2024-03-18 23:59:26,096 RDE.eval INFO: 
++-------------+-------+-------+-------+-------+------+-----------+
+|     task    |   R1  |   R5  |  R10  |  mAP  | mINP |    rSum   |
++-------------+-------+-------+-------+-------+------+-----------+
+|   BGE-t2i   | 60.27 | 77.69 | 83.84 | 34.60 | 5.68 | 221.80069 |
+|   TSE-t2i   | 63.15 | 79.59 | 85.07 | 36.94 | 6.31 |  227.8164 |
+| BGE+TSE-t2i | 63.52 | 79.48 | 85.25 | 37.09 | 6.49 | 228.24973 |
++-------------+-------+-------+-------+-------+------+-----------+
+2024-03-18 23:59:42,156 RDE.train INFO: compute loss batch 0
+2024-03-19 00:00:05,402 RDE.train INFO: compute loss batch 100
+2024-03-19 00:00:27,000 RDE.train INFO: compute loss batch 200
+2024-03-19 00:00:45,057 RDE.train INFO: compute loss batch 300
+2024-03-19 00:01:03,331 RDE.train INFO: compute loss batch 400
+2024-03-19 00:01:23,368 RDE.train INFO: compute loss batch 500
+2024-03-19 00:01:35,306 RDE.train INFO: 
+Fitting GMM ...
+2024-03-19 00:01:35,308 RDE.train INFO: clean samples: 34674 	 noisy samples: 0
+2024-03-19 00:01:35,310 RDE.train INFO: 
+Fitting GMM ...
+2024-03-19 00:01:36,347 RDE.train INFO: Confusion Matrix by A
+2024-03-19 00:01:36,359 RDE.train INFO: 
+[[    0     0]
+ [ 4229 30445]]
+2024-03-19 00:01:36,366 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.8780100937274694
+2024-03-19 00:01:36,369 RDE.train INFO: Confusion Matrix by B
+2024-03-19 00:01:36,382 RDE.train INFO: 
+[[    0     0]
+ [ 4149 30525]]
+2024-03-19 00:01:36,382 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.8803172314347513
+2024-03-19 00:02:16,928 RDE.train INFO: Epoch[21] Iteration[100/542], loss: 3.4107, bge_loss: 1.7401, tse_loss: 1.6706, Base Lr: 8.27e-06
+2024-03-19 00:02:54,028 RDE.train INFO: Epoch[21] Iteration[200/542], loss: 3.3639, bge_loss: 1.7086, tse_loss: 1.6553, Base Lr: 8.27e-06
+2024-03-19 00:03:30,140 RDE.train INFO: Epoch[21] Iteration[300/542], loss: 3.4437, bge_loss: 1.7377, tse_loss: 1.7060, Base Lr: 8.27e-06
+2024-03-19 00:04:09,082 RDE.train INFO: Epoch[21] Iteration[400/542], loss: 3.5167, bge_loss: 1.7727, tse_loss: 1.7440, Base Lr: 8.27e-06
+2024-03-19 00:04:47,138 RDE.train INFO: Epoch[21] Iteration[500/542], loss: 3.4998, bge_loss: 1.7699, tse_loss: 1.7299, Base Lr: 8.27e-06
+2024-03-19 00:05:04,675 RDE.train INFO: Epoch 21 done. Time per batch: 0.605[s] Speed: 105.8[samples/s]
+2024-03-19 00:05:04,680 RDE.train INFO: Validation Results - Epoch: 21
+2024-03-19 00:08:51,737 RDE.eval INFO: 
++-------------+-------+-------+-------+-------+------+-----------+
+|     task    |   R1  |   R5  |  R10  |  mAP  | mINP |    rSum   |
++-------------+-------+-------+-------+-------+------+-----------+
+|   BGE-t2i   | 60.37 | 77.99 | 83.80 | 35.11 | 6.43 |  222.1584 |
+|   TSE-t2i   | 63.49 | 79.75 | 85.18 | 37.26 | 6.92 |  228.421  |
+| BGE+TSE-t2i | 63.63 | 79.78 | 85.22 | 37.52 | 7.22 | 228.63763 |
++-------------+-------+-------+-------+-------+------+-----------+
+2024-03-19 00:09:12,275 RDE.train INFO: compute loss batch 0
+2024-03-19 00:09:38,023 RDE.train INFO: compute loss batch 100
+2024-03-19 00:10:01,719 RDE.train INFO: compute loss batch 200
+2024-03-19 00:10:23,099 RDE.train INFO: compute loss batch 300
+2024-03-19 00:10:45,505 RDE.train INFO: compute loss batch 400
+2024-03-19 00:11:04,262 RDE.train INFO: compute loss batch 500
+2024-03-19 00:11:10,860 RDE.train INFO: 
+Fitting GMM ...
+2024-03-19 00:11:10,862 RDE.train INFO: clean samples: 34674 	 noisy samples: 0
+2024-03-19 00:11:10,862 RDE.train INFO: 
+Fitting GMM ...
+2024-03-19 00:11:11,676 RDE.train INFO: Confusion Matrix by A
+2024-03-19 00:11:11,679 RDE.train INFO: 
+[[    0     0]
+ [ 4472 30202]]
+2024-03-19 00:11:11,680 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.8710021629416006
+2024-03-19 00:11:11,680 RDE.train INFO: Confusion Matrix by B
+2024-03-19 00:11:11,681 RDE.train INFO: 
+[[    0     0]
+ [ 4139 30535]]
+2024-03-19 00:11:11,681 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.8806056236481615
+2024-03-19 00:11:49,034 RDE.train INFO: Epoch[22] Iteration[100/542], loss: 3.0539, bge_loss: 1.5464, tse_loss: 1.5075, Base Lr: 8.05e-06
+2024-03-19 00:12:22,812 RDE.train INFO: Epoch[22] Iteration[200/542], loss: 3.1548, bge_loss: 1.5767, tse_loss: 1.5781, Base Lr: 8.05e-06
+2024-03-19 00:12:57,068 RDE.train INFO: Epoch[22] Iteration[300/542], loss: 3.2292, bge_loss: 1.6213, tse_loss: 1.6079, Base Lr: 8.05e-06
+2024-03-19 00:13:33,420 RDE.train INFO: Epoch[22] Iteration[400/542], loss: 3.3316, bge_loss: 1.6739, tse_loss: 1.6577, Base Lr: 8.05e-06
+2024-03-19 00:14:11,769 RDE.train INFO: Epoch[22] Iteration[500/542], loss: 3.3129, bge_loss: 1.6655, tse_loss: 1.6475, Base Lr: 8.05e-06
+2024-03-19 00:14:29,047 RDE.train INFO: Epoch 22 done. Time per batch: 0.594[s] Speed: 107.7[samples/s]
+2024-03-19 00:14:29,048 RDE.train INFO: Validation Results - Epoch: 22
+2024-03-19 00:18:23,220 RDE.eval INFO: 
++-------------+-------+-------+-------+-------+------+-----------+
+|     task    |   R1  |   R5  |  R10  |  mAP  | mINP |    rSum   |
++-------------+-------+-------+-------+-------+------+-----------+
+|   BGE-t2i   | 60.76 | 78.86 | 84.51 | 35.46 | 6.25 | 224.12332 |
+|   TSE-t2i   | 63.16 | 79.81 | 85.35 | 37.09 | 6.90 | 228.32025 |
+| BGE+TSE-t2i | 63.67 | 80.38 | 85.63 | 37.62 | 7.10 |  229.6705 |
++-------------+-------+-------+-------+-------+------+-----------+
+2024-03-19 00:18:49,268 RDE.train INFO: compute loss batch 0
+2024-03-19 00:19:10,232 RDE.train INFO: compute loss batch 100
+2024-03-19 00:19:28,736 RDE.train INFO: compute loss batch 200
+2024-03-19 00:19:45,810 RDE.train INFO: compute loss batch 300
+2024-03-19 00:20:00,779 RDE.train INFO: compute loss batch 400
+2024-03-19 00:20:16,798 RDE.train INFO: compute loss batch 500
+2024-03-19 00:20:23,923 RDE.train INFO: 
+Fitting GMM ...
+2024-03-19 00:20:23,924 RDE.train INFO: clean samples: 34674 	 noisy samples: 0
+2024-03-19 00:20:23,925 RDE.train INFO: 
+Fitting GMM ...
+2024-03-19 00:20:24,767 RDE.train INFO: Confusion Matrix by A
+2024-03-19 00:20:24,770 RDE.train INFO: 
+[[    0     0]
+ [ 3890 30784]]
+2024-03-19 00:20:24,771 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.8877865897620765
+2024-03-19 00:20:24,771 RDE.train INFO: Confusion Matrix by B
+2024-03-19 00:20:24,772 RDE.train INFO: 
+[[    0     0]
+ [ 4257 30417]]
+2024-03-19 00:20:24,773 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.8772025955299206
+2024-03-19 00:21:01,517 RDE.train INFO: Epoch[23] Iteration[100/542], loss: 3.2637, bge_loss: 1.6481, tse_loss: 1.6156, Base Lr: 7.82e-06
+2024-03-19 00:21:34,343 RDE.train INFO: Epoch[23] Iteration[200/542], loss: 3.1663, bge_loss: 1.5983, tse_loss: 1.5680, Base Lr: 7.82e-06
+2024-03-19 00:22:07,944 RDE.train INFO: Epoch[23] Iteration[300/542], loss: 3.1995, bge_loss: 1.6127, tse_loss: 1.5868, Base Lr: 7.82e-06
+2024-03-19 00:22:40,141 RDE.train INFO: Epoch[23] Iteration[400/542], loss: 3.1697, bge_loss: 1.5974, tse_loss: 1.5723, Base Lr: 7.82e-06
+2024-03-19 00:23:12,578 RDE.train INFO: Epoch[23] Iteration[500/542], loss: 3.1948, bge_loss: 1.6108, tse_loss: 1.5840, Base Lr: 7.82e-06
+2024-03-19 00:23:26,589 RDE.train INFO: Epoch 23 done. Time per batch: 0.522[s] Speed: 122.6[samples/s]
+2024-03-19 00:23:26,590 RDE.train INFO: Validation Results - Epoch: 23
+2024-03-19 00:26:12,162 RDE.eval INFO: 
++-------------+-------+-------+-------+-------+------+-----------+
+|     task    |   R1  |   R5  |  R10  |  mAP  | mINP |    rSum   |
++-------------+-------+-------+-------+-------+------+-----------+
+|   BGE-t2i   | 62.39 | 79.10 | 84.50 | 35.88 | 6.28 | 225.99254 |
+|   TSE-t2i   | 64.46 | 80.22 | 85.44 | 37.81 | 6.91 | 230.12898 |
+| BGE+TSE-t2i | 65.00 | 80.49 | 85.67 | 38.11 | 7.07 | 231.16687 |
++-------------+-------+-------+-------+-------+------+-----------+
+2024-03-19 00:26:36,719 RDE.train INFO: compute loss batch 0
+2024-03-19 00:26:59,111 RDE.train INFO: compute loss batch 100
+2024-03-19 00:27:21,723 RDE.train INFO: compute loss batch 200
+2024-03-19 00:27:43,184 RDE.train INFO: compute loss batch 300
+2024-03-19 00:28:06,324 RDE.train INFO: compute loss batch 400
+2024-03-19 00:28:26,731 RDE.train INFO: compute loss batch 500
+2024-03-19 00:28:35,853 RDE.train INFO: 
+Fitting GMM ...
+2024-03-19 00:28:35,857 RDE.train INFO: clean samples: 34674 	 noisy samples: 0
+2024-03-19 00:28:35,859 RDE.train INFO: 
+Fitting GMM ...
+2024-03-19 00:28:36,806 RDE.train INFO: Confusion Matrix by A
+2024-03-19 00:28:36,810 RDE.train INFO: 
+[[    0     0]
+ [ 3960 30714]]
+2024-03-19 00:28:36,811 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.8857678442682048
+2024-03-19 00:28:36,811 RDE.train INFO: Confusion Matrix by B
+2024-03-19 00:28:36,813 RDE.train INFO: 
+[[    0     0]
+ [ 3662 31012]]
+2024-03-19 00:28:36,814 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.8943619322278299
+2024-03-19 00:29:13,865 RDE.train INFO: Epoch[24] Iteration[100/542], loss: 3.1617, bge_loss: 1.5672, tse_loss: 1.5945, Base Lr: 7.58e-06
+2024-03-19 00:29:45,879 RDE.train INFO: Epoch[24] Iteration[200/542], loss: 3.2141, bge_loss: 1.6142, tse_loss: 1.5998, Base Lr: 7.58e-06
+2024-03-19 00:30:17,889 RDE.train INFO: Epoch[24] Iteration[300/542], loss: 3.1547, bge_loss: 1.5823, tse_loss: 1.5725, Base Lr: 7.58e-06
+2024-03-19 00:30:50,406 RDE.train INFO: Epoch[24] Iteration[400/542], loss: 3.1538, bge_loss: 1.5835, tse_loss: 1.5703, Base Lr: 7.58e-06
+2024-03-19 00:31:21,518 RDE.train INFO: Epoch[24] Iteration[500/542], loss: 3.1383, bge_loss: 1.5716, tse_loss: 1.5668, Base Lr: 7.58e-06
+2024-03-19 00:31:35,260 RDE.train INFO: Epoch 24 done. Time per batch: 0.563[s] Speed: 113.6[samples/s]
+2024-03-19 00:31:35,261 RDE.train INFO: Validation Results - Epoch: 24
+2024-03-19 00:34:21,334 RDE.eval INFO: 
++-------------+-------+-------+-------+-------+------+-----------+
+|     task    |   R1  |   R5  |  R10  |  mAP  | mINP |    rSum   |
++-------------+-------+-------+-------+-------+------+-----------+
+|   BGE-t2i   | 61.79 | 78.75 | 84.72 | 35.94 | 6.42 | 225.25696 |
+|   TSE-t2i   | 64.23 | 80.41 | 85.96 | 38.08 | 7.13 | 230.60257 |
+| BGE+TSE-t2i | 64.60 | 80.58 | 86.10 | 38.31 | 7.30 | 231.27771 |
++-------------+-------+-------+-------+-------+------+-----------+
+2024-03-19 00:34:26,815 RDE.train INFO: compute loss batch 0
+2024-03-19 00:34:47,535 RDE.train INFO: compute loss batch 100
+2024-03-19 00:35:07,160 RDE.train INFO: compute loss batch 200
+2024-03-19 00:35:27,422 RDE.train INFO: compute loss batch 300
+2024-03-19 00:35:44,155 RDE.train INFO: compute loss batch 400
+2024-03-19 00:36:01,156 RDE.train INFO: compute loss batch 500
+2024-03-19 00:36:07,908 RDE.train INFO: 
+Fitting GMM ...
+2024-03-19 00:36:07,911 RDE.train INFO: clean samples: 34674 	 noisy samples: 0
+2024-03-19 00:36:07,912 RDE.train INFO: 
+Fitting GMM ...
+2024-03-19 00:36:08,960 RDE.train INFO: Confusion Matrix by A
+2024-03-19 00:36:08,966 RDE.train INFO: 
+[[    0     0]
+ [ 3842 30832]]
+2024-03-19 00:36:08,968 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.8891708723864455
+2024-03-19 00:36:08,968 RDE.train INFO: Confusion Matrix by B
+2024-03-19 00:36:08,973 RDE.train INFO: 
+[[    0     0]
+ [ 3781 30893]]
+2024-03-19 00:36:08,975 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.890930064888248
+2024-03-19 00:36:47,074 RDE.train INFO: Epoch[25] Iteration[100/542], loss: 2.7592, bge_loss: 1.3753, tse_loss: 1.3839, Base Lr: 7.33e-06
+2024-03-19 00:37:23,464 RDE.train INFO: Epoch[25] Iteration[200/542], loss: 2.8378, bge_loss: 1.4139, tse_loss: 1.4239, Base Lr: 7.33e-06
+2024-03-19 00:37:59,519 RDE.train INFO: Epoch[25] Iteration[300/542], loss: 2.9088, bge_loss: 1.4482, tse_loss: 1.4607, Base Lr: 7.33e-06
+2024-03-19 00:38:34,465 RDE.train INFO: Epoch[25] Iteration[400/542], loss: 3.0164, bge_loss: 1.5033, tse_loss: 1.5131, Base Lr: 7.33e-06
+2024-03-19 00:39:08,517 RDE.train INFO: Epoch[25] Iteration[500/542], loss: 3.0314, bge_loss: 1.5207, tse_loss: 1.5108, Base Lr: 7.33e-06
+2024-03-19 00:39:23,595 RDE.train INFO: Epoch 25 done. Time per batch: 0.556[s] Speed: 115.0[samples/s]
+2024-03-19 00:39:23,597 RDE.train INFO: Validation Results - Epoch: 25
+2024-03-19 00:42:22,728 RDE.eval INFO: 
++-------------+-------+-------+-------+-------+------+-----------+
+|     task    |   R1  |   R5  |  R10  |  mAP  | mINP |    rSum   |
++-------------+-------+-------+-------+-------+------+-----------+
+|   BGE-t2i   | 62.26 | 79.29 | 84.98 | 35.91 | 6.34 | 226.52156 |
+|   TSE-t2i   | 64.61 | 80.72 | 86.20 | 38.14 | 7.15 | 231.52962 |
+| BGE+TSE-t2i | 65.22 | 80.88 | 86.21 | 38.30 | 7.27 | 232.30554 |
++-------------+-------+-------+-------+-------+------+-----------+
+2024-03-19 00:43:02,171 RDE.train INFO: compute loss batch 0
+2024-03-19 00:43:33,417 RDE.train INFO: compute loss batch 100
+2024-03-19 00:44:04,888 RDE.train INFO: compute loss batch 200
+2024-03-19 00:44:33,814 RDE.train INFO: compute loss batch 300
+2024-03-19 00:45:02,874 RDE.train INFO: compute loss batch 400
+2024-03-19 00:45:30,560 RDE.train INFO: compute loss batch 500
+2024-03-19 00:45:41,351 RDE.train INFO: 
+Fitting GMM ...
+2024-03-19 00:45:41,354 RDE.train INFO: clean samples: 34674 	 noisy samples: 0
+2024-03-19 00:45:41,356 RDE.train INFO: 
+Fitting GMM ...
+2024-03-19 00:45:42,753 RDE.train INFO: Confusion Matrix by A
+2024-03-19 00:45:42,767 RDE.train INFO: 
+[[    0     0]
+ [ 3439 31235]]
+2024-03-19 00:45:42,769 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.9007930785868782
+2024-03-19 00:45:42,770 RDE.train INFO: Confusion Matrix by B
+2024-03-19 00:45:42,779 RDE.train INFO: 
+[[    0     0]
+ [ 3453 31221]]
+2024-03-19 00:45:42,780 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.9003893294881038
+2024-03-19 00:46:26,720 RDE.train INFO: Epoch[26] Iteration[100/542], loss: 2.9881, bge_loss: 1.5256, tse_loss: 1.4625, Base Lr: 7.08e-06
+2024-03-19 00:47:01,541 RDE.train INFO: Epoch[26] Iteration[200/542], loss: 2.9985, bge_loss: 1.5097, tse_loss: 1.4888, Base Lr: 7.08e-06
+2024-03-19 00:47:35,858 RDE.train INFO: Epoch[26] Iteration[300/542], loss: 3.0340, bge_loss: 1.5225, tse_loss: 1.5115, Base Lr: 7.08e-06
+2024-03-19 00:48:10,390 RDE.train INFO: Epoch[26] Iteration[400/542], loss: 3.0514, bge_loss: 1.5285, tse_loss: 1.5229, Base Lr: 7.08e-06
+2024-03-19 00:48:44,397 RDE.train INFO: Epoch[26] Iteration[500/542], loss: 3.0797, bge_loss: 1.5491, tse_loss: 1.5307, Base Lr: 7.08e-06
+2024-03-19 00:48:59,745 RDE.train INFO: Epoch 26 done. Time per batch: 0.672[s] Speed: 95.2[samples/s]
+2024-03-19 00:48:59,746 RDE.train INFO: Validation Results - Epoch: 26
+2024-03-19 00:52:08,585 RDE.eval INFO: 
++-------------+-------+-------+-------+-------+------+-----------+
+|     task    |   R1  |   R5  |  R10  |  mAP  | mINP |    rSum   |
++-------------+-------+-------+-------+-------+------+-----------+
+|   BGE-t2i   | 62.32 | 78.95 | 84.94 | 35.58 | 6.26 | 226.20416 |
+|   TSE-t2i   | 64.71 | 80.98 | 86.31 | 37.42 | 6.75 | 231.99316 |
+| BGE+TSE-t2i | 64.89 | 80.88 | 86.15 | 37.75 | 7.02 | 231.92764 |
++-------------+-------+-------+-------+-------+------+-----------+
+2024-03-19 00:52:15,626 RDE.train INFO: compute loss batch 0
+2024-03-19 00:52:51,335 RDE.train INFO: compute loss batch 100
+2024-03-19 00:53:19,222 RDE.train INFO: compute loss batch 200
+2024-03-19 00:53:41,680 RDE.train INFO: compute loss batch 300
+2024-03-19 00:54:12,120 RDE.train INFO: compute loss batch 400
+2024-03-19 00:54:43,433 RDE.train INFO: compute loss batch 500
+2024-03-19 00:55:01,466 RDE.train INFO: 
+Fitting GMM ...
+2024-03-19 00:55:01,472 RDE.train INFO: clean samples: 34674 	 noisy samples: 0
+2024-03-19 00:55:01,475 RDE.train INFO: 
+Fitting GMM ...
+2024-03-19 00:55:02,570 RDE.train INFO: Confusion Matrix by A
+2024-03-19 00:55:02,576 RDE.train INFO: 
+[[    0     0]
+ [ 3404 31270]]
+2024-03-19 00:55:02,588 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.901802451333814
+2024-03-19 00:55:02,589 RDE.train INFO: Confusion Matrix by B
+2024-03-19 00:55:02,601 RDE.train INFO: 
+[[    0     0]
+ [ 3799 30875]]
+2024-03-19 00:55:02,603 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.8904109589041096
+2024-03-19 00:55:44,058 RDE.train INFO: Epoch[27] Iteration[100/542], loss: 2.9591, bge_loss: 1.4827, tse_loss: 1.4764, Base Lr: 6.81e-06
+2024-03-19 00:56:18,996 RDE.train INFO: Epoch[27] Iteration[200/542], loss: 2.9628, bge_loss: 1.5033, tse_loss: 1.4595, Base Lr: 6.81e-06
+2024-03-19 00:56:53,274 RDE.train INFO: Epoch[27] Iteration[300/542], loss: 2.8737, bge_loss: 1.4560, tse_loss: 1.4176, Base Lr: 6.81e-06
+2024-03-19 00:57:27,384 RDE.train INFO: Epoch[27] Iteration[400/542], loss: 2.8752, bge_loss: 1.4567, tse_loss: 1.4185, Base Lr: 6.81e-06
+2024-03-19 00:58:01,866 RDE.train INFO: Epoch[27] Iteration[500/542], loss: 2.9632, bge_loss: 1.4945, tse_loss: 1.4687, Base Lr: 6.81e-06
+2024-03-19 00:58:18,868 RDE.train INFO: Epoch 27 done. Time per batch: 0.682[s] Speed: 93.8[samples/s]
+2024-03-19 00:58:18,872 RDE.train INFO: Validation Results - Epoch: 27
+2024-03-19 01:01:26,816 RDE.eval INFO: 
++-------------+-------+-------+-------+-------+------+-----------+
+|     task    |   R1  |   R5  |  R10  |  mAP  | mINP |    rSum   |
++-------------+-------+-------+-------+-------+------+-----------+
+|   BGE-t2i   | 61.29 | 79.07 | 84.99 | 35.48 | 6.40 | 225.33755 |
+|   TSE-t2i   | 63.65 | 80.15 | 85.59 | 37.52 | 6.92 | 229.39842 |
+| BGE+TSE-t2i | 64.08 | 80.59 | 86.08 | 37.80 | 7.21 | 230.75877 |
++-------------+-------+-------+-------+-------+------+-----------+
+2024-03-19 01:01:32,261 RDE.train INFO: compute loss batch 0
+2024-03-19 01:01:56,227 RDE.train INFO: compute loss batch 100
+2024-03-19 01:02:20,975 RDE.train INFO: compute loss batch 200
+2024-03-19 01:02:43,822 RDE.train INFO: compute loss batch 300
+2024-03-19 01:03:03,736 RDE.train INFO: compute loss batch 400
+2024-03-19 01:03:24,308 RDE.train INFO: compute loss batch 500
+2024-03-19 01:03:32,449 RDE.train INFO: 
+Fitting GMM ...
+2024-03-19 01:03:32,453 RDE.train INFO: clean samples: 34674 	 noisy samples: 0
+2024-03-19 01:03:32,454 RDE.train INFO: 
+Fitting GMM ...
+2024-03-19 01:03:33,333 RDE.train INFO: Confusion Matrix by A
+2024-03-19 01:03:33,337 RDE.train INFO: 
+[[    0     0]
+ [ 3916 30758]]
+2024-03-19 01:03:33,348 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.8870367700072098
+2024-03-19 01:03:33,349 RDE.train INFO: Confusion Matrix by B
+2024-03-19 01:03:33,352 RDE.train INFO: 
+[[    0     0]
+ [ 4029 30645]]
+2024-03-19 01:03:33,352 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.8837779379956742
+2024-03-19 01:04:11,423 RDE.train INFO: Epoch[28] Iteration[100/542], loss: 2.7606, bge_loss: 1.3777, tse_loss: 1.3829, Base Lr: 6.55e-06
+2024-03-19 01:04:45,844 RDE.train INFO: Epoch[28] Iteration[200/542], loss: 2.7043, bge_loss: 1.3564, tse_loss: 1.3479, Base Lr: 6.55e-06
+2024-03-19 01:05:19,241 RDE.train INFO: Epoch[28] Iteration[300/542], loss: 2.6947, bge_loss: 1.3555, tse_loss: 1.3391, Base Lr: 6.55e-06
+2024-03-19 01:05:52,270 RDE.train INFO: Epoch[28] Iteration[400/542], loss: 2.7245, bge_loss: 1.3675, tse_loss: 1.3570, Base Lr: 6.55e-06
+2024-03-19 01:06:26,379 RDE.train INFO: Epoch[28] Iteration[500/542], loss: 2.7117, bge_loss: 1.3611, tse_loss: 1.3506, Base Lr: 6.55e-06
+2024-03-19 01:06:41,503 RDE.train INFO: Epoch 28 done. Time per batch: 0.579[s] Speed: 110.5[samples/s]
+2024-03-19 01:06:41,504 RDE.train INFO: Validation Results - Epoch: 28
+2024-03-19 01:09:42,418 RDE.eval INFO: 
++-------------+-------+-------+-------+-------+------+-----------+
+|     task    |   R1  |   R5  |  R10  |  mAP  | mINP |    rSum   |
++-------------+-------+-------+-------+-------+------+-----------+
+|   BGE-t2i   | 62.78 | 79.49 | 84.98 | 36.52 | 6.37 | 227.25717 |
+|   TSE-t2i   | 65.04 | 80.85 | 85.97 | 38.56 | 6.88 | 231.86215 |
+| BGE+TSE-t2i | 65.51 | 81.02 | 86.03 | 38.79 | 7.13 | 232.56752 |
++-------------+-------+-------+-------+-------+------+-----------+
+2024-03-19 01:09:57,781 RDE.train INFO: compute loss batch 0
+2024-03-19 01:10:18,058 RDE.train INFO: compute loss batch 100
+2024-03-19 01:10:35,952 RDE.train INFO: compute loss batch 200
+2024-03-19 01:10:52,869 RDE.train INFO: compute loss batch 300
+2024-03-19 01:11:08,578 RDE.train INFO: compute loss batch 400
+2024-03-19 01:11:23,262 RDE.train INFO: compute loss batch 500
+2024-03-19 01:11:30,369 RDE.train INFO: 
+Fitting GMM ...
+2024-03-19 01:11:30,370 RDE.train INFO: clean samples: 34674 	 noisy samples: 0
+2024-03-19 01:11:30,371 RDE.train INFO: 
+Fitting GMM ...
+2024-03-19 01:11:31,313 RDE.train INFO: Confusion Matrix by A
+2024-03-19 01:11:31,316 RDE.train INFO: 
+[[    0     0]
+ [ 3224 31450]]
+2024-03-19 01:11:31,317 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.9069935111751982
+2024-03-19 01:11:31,317 RDE.train INFO: Confusion Matrix by B
+2024-03-19 01:11:31,319 RDE.train INFO: 
+[[    0     0]
+ [ 3493 31181]]
+2024-03-19 01:11:31,319 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.8992357606344629
+2024-03-19 01:12:07,536 RDE.train INFO: Epoch[29] Iteration[100/542], loss: 2.5504, bge_loss: 1.2897, tse_loss: 1.2606, Base Lr: 6.27e-06
+2024-03-19 01:12:41,347 RDE.train INFO: Epoch[29] Iteration[200/542], loss: 2.5128, bge_loss: 1.2765, tse_loss: 1.2363, Base Lr: 6.27e-06
+2024-03-19 01:13:15,178 RDE.train INFO: Epoch[29] Iteration[300/542], loss: 2.5928, bge_loss: 1.3058, tse_loss: 1.2870, Base Lr: 6.27e-06
+2024-03-19 01:13:49,553 RDE.train INFO: Epoch[29] Iteration[400/542], loss: 2.6031, bge_loss: 1.3059, tse_loss: 1.2972, Base Lr: 6.27e-06
+2024-03-19 01:14:23,542 RDE.train INFO: Epoch[29] Iteration[500/542], loss: 2.6322, bge_loss: 1.3171, tse_loss: 1.3150, Base Lr: 6.27e-06
+2024-03-19 01:14:38,279 RDE.train INFO: Epoch 29 done. Time per batch: 0.526[s] Speed: 121.7[samples/s]
+2024-03-19 01:14:38,280 RDE.train INFO: Validation Results - Epoch: 29
+2024-03-19 01:17:42,668 RDE.eval INFO: 
++-------------+-------+-------+-------+-------+------+-----------+
+|     task    |   R1  |   R5  |  R10  |  mAP  | mINP |    rSum   |
++-------------+-------+-------+-------+-------+------+-----------+
+|   BGE-t2i   | 62.00 | 79.52 | 85.18 | 36.19 | 6.62 |  226.6979 |
+|   TSE-t2i   | 64.67 | 80.99 | 86.18 | 38.48 | 7.51 | 231.83191 |
+| BGE+TSE-t2i | 65.18 | 81.02 | 86.34 | 38.66 | 7.66 | 232.53728 |
++-------------+-------+-------+-------+-------+------+-----------+
+2024-03-19 01:17:50,146 RDE.train INFO: compute loss batch 0
+2024-03-19 01:18:17,359 RDE.train INFO: compute loss batch 100
+2024-03-19 01:18:42,433 RDE.train INFO: compute loss batch 200
+2024-03-19 01:19:04,058 RDE.train INFO: compute loss batch 300
+2024-03-19 01:19:23,003 RDE.train INFO: compute loss batch 400
+2024-03-19 01:19:41,690 RDE.train INFO: compute loss batch 500
+2024-03-19 01:19:49,693 RDE.train INFO: 
+Fitting GMM ...
+2024-03-19 01:19:49,694 RDE.train INFO: clean samples: 34674 	 noisy samples: 0
+2024-03-19 01:19:49,695 RDE.train INFO: 
+Fitting GMM ...
+2024-03-19 01:19:50,807 RDE.train INFO: Confusion Matrix by A
+2024-03-19 01:19:50,812 RDE.train INFO: 
+[[    0     0]
+ [ 3211 31463]]
+2024-03-19 01:19:50,813 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.9073684210526316
+2024-03-19 01:19:50,813 RDE.train INFO: Confusion Matrix by B
+2024-03-19 01:19:50,815 RDE.train INFO: 
+[[    0     0]
+ [ 3223 31451]]
+2024-03-19 01:19:50,816 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.9070223503965393
+2024-03-19 01:20:30,316 RDE.train INFO: Epoch[30] Iteration[100/542], loss: 2.6523, bge_loss: 1.3409, tse_loss: 1.3113, Base Lr: 5.99e-06
+2024-03-19 01:21:04,539 RDE.train INFO: Epoch[30] Iteration[200/542], loss: 2.6407, bge_loss: 1.3221, tse_loss: 1.3186, Base Lr: 5.99e-06
+2024-03-19 01:21:39,167 RDE.train INFO: Epoch[30] Iteration[300/542], loss: 2.6222, bge_loss: 1.3195, tse_loss: 1.3027, Base Lr: 5.99e-06
+2024-03-19 01:22:13,639 RDE.train INFO: Epoch[30] Iteration[400/542], loss: 2.6273, bge_loss: 1.3176, tse_loss: 1.3097, Base Lr: 5.99e-06
+2024-03-19 01:22:49,559 RDE.train INFO: Epoch[30] Iteration[500/542], loss: 2.6524, bge_loss: 1.3320, tse_loss: 1.3204, Base Lr: 5.99e-06
+2024-03-19 01:23:05,484 RDE.train INFO: Epoch 30 done. Time per batch: 0.594[s] Speed: 107.7[samples/s]
+2024-03-19 01:23:05,485 RDE.train INFO: Validation Results - Epoch: 30
+2024-03-19 01:27:25,290 RDE.eval INFO: 
++-------------+-------+-------+-------+-------+------+-----------+
+|     task    |   R1  |   R5  |  R10  |  mAP  | mINP |    rSum   |
++-------------+-------+-------+-------+-------+------+-----------+
+|   BGE-t2i   | 63.00 | 79.67 | 85.43 | 36.77 | 6.77 | 228.09854 |
+|   TSE-t2i   | 65.27 | 81.21 | 86.22 | 38.63 | 7.32 | 232.69348 |
+| BGE+TSE-t2i | 65.56 | 81.32 | 86.37 | 38.96 | 7.61 | 233.25272 |
++-------------+-------+-------+-------+-------+------+-----------+
+2024-03-19 01:28:03,811 RDE.train INFO: compute loss batch 0
+2024-03-19 01:28:32,915 RDE.train INFO: compute loss batch 100
+2024-03-19 01:29:00,702 RDE.train INFO: compute loss batch 200
+2024-03-19 01:29:23,814 RDE.train INFO: compute loss batch 300
+2024-03-19 01:29:43,823 RDE.train INFO: compute loss batch 400
+2024-03-19 01:30:04,807 RDE.train INFO: compute loss batch 500
+2024-03-19 01:30:12,482 RDE.train INFO: 
+Fitting GMM ...
+2024-03-19 01:30:12,484 RDE.train INFO: clean samples: 34674 	 noisy samples: 0
+2024-03-19 01:30:12,484 RDE.train INFO: 
+Fitting GMM ...
+2024-03-19 01:30:13,456 RDE.train INFO: Confusion Matrix by A
+2024-03-19 01:30:13,459 RDE.train INFO: 
+[[    0     0]
+ [ 3226 31448]]
+2024-03-19 01:30:13,460 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.9069358327325162
+2024-03-19 01:30:13,460 RDE.train INFO: Confusion Matrix by B
+2024-03-19 01:30:13,462 RDE.train INFO: 
+[[    0     0]
+ [ 3091 31583]]
+2024-03-19 01:30:13,462 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.9108291276135544
+2024-03-19 01:30:52,075 RDE.train INFO: Epoch[31] Iteration[100/542], loss: 2.5407, bge_loss: 1.2960, tse_loss: 1.2447, Base Lr: 5.71e-06
+2024-03-19 01:31:26,792 RDE.train INFO: Epoch[31] Iteration[200/542], loss: 2.5301, bge_loss: 1.2812, tse_loss: 1.2489, Base Lr: 5.71e-06
+2024-03-19 01:32:01,302 RDE.train INFO: Epoch[31] Iteration[300/542], loss: 2.5500, bge_loss: 1.2882, tse_loss: 1.2617, Base Lr: 5.71e-06
+2024-03-19 01:32:36,171 RDE.train INFO: Epoch[31] Iteration[400/542], loss: 2.5646, bge_loss: 1.2926, tse_loss: 1.2720, Base Lr: 5.71e-06
+2024-03-19 01:33:10,944 RDE.train INFO: Epoch[31] Iteration[500/542], loss: 2.5908, bge_loss: 1.3053, tse_loss: 1.2855, Base Lr: 5.71e-06
+2024-03-19 01:33:26,057 RDE.train INFO: Epoch 31 done. Time per batch: 0.609[s] Speed: 105.1[samples/s]
+2024-03-19 01:33:26,058 RDE.train INFO: Validation Results - Epoch: 31
+2024-03-19 01:37:26,306 RDE.eval INFO: 
++-------------+-------+-------+-------+-------+------+-----------+
+|     task    |   R1  |   R5  |  R10  |  mAP  | mINP |    rSum   |
++-------------+-------+-------+-------+-------+------+-----------+
+|   BGE-t2i   | 63.21 | 80.00 | 85.64 | 36.43 | 6.47 |  228.8543 |
+|   TSE-t2i   | 65.34 | 81.17 | 86.46 | 38.52 | 7.45 | 232.97057 |
+| BGE+TSE-t2i | 65.63 | 81.51 | 86.68 | 38.75 | 7.51 | 233.82205 |
++-------------+-------+-------+-------+-------+------+-----------+
+2024-03-19 01:38:24,909 RDE.train INFO: compute loss batch 0
+2024-03-19 01:38:55,143 RDE.train INFO: compute loss batch 100
+2024-03-19 01:39:21,542 RDE.train INFO: compute loss batch 200
+2024-03-19 01:39:47,449 RDE.train INFO: compute loss batch 300
+2024-03-19 01:40:14,809 RDE.train INFO: compute loss batch 400
+2024-03-19 01:40:36,292 RDE.train INFO: compute loss batch 500
+2024-03-19 01:40:45,383 RDE.train INFO: 
+Fitting GMM ...
+2024-03-19 01:40:45,385 RDE.train INFO: clean samples: 34674 	 noisy samples: 0
+2024-03-19 01:40:45,387 RDE.train INFO: 
+Fitting GMM ...
+2024-03-19 01:40:46,386 RDE.train INFO: Confusion Matrix by A
+2024-03-19 01:40:46,392 RDE.train INFO: 
+[[    0     0]
+ [ 3207 31467]]
+2024-03-19 01:40:46,392 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.9074837779379957
+2024-03-19 01:40:46,392 RDE.train INFO: Confusion Matrix by B
+2024-03-19 01:40:46,395 RDE.train INFO: 
+[[    0     0]
+ [ 3345 31329]]
+2024-03-19 01:40:46,396 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.9035039653929344
+2024-03-19 01:41:23,987 RDE.train INFO: Epoch[32] Iteration[100/542], loss: 2.5775, bge_loss: 1.3296, tse_loss: 1.2478, Base Lr: 5.43e-06
+2024-03-19 01:41:58,062 RDE.train INFO: Epoch[32] Iteration[200/542], loss: 2.4343, bge_loss: 1.2419, tse_loss: 1.1924, Base Lr: 5.43e-06
+2024-03-19 01:42:31,051 RDE.train INFO: Epoch[32] Iteration[300/542], loss: 2.4459, bge_loss: 1.2446, tse_loss: 1.2013, Base Lr: 5.43e-06
+2024-03-19 01:43:04,223 RDE.train INFO: Epoch[32] Iteration[400/542], loss: 2.4158, bge_loss: 1.2229, tse_loss: 1.1929, Base Lr: 5.43e-06
+2024-03-19 01:43:37,169 RDE.train INFO: Epoch[32] Iteration[500/542], loss: 2.4246, bge_loss: 1.2244, tse_loss: 1.2002, Base Lr: 5.43e-06
+2024-03-19 01:43:51,430 RDE.train INFO: Epoch 32 done. Time per batch: 0.619[s] Speed: 103.4[samples/s]
+2024-03-19 01:43:51,431 RDE.train INFO: Validation Results - Epoch: 32
+2024-03-19 01:46:31,221 RDE.eval INFO: 
++-------------+-------+-------+-------+-------+------+-----------+
+|     task    |   R1  |   R5  |  R10  |  mAP  | mINP |    rSum   |
++-------------+-------+-------+-------+-------+------+-----------+
+|   BGE-t2i   | 63.54 | 80.17 | 85.71 | 36.93 | 6.69 | 229.42361 |
+|   TSE-t2i   | 65.38 | 80.99 | 86.50 | 38.75 | 7.18 | 232.86478 |
+| BGE+TSE-t2i | 65.85 | 81.64 | 86.61 | 39.09 | 7.48 | 234.09915 |
++-------------+-------+-------+-------+-------+------+-----------+
+2024-03-19 01:47:13,985 RDE.train INFO: compute loss batch 0
+2024-03-19 01:47:33,324 RDE.train INFO: compute loss batch 100
+2024-03-19 01:47:53,836 RDE.train INFO: compute loss batch 200
+2024-03-19 01:48:17,938 RDE.train INFO: compute loss batch 300
+2024-03-19 01:48:41,472 RDE.train INFO: compute loss batch 400
+2024-03-19 01:49:05,225 RDE.train INFO: compute loss batch 500
+2024-03-19 01:49:15,288 RDE.train INFO: 
+Fitting GMM ...
+2024-03-19 01:49:15,290 RDE.train INFO: clean samples: 34674 	 noisy samples: 0
+2024-03-19 01:49:15,291 RDE.train INFO: 
+Fitting GMM ...
+2024-03-19 01:49:16,408 RDE.train INFO: Confusion Matrix by A
+2024-03-19 01:49:16,417 RDE.train INFO: 
+[[    0     0]
+ [ 3150 31524]]
+2024-03-19 01:49:16,419 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.909127613554434
+2024-03-19 01:49:16,420 RDE.train INFO: Confusion Matrix by B
+2024-03-19 01:49:16,423 RDE.train INFO: 
+[[    0     0]
+ [ 3301 31373]]
+2024-03-19 01:49:16,426 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.9047728911319395
+2024-03-19 01:49:55,299 RDE.train INFO: Epoch[33] Iteration[100/542], loss: 2.3162, bge_loss: 1.1839, tse_loss: 1.1323, Base Lr: 5.14e-06
+2024-03-19 01:50:30,140 RDE.train INFO: Epoch[33] Iteration[200/542], loss: 2.3065, bge_loss: 1.1666, tse_loss: 1.1399, Base Lr: 5.14e-06
+2024-03-19 01:51:04,654 RDE.train INFO: Epoch[33] Iteration[300/542], loss: 2.3236, bge_loss: 1.1780, tse_loss: 1.1456, Base Lr: 5.14e-06
+2024-03-19 01:51:37,668 RDE.train INFO: Epoch[33] Iteration[400/542], loss: 2.3471, bge_loss: 1.1903, tse_loss: 1.1568, Base Lr: 5.14e-06
+2024-03-19 01:52:11,202 RDE.train INFO: Epoch[33] Iteration[500/542], loss: 2.3407, bge_loss: 1.1889, tse_loss: 1.1518, Base Lr: 5.14e-06
+2024-03-19 01:52:25,518 RDE.train INFO: Epoch 33 done. Time per batch: 0.585[s] Speed: 109.4[samples/s]
+2024-03-19 01:52:25,518 RDE.train INFO: Validation Results - Epoch: 33
+2024-03-19 01:55:10,892 RDE.eval INFO: 
++-------------+-------+-------+-------+-------+------+-----------+
+|     task    |   R1  |   R5  |  R10  |  mAP  | mINP |    rSum   |
++-------------+-------+-------+-------+-------+------+-----------+
+|   BGE-t2i   | 63.80 | 80.25 | 85.75 | 36.87 | 6.47 |  229.8015 |
+|   TSE-t2i   | 65.70 | 81.36 | 86.43 | 38.84 | 7.31 | 233.48953 |
+| BGE+TSE-t2i | 66.38 | 81.46 | 86.72 | 39.06 | 7.42 | 234.55762 |
++-------------+-------+-------+-------+-------+------+-----------+
+2024-03-19 01:55:26,692 RDE.train INFO: compute loss batch 0
+2024-03-19 01:55:45,268 RDE.train INFO: compute loss batch 100
+2024-03-19 01:56:01,303 RDE.train INFO: compute loss batch 200
+2024-03-19 01:56:14,512 RDE.train INFO: compute loss batch 300
+2024-03-19 01:56:28,705 RDE.train INFO: compute loss batch 400
+2024-03-19 01:56:42,921 RDE.train INFO: compute loss batch 500
+2024-03-19 01:56:48,626 RDE.train INFO: 
+Fitting GMM ...
+2024-03-19 01:56:48,628 RDE.train INFO: clean samples: 34674 	 noisy samples: 0
+2024-03-19 01:56:48,628 RDE.train INFO: 
+Fitting GMM ...
+2024-03-19 01:56:49,518 RDE.train INFO: Confusion Matrix by A
+2024-03-19 01:56:49,524 RDE.train INFO: 
+[[    0     0]
+ [ 3009 31665]]
+2024-03-19 01:56:49,525 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.9131939437635184
+2024-03-19 01:56:49,525 RDE.train INFO: Confusion Matrix by B
+2024-03-19 01:56:49,528 RDE.train INFO: 
+[[    0     0]
+ [ 2906 31768]]
+2024-03-19 01:56:49,529 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.9161643835616439
+2024-03-19 01:57:26,428 RDE.train INFO: Epoch[34] Iteration[100/542], loss: 2.2964, bge_loss: 1.1438, tse_loss: 1.1526, Base Lr: 4.86e-06
+2024-03-19 01:58:00,451 RDE.train INFO: Epoch[34] Iteration[200/542], loss: 2.3359, bge_loss: 1.1695, tse_loss: 1.1664, Base Lr: 4.86e-06
+2024-03-19 01:58:36,377 RDE.train INFO: Epoch[34] Iteration[300/542], loss: 2.3417, bge_loss: 1.1737, tse_loss: 1.1680, Base Lr: 4.86e-06
+2024-03-19 01:59:12,662 RDE.train INFO: Epoch[34] Iteration[400/542], loss: 2.3848, bge_loss: 1.1990, tse_loss: 1.1858, Base Lr: 4.86e-06
+2024-03-19 01:59:47,784 RDE.train INFO: Epoch[34] Iteration[500/542], loss: 2.3901, bge_loss: 1.1999, tse_loss: 1.1902, Base Lr: 4.86e-06
+2024-03-19 02:00:04,755 RDE.train INFO: Epoch 34 done. Time per batch: 0.521[s] Speed: 122.8[samples/s]
+2024-03-19 02:00:04,756 RDE.train INFO: Validation Results - Epoch: 34
+2024-03-19 02:03:27,139 RDE.eval INFO: 
++-------------+-------+-------+-------+-------+------+-----------+
+|     task    |   R1  |   R5  |  R10  |  mAP  | mINP |    rSum   |
++-------------+-------+-------+-------+-------+------+-----------+
+|   BGE-t2i   | 63.76 | 80.18 | 85.77 | 37.23 | 6.81 | 229.72089 |
+|   TSE-t2i   | 65.69 | 81.29 | 86.28 | 39.20 | 7.67 | 233.25775 |
+| BGE+TSE-t2i | 66.27 | 81.57 | 86.55 | 39.45 | 7.80 | 234.38632 |
++-------------+-------+-------+-------+-------+------+-----------+
+2024-03-19 02:03:33,584 RDE.train INFO: compute loss batch 0
+2024-03-19 02:03:58,666 RDE.train INFO: compute loss batch 100
+2024-03-19 02:04:20,163 RDE.train INFO: compute loss batch 200
+2024-03-19 02:04:40,994 RDE.train INFO: compute loss batch 300
+2024-03-19 02:05:06,364 RDE.train INFO: compute loss batch 400
+2024-03-19 02:05:31,350 RDE.train INFO: compute loss batch 500
+2024-03-19 02:05:42,599 RDE.train INFO: 
+Fitting GMM ...
+2024-03-19 02:05:42,621 RDE.train INFO: clean samples: 34674 	 noisy samples: 0
+2024-03-19 02:05:42,622 RDE.train INFO: 
+Fitting GMM ...
+2024-03-19 02:05:43,971 RDE.train INFO: Confusion Matrix by A
+2024-03-19 02:05:43,976 RDE.train INFO: 
+[[    0     0]
+ [ 2828 31846]]
+2024-03-19 02:05:43,976 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.9184138428262437
+2024-03-19 02:05:43,976 RDE.train INFO: Confusion Matrix by B
+2024-03-19 02:05:43,981 RDE.train INFO: 
+[[    0     0]
+ [ 3003 31671]]
+2024-03-19 02:05:43,983 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.9133669790915645
+2024-03-19 02:06:27,540 RDE.train INFO: Epoch[35] Iteration[100/542], loss: 2.3050, bge_loss: 1.1616, tse_loss: 1.1434, Base Lr: 4.57e-06
+2024-03-19 02:07:03,597 RDE.train INFO: Epoch[35] Iteration[200/542], loss: 2.2650, bge_loss: 1.1464, tse_loss: 1.1186, Base Lr: 4.57e-06
+2024-03-19 02:07:39,487 RDE.train INFO: Epoch[35] Iteration[300/542], loss: 2.2440, bge_loss: 1.1270, tse_loss: 1.1169, Base Lr: 4.57e-06
+2024-03-19 02:08:15,957 RDE.train INFO: Epoch[35] Iteration[400/542], loss: 2.2478, bge_loss: 1.1307, tse_loss: 1.1171, Base Lr: 4.57e-06
+2024-03-19 02:08:53,968 RDE.train INFO: Epoch[35] Iteration[500/542], loss: 2.2716, bge_loss: 1.1416, tse_loss: 1.1300, Base Lr: 4.57e-06
+2024-03-19 02:09:11,113 RDE.train INFO: Epoch 35 done. Time per batch: 0.633[s] Speed: 101.1[samples/s]
+2024-03-19 02:09:11,116 RDE.train INFO: Validation Results - Epoch: 35
+2024-03-19 02:13:03,530 RDE.eval INFO: 
++-------------+-------+-------+-------+-------+------+-----------+
+|     task    |   R1  |   R5  |  R10  |  mAP  | mINP |    rSum   |
++-------------+-------+-------+-------+-------+------+-----------+
+|   BGE-t2i   | 63.70 | 80.52 | 86.04 | 37.26 | 6.83 | 230.26501 |
+|   TSE-t2i   | 66.20 | 81.49 | 86.66 | 39.17 | 7.55 | 234.34602 |
+| BGE+TSE-t2i | 66.12 | 81.89 | 86.84 | 39.45 | 7.76 | 234.84985 |
++-------------+-------+-------+-------+-------+------+-----------+
+2024-03-19 02:13:09,322 RDE.train INFO: compute loss batch 0
+2024-03-19 02:13:30,150 RDE.train INFO: compute loss batch 100
+2024-03-19 02:13:50,303 RDE.train INFO: compute loss batch 200
+2024-03-19 02:14:10,764 RDE.train INFO: compute loss batch 300
+2024-03-19 02:14:29,946 RDE.train INFO: compute loss batch 400
+2024-03-19 02:14:48,848 RDE.train INFO: compute loss batch 500
+2024-03-19 02:14:56,928 RDE.train INFO: 
+Fitting GMM ...
+2024-03-19 02:14:56,930 RDE.train INFO: clean samples: 34674 	 noisy samples: 0
+2024-03-19 02:14:56,931 RDE.train INFO: 
+Fitting GMM ...
+2024-03-19 02:14:57,924 RDE.train INFO: Confusion Matrix by A
+2024-03-19 02:14:57,928 RDE.train INFO: 
+[[    0     0]
+ [ 2815 31859]]
+2024-03-19 02:14:57,929 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.918788752703677
+2024-03-19 02:14:57,929 RDE.train INFO: Confusion Matrix by B
+2024-03-19 02:14:57,931 RDE.train INFO: 
+[[    0     0]
+ [ 2608 32066]]
+2024-03-19 02:14:57,931 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.9247584715212689
+2024-03-19 02:15:35,486 RDE.train INFO: Epoch[36] Iteration[100/542], loss: 2.1826, bge_loss: 1.0808, tse_loss: 1.1018, Base Lr: 4.29e-06
+2024-03-19 02:16:08,585 RDE.train INFO: Epoch[36] Iteration[200/542], loss: 2.2294, bge_loss: 1.1121, tse_loss: 1.1173, Base Lr: 4.29e-06
+2024-03-19 02:16:44,369 RDE.train INFO: Epoch[36] Iteration[300/542], loss: 2.2209, bge_loss: 1.1130, tse_loss: 1.1079, Base Lr: 4.29e-06
+2024-03-19 02:17:20,321 RDE.train INFO: Epoch[36] Iteration[400/542], loss: 2.2704, bge_loss: 1.1414, tse_loss: 1.1290, Base Lr: 4.29e-06
+2024-03-19 02:17:56,709 RDE.train INFO: Epoch[36] Iteration[500/542], loss: 2.2928, bge_loss: 1.1498, tse_loss: 1.1431, Base Lr: 4.29e-06
+2024-03-19 02:18:13,195 RDE.train INFO: Epoch 36 done. Time per batch: 0.570[s] Speed: 112.3[samples/s]
+2024-03-19 02:18:13,196 RDE.train INFO: Validation Results - Epoch: 36
+2024-03-19 02:22:02,068 RDE.eval INFO: 
++-------------+-------+-------+-------+-------+------+-----------+
+|     task    |   R1  |   R5  |  R10  |  mAP  | mINP |    rSum   |
++-------------+-------+-------+-------+-------+------+-----------+
+|   BGE-t2i   | 63.67 | 80.26 | 85.82 | 36.81 | 6.40 | 229.75615 |
+|   TSE-t2i   | 65.88 | 81.61 | 86.53 | 38.74 | 7.22 | 234.01855 |
+| BGE+TSE-t2i | 66.29 | 81.67 | 86.81 | 39.01 | 7.34 | 234.77933 |
++-------------+-------+-------+-------+-------+------+-----------+
+2024-03-19 02:22:08,390 RDE.train INFO: compute loss batch 0
+2024-03-19 02:22:33,875 RDE.train INFO: compute loss batch 100
+2024-03-19 02:22:56,239 RDE.train INFO: compute loss batch 200
+2024-03-19 02:23:18,269 RDE.train INFO: compute loss batch 300
+2024-03-19 02:23:39,055 RDE.train INFO: compute loss batch 400
+2024-03-19 02:23:59,558 RDE.train INFO: compute loss batch 500
+2024-03-19 02:24:08,344 RDE.train INFO: 
+Fitting GMM ...
+2024-03-19 02:24:08,346 RDE.train INFO: clean samples: 34674 	 noisy samples: 0
+2024-03-19 02:24:08,347 RDE.train INFO: 
+Fitting GMM ...
+2024-03-19 02:24:09,383 RDE.train INFO: Confusion Matrix by A
+2024-03-19 02:24:09,387 RDE.train INFO: 
+[[    0     0]
+ [ 2650 32024]]
+2024-03-19 02:24:09,387 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.923547224224946
+2024-03-19 02:24:09,388 RDE.train INFO: Confusion Matrix by B
+2024-03-19 02:24:09,390 RDE.train INFO: 
+[[    0     0]
+ [ 2557 32117]]
+2024-03-19 02:24:09,390 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.9262292718096612
+2024-03-19 02:24:47,816 RDE.train INFO: Epoch[37] Iteration[100/542], loss: 2.3083, bge_loss: 1.1687, tse_loss: 1.1396, Base Lr: 4.01e-06
+2024-03-19 02:25:19,763 RDE.train INFO: Epoch[37] Iteration[200/542], loss: 2.2940, bge_loss: 1.1512, tse_loss: 1.1428, Base Lr: 4.01e-06
+2024-03-19 02:25:52,303 RDE.train INFO: Epoch[37] Iteration[300/542], loss: 2.2725, bge_loss: 1.1406, tse_loss: 1.1319, Base Lr: 4.01e-06
+2024-03-19 02:26:25,265 RDE.train INFO: Epoch[37] Iteration[400/542], loss: 2.2546, bge_loss: 1.1339, tse_loss: 1.1207, Base Lr: 4.01e-06
+2024-03-19 02:26:58,887 RDE.train INFO: Epoch[37] Iteration[500/542], loss: 2.2547, bge_loss: 1.1369, tse_loss: 1.1177, Base Lr: 4.01e-06
+2024-03-19 02:27:13,264 RDE.train INFO: Epoch 37 done. Time per batch: 0.572[s] Speed: 111.8[samples/s]
+2024-03-19 02:27:13,265 RDE.train INFO: Validation Results - Epoch: 37
+2024-03-19 02:29:56,767 RDE.eval INFO: 
++-------------+-------+-------+-------+-------+------+-----------+
+|     task    |   R1  |   R5  |  R10  |  mAP  | mINP |    rSum   |
++-------------+-------+-------+-------+-------+------+-----------+
+|   BGE-t2i   | 64.29 | 80.77 | 85.95 | 37.23 | 6.71 | 231.00565 |
+|   TSE-t2i   | 66.24 | 81.78 | 86.82 | 39.34 | 7.56 | 234.83978 |
+| BGE+TSE-t2i | 66.88 | 82.04 | 86.95 | 39.50 | 7.70 | 235.86761 |
++-------------+-------+-------+-------+-------+------+-----------+
+2024-03-19 02:30:19,614 RDE.train INFO: compute loss batch 0
+2024-03-19 02:30:39,414 RDE.train INFO: compute loss batch 100
+2024-03-19 02:30:59,114 RDE.train INFO: compute loss batch 200
+2024-03-19 02:31:17,517 RDE.train INFO: compute loss batch 300
+2024-03-19 02:31:36,099 RDE.train INFO: compute loss batch 400
+2024-03-19 02:31:58,553 RDE.train INFO: compute loss batch 500
+2024-03-19 02:32:08,554 RDE.train INFO: 
+Fitting GMM ...
+2024-03-19 02:32:08,556 RDE.train INFO: clean samples: 34674 	 noisy samples: 0
+2024-03-19 02:32:08,557 RDE.train INFO: 
+Fitting GMM ...
+2024-03-19 02:32:09,858 RDE.train INFO: Confusion Matrix by A
+2024-03-19 02:32:09,864 RDE.train INFO: 
+[[    0     0]
+ [ 2719 31955]]
+2024-03-19 02:32:09,866 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.9215573179524152
+2024-03-19 02:32:09,866 RDE.train INFO: Confusion Matrix by B
+2024-03-19 02:32:09,869 RDE.train INFO: 
+[[    0     0]
+ [ 2799 31875]]
+2024-03-19 02:32:09,870 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.9192501802451334
+2024-03-19 02:32:49,304 RDE.train INFO: Epoch[38] Iteration[100/542], loss: 2.2582, bge_loss: 1.1481, tse_loss: 1.1101, Base Lr: 3.73e-06
+2024-03-19 02:33:24,918 RDE.train INFO: Epoch[38] Iteration[200/542], loss: 2.1577, bge_loss: 1.1009, tse_loss: 1.0568, Base Lr: 3.73e-06
+2024-03-19 02:33:59,320 RDE.train INFO: Epoch[38] Iteration[300/542], loss: 2.1801, bge_loss: 1.1047, tse_loss: 1.0753, Base Lr: 3.73e-06
+2024-03-19 02:34:33,643 RDE.train INFO: Epoch[38] Iteration[400/542], loss: 2.1499, bge_loss: 1.0923, tse_loss: 1.0576, Base Lr: 3.73e-06
+2024-03-19 02:35:06,830 RDE.train INFO: Epoch[38] Iteration[500/542], loss: 2.1394, bge_loss: 1.0878, tse_loss: 1.0516, Base Lr: 3.73e-06
+2024-03-19 02:35:21,019 RDE.train INFO: Epoch 38 done. Time per batch: 0.569[s] Speed: 112.4[samples/s]
+2024-03-19 02:35:21,021 RDE.train INFO: Validation Results - Epoch: 38
+2024-03-19 02:37:59,360 RDE.eval INFO: 
++-------------+-------+-------+-------+-------+------+-----------+
+|     task    |   R1  |   R5  |  R10  |  mAP  | mINP |    rSum   |
++-------------+-------+-------+-------+-------+------+-----------+
+|   BGE-t2i   | 63.98 | 80.63 | 86.03 | 37.44 | 6.99 | 230.64288 |
+|   TSE-t2i   | 65.72 | 81.47 | 86.50 | 39.34 | 7.84 | 233.69608 |
+| BGE+TSE-t2i | 66.36 | 81.68 | 86.91 | 39.61 | 7.99 | 234.94559 |
++-------------+-------+-------+-------+-------+------+-----------+
+2024-03-19 02:38:04,293 RDE.train INFO: compute loss batch 0
+2024-03-19 02:38:24,800 RDE.train INFO: compute loss batch 100
+2024-03-19 02:38:42,520 RDE.train INFO: compute loss batch 200
+2024-03-19 02:39:01,519 RDE.train INFO: compute loss batch 300
+2024-03-19 02:39:20,539 RDE.train INFO: compute loss batch 400
+2024-03-19 02:39:39,792 RDE.train INFO: compute loss batch 500
+2024-03-19 02:39:50,001 RDE.train INFO: 
+Fitting GMM ...
+2024-03-19 02:39:50,003 RDE.train INFO: clean samples: 34674 	 noisy samples: 0
+2024-03-19 02:39:50,004 RDE.train INFO: 
+Fitting GMM ...
+2024-03-19 02:39:51,232 RDE.train INFO: Confusion Matrix by A
+2024-03-19 02:39:51,240 RDE.train INFO: 
+[[    0     0]
+ [ 2539 32135]]
+2024-03-19 02:39:51,241 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.9267483777937996
+2024-03-19 02:39:51,241 RDE.train INFO: Confusion Matrix by B
+2024-03-19 02:39:51,245 RDE.train INFO: 
+[[    0     0]
+ [ 2578 32096]]
+2024-03-19 02:39:51,248 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.9256236481614997
+2024-03-19 02:40:34,283 RDE.train INFO: Epoch[39] Iteration[100/542], loss: 2.1333, bge_loss: 1.0770, tse_loss: 1.0563, Base Lr: 3.45e-06
+2024-03-19 02:41:10,949 RDE.train INFO: Epoch[39] Iteration[200/542], loss: 2.1399, bge_loss: 1.0782, tse_loss: 1.0617, Base Lr: 3.45e-06
+2024-03-19 02:41:47,660 RDE.train INFO: Epoch[39] Iteration[300/542], loss: 2.1587, bge_loss: 1.0939, tse_loss: 1.0648, Base Lr: 3.45e-06
+2024-03-19 02:42:21,772 RDE.train INFO: Epoch[39] Iteration[400/542], loss: 2.1520, bge_loss: 1.0886, tse_loss: 1.0635, Base Lr: 3.45e-06
+2024-03-19 02:42:57,962 RDE.train INFO: Epoch[39] Iteration[500/542], loss: 2.1450, bge_loss: 1.0881, tse_loss: 1.0569, Base Lr: 3.45e-06
+2024-03-19 02:43:13,657 RDE.train INFO: Epoch 39 done. Time per batch: 0.579[s] Speed: 110.6[samples/s]
+2024-03-19 02:43:13,657 RDE.train INFO: Validation Results - Epoch: 39
+2024-03-19 02:47:03,108 RDE.eval INFO: 
++-------------+-------+-------+-------+-------+------+-----------+
+|     task    |   R1  |   R5  |  R10  |  mAP  | mINP |    rSum   |
++-------------+-------+-------+-------+-------+------+-----------+
+|   BGE-t2i   | 64.22 | 80.59 | 86.24 | 37.38 | 6.86 | 231.04593 |
+|   TSE-t2i   | 66.60 | 81.92 | 86.86 | 39.38 | 7.64 | 235.37888 |
+| BGE+TSE-t2i | 66.83 | 82.05 | 87.09 | 39.58 | 7.81 | 235.96835 |
++-------------+-------+-------+-------+-------+------+-----------+
+2024-03-19 02:47:10,571 RDE.train INFO: compute loss batch 0
+2024-03-19 02:47:39,545 RDE.train INFO: compute loss batch 100
+2024-03-19 02:48:06,813 RDE.train INFO: compute loss batch 200
+2024-03-19 02:48:31,829 RDE.train INFO: compute loss batch 300
+2024-03-19 02:48:56,326 RDE.train INFO: compute loss batch 400
+2024-03-19 02:49:17,744 RDE.train INFO: compute loss batch 500
+2024-03-19 02:49:25,110 RDE.train INFO: 
+Fitting GMM ...
+2024-03-19 02:49:25,112 RDE.train INFO: clean samples: 34674 	 noisy samples: 0
+2024-03-19 02:49:25,115 RDE.train INFO: 
+Fitting GMM ...
+2024-03-19 02:49:26,415 RDE.train INFO: Confusion Matrix by A
+2024-03-19 02:49:26,419 RDE.train INFO: 
+[[    0     0]
+ [ 2519 32155]]
+2024-03-19 02:49:26,421 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.92732516222062
+2024-03-19 02:49:26,421 RDE.train INFO: Confusion Matrix by B
+2024-03-19 02:49:26,427 RDE.train INFO: 
+[[    0     0]
+ [ 2610 32064]]
+2024-03-19 02:49:26,429 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.9247007930785869
+2024-03-19 02:50:07,737 RDE.train INFO: Epoch[40] Iteration[100/542], loss: 1.9525, bge_loss: 0.9898, tse_loss: 0.9627, Base Lr: 3.19e-06
+2024-03-19 02:50:43,015 RDE.train INFO: Epoch[40] Iteration[200/542], loss: 2.0977, bge_loss: 1.0581, tse_loss: 1.0396, Base Lr: 3.19e-06
+2024-03-19 02:51:18,601 RDE.train INFO: Epoch[40] Iteration[300/542], loss: 2.0962, bge_loss: 1.0634, tse_loss: 1.0329, Base Lr: 3.19e-06
+2024-03-19 02:51:53,950 RDE.train INFO: Epoch[40] Iteration[400/542], loss: 2.0750, bge_loss: 1.0498, tse_loss: 1.0252, Base Lr: 3.19e-06
+2024-03-19 02:52:29,225 RDE.train INFO: Epoch[40] Iteration[500/542], loss: 2.0788, bge_loss: 1.0520, tse_loss: 1.0268, Base Lr: 3.19e-06
+2024-03-19 02:52:45,607 RDE.train INFO: Epoch 40 done. Time per batch: 0.630[s] Speed: 101.5[samples/s]
+2024-03-19 02:52:45,608 RDE.train INFO: Validation Results - Epoch: 40
+2024-03-19 02:55:57,206 RDE.eval INFO: 
++-------------+-------+-------+-------+-------+------+-----------+
+|     task    |   R1  |   R5  |  R10  |  mAP  | mINP |    rSum   |
++-------------+-------+-------+-------+-------+------+-----------+
+|   BGE-t2i   | 64.40 | 80.85 | 86.21 | 37.44 | 6.73 | 231.45404 |
+|   TSE-t2i   | 66.64 | 81.84 | 86.76 | 39.51 | 7.49 | 235.24284 |
+| BGE+TSE-t2i | 67.01 | 82.04 | 87.02 | 39.68 | 7.66 | 236.07416 |
++-------------+-------+-------+-------+-------+------+-----------+
+2024-03-19 02:56:29,118 RDE.train INFO: compute loss batch 0
+2024-03-19 02:57:02,396 RDE.train INFO: compute loss batch 100
+2024-03-19 02:57:33,950 RDE.train INFO: compute loss batch 200
+2024-03-19 02:58:04,162 RDE.train INFO: compute loss batch 300
+2024-03-19 02:58:32,622 RDE.train INFO: compute loss batch 400
+2024-03-19 02:58:59,857 RDE.train INFO: compute loss batch 500
+2024-03-19 02:59:10,861 RDE.train INFO: 
+Fitting GMM ...
+2024-03-19 02:59:10,863 RDE.train INFO: clean samples: 34674 	 noisy samples: 0
+2024-03-19 02:59:10,864 RDE.train INFO: 
+Fitting GMM ...
+2024-03-19 02:59:12,135 RDE.train INFO: Confusion Matrix by A
+2024-03-19 02:59:12,142 RDE.train INFO: 
+[[    0     0]
+ [ 2398 32276]]
+2024-03-19 02:59:12,144 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.9308147080028839
+2024-03-19 02:59:12,144 RDE.train INFO: Confusion Matrix by B
+2024-03-19 02:59:12,149 RDE.train INFO: 
+[[    0     0]
+ [ 2366 32308]]
+2024-03-19 02:59:12,149 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.9317375630857967
+2024-03-19 02:59:56,431 RDE.train INFO: Epoch[41] Iteration[100/542], loss: 2.0721, bge_loss: 1.0532, tse_loss: 1.0189, Base Lr: 2.92e-06
+2024-03-19 03:00:33,141 RDE.train INFO: Epoch[41] Iteration[200/542], loss: 2.0398, bge_loss: 1.0403, tse_loss: 0.9994, Base Lr: 2.92e-06
+2024-03-19 03:01:08,782 RDE.train INFO: Epoch[41] Iteration[300/542], loss: 2.0652, bge_loss: 1.0511, tse_loss: 1.0141, Base Lr: 2.92e-06
+2024-03-19 03:01:43,158 RDE.train INFO: Epoch[41] Iteration[400/542], loss: 2.0755, bge_loss: 1.0532, tse_loss: 1.0223, Base Lr: 2.92e-06
+2024-03-19 03:02:16,580 RDE.train INFO: Epoch[41] Iteration[500/542], loss: 2.0825, bge_loss: 1.0533, tse_loss: 1.0292, Base Lr: 2.92e-06
+2024-03-19 03:02:31,114 RDE.train INFO: Epoch 41 done. Time per batch: 0.686[s] Speed: 93.4[samples/s]
+2024-03-19 03:02:31,115 RDE.train INFO: Validation Results - Epoch: 41
+2024-03-19 03:05:23,871 RDE.eval INFO: 
++-------------+-------+-------+-------+-------+------+-----------+
+|     task    |   R1  |   R5  |  R10  |  mAP  | mINP |    rSum   |
++-------------+-------+-------+-------+-------+------+-----------+
+|   BGE-t2i   | 64.70 | 80.75 | 86.25 | 37.48 | 6.79 | 231.70093 |
+|   TSE-t2i   | 66.93 | 81.93 | 86.78 | 39.46 | 7.49 | 235.64592 |
+| BGE+TSE-t2i | 67.25 | 82.11 | 86.98 | 39.68 | 7.69 | 236.34119 |
++-------------+-------+-------+-------+-------+------+-----------+
+2024-03-19 03:05:39,463 RDE.train INFO: compute loss batch 0
+2024-03-19 03:05:54,941 RDE.train INFO: compute loss batch 100
+2024-03-19 03:06:10,264 RDE.train INFO: compute loss batch 200
+2024-03-19 03:06:23,317 RDE.train INFO: compute loss batch 300
+2024-03-19 03:06:37,816 RDE.train INFO: compute loss batch 400
+2024-03-19 03:06:58,407 RDE.train INFO: compute loss batch 500
+2024-03-19 03:07:06,907 RDE.train INFO: 
+Fitting GMM ...
+2024-03-19 03:07:06,909 RDE.train INFO: clean samples: 34674 	 noisy samples: 0
+2024-03-19 03:07:06,909 RDE.train INFO: 
+Fitting GMM ...
+2024-03-19 03:07:07,906 RDE.train INFO: Confusion Matrix by A
+2024-03-19 03:07:07,913 RDE.train INFO: 
+[[    0     0]
+ [ 2562 32112]]
+2024-03-19 03:07:07,915 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.9260850757029561
+2024-03-19 03:07:07,917 RDE.train INFO: Confusion Matrix by B
+2024-03-19 03:07:07,920 RDE.train INFO: 
+[[    0     0]
+ [ 2707 31967]]
+2024-03-19 03:07:07,920 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.9219033886085076
+2024-03-19 03:07:46,312 RDE.train INFO: Epoch[42] Iteration[100/542], loss: 1.9685, bge_loss: 1.0043, tse_loss: 0.9642, Base Lr: 2.67e-06
+2024-03-19 03:08:20,485 RDE.train INFO: Epoch[42] Iteration[200/542], loss: 2.0122, bge_loss: 1.0264, tse_loss: 0.9858, Base Lr: 2.67e-06
+2024-03-19 03:08:54,400 RDE.train INFO: Epoch[42] Iteration[300/542], loss: 2.0157, bge_loss: 1.0290, tse_loss: 0.9867, Base Lr: 2.67e-06
+2024-03-19 03:09:29,103 RDE.train INFO: Epoch[42] Iteration[400/542], loss: 2.0002, bge_loss: 1.0201, tse_loss: 0.9800, Base Lr: 2.67e-06
+2024-03-19 03:10:02,469 RDE.train INFO: Epoch[42] Iteration[500/542], loss: 2.0241, bge_loss: 1.0316, tse_loss: 0.9925, Base Lr: 2.67e-06
+2024-03-19 03:10:17,160 RDE.train INFO: Epoch 42 done. Time per batch: 0.520[s] Speed: 123.2[samples/s]
+2024-03-19 03:10:17,161 RDE.train INFO: Validation Results - Epoch: 42
+2024-03-19 03:13:17,896 RDE.eval INFO: 
++-------------+-------+-------+-------+-------+------+-----------+
+|     task    |   R1  |   R5  |  R10  |  mAP  | mINP |    rSum   |
++-------------+-------+-------+-------+-------+------+-----------+
+|   BGE-t2i   | 64.55 | 80.86 | 86.31 | 37.80 | 6.99 | 231.72108 |
+|   TSE-t2i   | 66.69 | 82.15 | 87.15 | 40.00 | 7.88 | 235.99355 |
+| BGE+TSE-t2i | 67.38 | 82.21 | 87.09 | 40.11 | 8.00 | 236.68881 |
++-------------+-------+-------+-------+-------+------+-----------+
+2024-03-19 03:13:53,191 RDE.train INFO: compute loss batch 0
+2024-03-19 03:14:15,386 RDE.train INFO: compute loss batch 100
+2024-03-19 03:14:33,876 RDE.train INFO: compute loss batch 200
+2024-03-19 03:14:52,644 RDE.train INFO: compute loss batch 300
+2024-03-19 03:15:11,513 RDE.train INFO: compute loss batch 400
+2024-03-19 03:15:30,031 RDE.train INFO: compute loss batch 500
+2024-03-19 03:15:37,184 RDE.train INFO: 
+Fitting GMM ...
+2024-03-19 03:15:37,186 RDE.train INFO: clean samples: 34674 	 noisy samples: 0
+2024-03-19 03:15:37,187 RDE.train INFO: 
+Fitting GMM ...
+2024-03-19 03:15:38,114 RDE.train INFO: Confusion Matrix by A
+2024-03-19 03:15:38,117 RDE.train INFO: 
+[[    0     0]
+ [ 2572 32102]]
+2024-03-19 03:15:38,117 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.9257966834895458
+2024-03-19 03:15:38,117 RDE.train INFO: Confusion Matrix by B
+2024-03-19 03:15:38,119 RDE.train INFO: 
+[[    0     0]
+ [ 2482 32192]]
+2024-03-19 03:15:38,119 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.9283922134102379
+2024-03-19 03:16:14,475 RDE.train INFO: Epoch[43] Iteration[100/542], loss: 2.1348, bge_loss: 1.0802, tse_loss: 1.0546, Base Lr: 2.42e-06
+2024-03-19 03:16:48,661 RDE.train INFO: Epoch[43] Iteration[200/542], loss: 2.0605, bge_loss: 1.0389, tse_loss: 1.0217, Base Lr: 2.42e-06
+2024-03-19 03:17:23,508 RDE.train INFO: Epoch[43] Iteration[300/542], loss: 2.0239, bge_loss: 1.0215, tse_loss: 1.0024, Base Lr: 2.42e-06
+2024-03-19 03:17:57,949 RDE.train INFO: Epoch[43] Iteration[400/542], loss: 1.9942, bge_loss: 1.0062, tse_loss: 0.9880, Base Lr: 2.42e-06
+2024-03-19 03:18:32,395 RDE.train INFO: Epoch[43] Iteration[500/542], loss: 1.9779, bge_loss: 1.0007, tse_loss: 0.9772, Base Lr: 2.42e-06
+2024-03-19 03:18:47,393 RDE.train INFO: Epoch 43 done. Time per batch: 0.551[s] Speed: 116.1[samples/s]
+2024-03-19 03:18:47,393 RDE.train INFO: Validation Results - Epoch: 43
+2024-03-19 03:22:14,959 RDE.eval INFO: 
++-------------+-------+-------+-------+-------+------+-----------+
+|     task    |   R1  |   R5  |  R10  |  mAP  | mINP |    rSum   |
++-------------+-------+-------+-------+-------+------+-----------+
+|   BGE-t2i   | 64.75 | 80.94 | 86.41 | 37.66 | 6.86 | 232.09895 |
+|   TSE-t2i   | 66.83 | 82.16 | 87.04 | 39.74 | 7.70 | 236.02377 |
+| BGE+TSE-t2i | 67.42 | 82.36 | 87.18 | 39.88 | 7.84 | 236.95587 |
++-------------+-------+-------+-------+-------+------+-----------+
+2024-03-19 03:22:33,679 RDE.train INFO: compute loss batch 0
+2024-03-19 03:22:54,330 RDE.train INFO: compute loss batch 100
+2024-03-19 03:23:14,482 RDE.train INFO: compute loss batch 200
+2024-03-19 03:23:33,835 RDE.train INFO: compute loss batch 300
+2024-03-19 03:23:54,140 RDE.train INFO: compute loss batch 400
+2024-03-19 03:24:18,467 RDE.train INFO: compute loss batch 500
+2024-03-19 03:24:27,962 RDE.train INFO: 
+Fitting GMM ...
+2024-03-19 03:24:27,970 RDE.train INFO: clean samples: 34674 	 noisy samples: 0
+2024-03-19 03:24:27,974 RDE.train INFO: 
+Fitting GMM ...
+2024-03-19 03:24:28,876 RDE.train INFO: Confusion Matrix by A
+2024-03-19 03:24:28,881 RDE.train INFO: 
+[[    0     0]
+ [ 2540 32134]]
+2024-03-19 03:24:28,882 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.9267195385724586
+2024-03-19 03:24:28,882 RDE.train INFO: Confusion Matrix by B
+2024-03-19 03:24:28,884 RDE.train INFO: 
+[[    0     0]
+ [ 2562 32112]]
+2024-03-19 03:24:28,886 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.9260850757029561
+2024-03-19 03:25:06,863 RDE.train INFO: Epoch[44] Iteration[100/542], loss: 2.0542, bge_loss: 1.0412, tse_loss: 1.0130, Base Lr: 2.18e-06
+2024-03-19 03:25:41,722 RDE.train INFO: Epoch[44] Iteration[200/542], loss: 1.9787, bge_loss: 1.0002, tse_loss: 0.9784, Base Lr: 2.18e-06
+2024-03-19 03:26:16,783 RDE.train INFO: Epoch[44] Iteration[300/542], loss: 1.9744, bge_loss: 0.9993, tse_loss: 0.9752, Base Lr: 2.18e-06
+2024-03-19 03:26:53,392 RDE.train INFO: Epoch[44] Iteration[400/542], loss: 1.9778, bge_loss: 1.0043, tse_loss: 0.9734, Base Lr: 2.18e-06
+2024-03-19 03:27:30,268 RDE.train INFO: Epoch[44] Iteration[500/542], loss: 1.9515, bge_loss: 0.9910, tse_loss: 0.9605, Base Lr: 2.18e-06
+2024-03-19 03:27:46,853 RDE.train INFO: Epoch 44 done. Time per batch: 0.590[s] Speed: 108.5[samples/s]
+2024-03-19 03:27:46,856 RDE.train INFO: Validation Results - Epoch: 44
+2024-03-19 03:31:36,772 RDE.eval INFO: 
++-------------+-------+-------+-------+-------+------+-----------+
+|     task    |   R1  |   R5  |  R10  |  mAP  | mINP |    rSum   |
++-------------+-------+-------+-------+-------+------+-----------+
+|   BGE-t2i   | 64.64 | 81.07 | 86.45 | 37.73 | 6.85 | 232.15436 |
+|   TSE-t2i   | 67.22 | 82.29 | 87.08 | 39.87 | 7.65 | 236.58304 |
+| BGE+TSE-t2i | 67.51 | 82.36 | 87.24 | 39.97 | 7.80 | 237.10701 |
++-------------+-------+-------+-------+-------+------+-----------+
+2024-03-19 03:32:02,721 RDE.train INFO: compute loss batch 0
+2024-03-19 03:32:28,366 RDE.train INFO: compute loss batch 100
+2024-03-19 03:32:50,994 RDE.train INFO: compute loss batch 200
+2024-03-19 03:33:08,901 RDE.train INFO: compute loss batch 300
+2024-03-19 03:33:28,896 RDE.train INFO: compute loss batch 400
+2024-03-19 03:33:48,398 RDE.train INFO: compute loss batch 500
+2024-03-19 03:33:56,385 RDE.train INFO: 
+Fitting GMM ...
+2024-03-19 03:33:56,386 RDE.train INFO: clean samples: 34674 	 noisy samples: 0
+2024-03-19 03:33:56,387 RDE.train INFO: 
+Fitting GMM ...
+2024-03-19 03:33:57,424 RDE.train INFO: Confusion Matrix by A
+2024-03-19 03:33:57,430 RDE.train INFO: 
+[[    0     0]
+ [ 2673 32001]]
+2024-03-19 03:33:57,431 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.9228839221341024
+2024-03-19 03:33:57,432 RDE.train INFO: Confusion Matrix by B
+2024-03-19 03:33:57,434 RDE.train INFO: 
+[[    0     0]
+ [ 2366 32308]]
+2024-03-19 03:33:57,435 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.9317375630857967
+2024-03-19 03:34:35,736 RDE.train INFO: Epoch[45] Iteration[100/542], loss: 1.8803, bge_loss: 0.9685, tse_loss: 0.9118, Base Lr: 1.95e-06
+2024-03-19 03:35:09,412 RDE.train INFO: Epoch[45] Iteration[200/542], loss: 1.9019, bge_loss: 0.9832, tse_loss: 0.9187, Base Lr: 1.95e-06
+2024-03-19 03:35:43,674 RDE.train INFO: Epoch[45] Iteration[300/542], loss: 1.9012, bge_loss: 0.9801, tse_loss: 0.9211, Base Lr: 1.95e-06
+2024-03-19 03:36:18,337 RDE.train INFO: Epoch[45] Iteration[400/542], loss: 1.9078, bge_loss: 0.9803, tse_loss: 0.9275, Base Lr: 1.95e-06
+2024-03-19 03:36:54,110 RDE.train INFO: Epoch[45] Iteration[500/542], loss: 1.8835, bge_loss: 0.9689, tse_loss: 0.9146, Base Lr: 1.95e-06
+2024-03-19 03:37:10,542 RDE.train INFO: Epoch 45 done. Time per batch: 0.581[s] Speed: 110.1[samples/s]
+2024-03-19 03:37:10,543 RDE.train INFO: Validation Results - Epoch: 45
+2024-03-19 03:41:12,127 RDE.eval INFO: 
++-------------+-------+-------+-------+-------+------+-----------+
+|     task    |   R1  |   R5  |  R10  |  mAP  | mINP |    rSum   |
++-------------+-------+-------+-------+-------+------+-----------+
+|   BGE-t2i   | 64.64 | 81.11 | 86.47 | 37.68 | 6.77 | 232.21988 |
+|   TSE-t2i   | 67.15 | 82.21 | 87.11 | 39.84 | 7.51 | 236.47723 |
+| BGE+TSE-t2i | 67.41 | 82.49 | 87.20 | 39.95 | 7.70 | 237.09694 |
++-------------+-------+-------+-------+-------+------+-----------+
+2024-03-19 03:41:22,231 RDE.train INFO: compute loss batch 0
+2024-03-19 03:41:50,329 RDE.train INFO: compute loss batch 100
+2024-03-19 03:42:16,928 RDE.train INFO: compute loss batch 200
+2024-03-19 03:42:42,174 RDE.train INFO: compute loss batch 300
+2024-03-19 03:43:06,422 RDE.train INFO: compute loss batch 400
+2024-03-19 03:43:28,490 RDE.train INFO: compute loss batch 500
+2024-03-19 03:43:37,682 RDE.train INFO: 
+Fitting GMM ...
+2024-03-19 03:43:37,684 RDE.train INFO: clean samples: 34674 	 noisy samples: 0
+2024-03-19 03:43:37,686 RDE.train INFO: 
+Fitting GMM ...
+2024-03-19 03:43:38,701 RDE.train INFO: Confusion Matrix by A
+2024-03-19 03:43:38,710 RDE.train INFO: 
+[[    0     0]
+ [ 2201 32473]]
+2024-03-19 03:43:38,715 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.9364960346070657
+2024-03-19 03:43:38,716 RDE.train INFO: Confusion Matrix by B
+2024-03-19 03:43:38,721 RDE.train INFO: 
+[[    0     0]
+ [ 2184 32490]]
+2024-03-19 03:43:38,722 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.936986301369863
+2024-03-19 03:44:16,917 RDE.train INFO: Epoch[46] Iteration[100/542], loss: 2.0657, bge_loss: 1.0696, tse_loss: 0.9961, Base Lr: 1.73e-06
+2024-03-19 03:44:49,818 RDE.train INFO: Epoch[46] Iteration[200/542], loss: 1.9341, bge_loss: 0.9900, tse_loss: 0.9441, Base Lr: 1.73e-06
+2024-03-19 03:45:22,610 RDE.train INFO: Epoch[46] Iteration[300/542], loss: 2.0038, bge_loss: 1.0206, tse_loss: 0.9832, Base Lr: 1.73e-06
+2024-03-19 03:45:55,379 RDE.train INFO: Epoch[46] Iteration[400/542], loss: 1.9651, bge_loss: 1.0013, tse_loss: 0.9638, Base Lr: 1.73e-06
+2024-03-19 03:46:28,442 RDE.train INFO: Epoch[46] Iteration[500/542], loss: 1.9373, bge_loss: 0.9889, tse_loss: 0.9484, Base Lr: 1.73e-06
+2024-03-19 03:46:42,776 RDE.train INFO: Epoch 46 done. Time per batch: 0.608[s] Speed: 105.3[samples/s]
+2024-03-19 03:46:42,777 RDE.train INFO: Validation Results - Epoch: 46
+2024-03-19 03:49:19,676 RDE.eval INFO: 
++-------------+-------+-------+-------+-------+------+-----------+
+|     task    |   R1  |   R5  |  R10  |  mAP  | mINP |    rSum   |
++-------------+-------+-------+-------+-------+------+-----------+
+|   BGE-t2i   | 64.65 | 80.98 | 86.39 | 37.76 | 7.00 | 232.01834 |
+|   TSE-t2i   | 66.87 | 82.28 | 87.20 | 39.88 | 7.83 | 236.34624 |
+| BGE+TSE-t2i | 67.24 | 82.54 | 87.29 | 40.01 | 7.98 | 237.07175 |
++-------------+-------+-------+-------+-------+------+-----------+
+2024-03-19 03:49:26,799 RDE.train INFO: compute loss batch 0
+2024-03-19 03:49:42,843 RDE.train INFO: compute loss batch 100
+2024-03-19 03:49:57,934 RDE.train INFO: compute loss batch 200
+2024-03-19 03:50:18,399 RDE.train INFO: compute loss batch 300
+2024-03-19 03:50:37,203 RDE.train INFO: compute loss batch 400
+2024-03-19 03:51:07,066 RDE.train INFO: compute loss batch 500
+2024-03-19 03:51:15,157 RDE.train INFO: 
+Fitting GMM ...
+2024-03-19 03:51:15,158 RDE.train INFO: clean samples: 34674 	 noisy samples: 0
+2024-03-19 03:51:15,159 RDE.train INFO: 
+Fitting GMM ...
+2024-03-19 03:51:16,200 RDE.train INFO: Confusion Matrix by A
+2024-03-19 03:51:16,207 RDE.train INFO: 
+[[    0     0]
+ [ 2437 32237]]
+2024-03-19 03:51:16,207 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.929689978370584
+2024-03-19 03:51:16,207 RDE.train INFO: Confusion Matrix by B
+2024-03-19 03:51:16,211 RDE.train INFO: 
+[[    0     0]
+ [ 2252 32422]]
+2024-03-19 03:51:16,212 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.9350252343186733
+2024-03-19 03:51:54,803 RDE.train INFO: Epoch[47] Iteration[100/542], loss: 1.8994, bge_loss: 0.9717, tse_loss: 0.9277, Base Lr: 1.52e-06
+2024-03-19 03:52:29,109 RDE.train INFO: Epoch[47] Iteration[200/542], loss: 1.9391, bge_loss: 0.9900, tse_loss: 0.9490, Base Lr: 1.52e-06
+2024-03-19 03:53:02,429 RDE.train INFO: Epoch[47] Iteration[300/542], loss: 1.9666, bge_loss: 1.0078, tse_loss: 0.9588, Base Lr: 1.52e-06
+2024-03-19 03:53:33,795 RDE.train INFO: Epoch[47] Iteration[400/542], loss: 1.9548, bge_loss: 1.0011, tse_loss: 0.9537, Base Lr: 1.52e-06
+2024-03-19 03:54:05,352 RDE.train INFO: Epoch[47] Iteration[500/542], loss: 1.9435, bge_loss: 0.9950, tse_loss: 0.9486, Base Lr: 1.52e-06
+2024-03-19 03:54:18,961 RDE.train INFO: Epoch 47 done. Time per batch: 0.551[s] Speed: 116.2[samples/s]
+2024-03-19 03:54:18,961 RDE.train INFO: Validation Results - Epoch: 47
+2024-03-19 03:56:46,265 RDE.eval INFO: 
++-------------+-------+-------+-------+-------+------+-----------+
+|     task    |   R1  |   R5  |  R10  |  mAP  | mINP |    rSum   |
++-------------+-------+-------+-------+-------+------+-----------+
+|   BGE-t2i   | 64.76 | 80.98 | 86.41 | 37.80 | 7.04 |  232.1443 |
+|   TSE-t2i   | 67.12 | 82.39 | 87.19 | 39.95 | 7.89 | 236.68884 |
+| BGE+TSE-t2i | 67.58 | 82.35 | 87.25 | 40.08 | 8.03 | 237.17252 |
++-------------+-------+-------+-------+-------+------+-----------+
+2024-03-19 03:56:59,086 RDE.train INFO: compute loss batch 0
+2024-03-19 03:57:11,641 RDE.train INFO: compute loss batch 100
+2024-03-19 03:57:23,894 RDE.train INFO: compute loss batch 200
+2024-03-19 03:57:35,976 RDE.train INFO: compute loss batch 300
+2024-03-19 03:57:48,011 RDE.train INFO: compute loss batch 400
+2024-03-19 03:57:59,979 RDE.train INFO: compute loss batch 500
+2024-03-19 03:58:05,221 RDE.train INFO: 
+Fitting GMM ...
+2024-03-19 03:58:05,222 RDE.train INFO: clean samples: 34674 	 noisy samples: 0
+2024-03-19 03:58:05,222 RDE.train INFO: 
+Fitting GMM ...
+2024-03-19 03:58:05,925 RDE.train INFO: Confusion Matrix by A
+2024-03-19 03:58:05,928 RDE.train INFO: 
+[[    0     0]
+ [ 2449 32225]]
+2024-03-19 03:58:05,929 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.9293439077144917
+2024-03-19 03:58:05,929 RDE.train INFO: Confusion Matrix by B
+2024-03-19 03:58:05,930 RDE.train INFO: 
+[[    0     0]
+ [ 2274 32400]]
+2024-03-19 03:58:05,930 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.9343907714491708
+2024-03-19 03:58:39,069 RDE.train INFO: Epoch[48] Iteration[100/542], loss: 1.8469, bge_loss: 0.9407, tse_loss: 0.9062, Base Lr: 1.32e-06
+2024-03-19 03:59:11,155 RDE.train INFO: Epoch[48] Iteration[200/542], loss: 1.8381, bge_loss: 0.9385, tse_loss: 0.8996, Base Lr: 1.32e-06
+2024-03-19 03:59:44,363 RDE.train INFO: Epoch[48] Iteration[300/542], loss: 1.8424, bge_loss: 0.9505, tse_loss: 0.8919, Base Lr: 1.32e-06
+2024-03-19 04:00:16,893 RDE.train INFO: Epoch[48] Iteration[400/542], loss: 1.8244, bge_loss: 0.9377, tse_loss: 0.8867, Base Lr: 1.32e-06
+2024-03-19 04:00:50,466 RDE.train INFO: Epoch[48] Iteration[500/542], loss: 1.8315, bge_loss: 0.9394, tse_loss: 0.8921, Base Lr: 1.32e-06
+2024-03-19 04:01:05,463 RDE.train INFO: Epoch 48 done. Time per batch: 0.461[s] Speed: 138.8[samples/s]
+2024-03-19 04:01:05,463 RDE.train INFO: Validation Results - Epoch: 48
+2024-03-19 04:03:47,817 RDE.eval INFO: 
++-------------+-------+-------+-------+-------+------+-----------+
+|     task    |   R1  |   R5  |  R10  |  mAP  | mINP |    rSum   |
++-------------+-------+-------+-------+-------+------+-----------+
+|   BGE-t2i   | 64.78 | 81.12 | 86.41 | 37.77 | 6.94 | 232.30553 |
+|   TSE-t2i   | 67.17 | 82.46 | 87.24 | 39.94 | 7.68 | 236.87524 |
+| BGE+TSE-t2i | 67.66 | 82.47 | 87.37 | 40.06 | 7.87 | 237.49998 |
++-------------+-------+-------+-------+-------+------+-----------+
+2024-03-19 04:04:04,611 RDE.train INFO: compute loss batch 0
+2024-03-19 04:04:24,361 RDE.train INFO: compute loss batch 100
+2024-03-19 04:04:43,279 RDE.train INFO: compute loss batch 200
+2024-03-19 04:05:01,782 RDE.train INFO: compute loss batch 300
+2024-03-19 04:05:20,956 RDE.train INFO: compute loss batch 400
+2024-03-19 04:05:40,302 RDE.train INFO: compute loss batch 500
+2024-03-19 04:05:48,448 RDE.train INFO: 
+Fitting GMM ...
+2024-03-19 04:05:48,450 RDE.train INFO: clean samples: 34674 	 noisy samples: 0
+2024-03-19 04:05:48,451 RDE.train INFO: 
+Fitting GMM ...
+2024-03-19 04:05:50,364 RDE.train INFO: Confusion Matrix by A
+2024-03-19 04:05:50,367 RDE.train INFO: 
+[[    0     0]
+ [ 2175 32499]]
+2024-03-19 04:05:50,367 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.9372458543619322
+2024-03-19 04:05:50,367 RDE.train INFO: Confusion Matrix by B
+2024-03-19 04:05:50,369 RDE.train INFO: 
+[[    0     0]
+ [ 2263 32411]]
+2024-03-19 04:05:50,370 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.9347080028839221
+2024-03-19 04:06:29,486 RDE.train INFO: Epoch[49] Iteration[100/542], loss: 1.9643, bge_loss: 1.0182, tse_loss: 0.9461, Base Lr: 1.13e-06
+2024-03-19 04:07:02,461 RDE.train INFO: Epoch[49] Iteration[200/542], loss: 1.9507, bge_loss: 1.0087, tse_loss: 0.9421, Base Lr: 1.13e-06
+2024-03-19 04:07:34,745 RDE.train INFO: Epoch[49] Iteration[300/542], loss: 1.9116, bge_loss: 0.9886, tse_loss: 0.9230, Base Lr: 1.13e-06
+2024-03-19 04:08:06,887 RDE.train INFO: Epoch[49] Iteration[400/542], loss: 1.9366, bge_loss: 1.0017, tse_loss: 0.9349, Base Lr: 1.13e-06
+2024-03-19 04:08:38,342 RDE.train INFO: Epoch[49] Iteration[500/542], loss: 1.9242, bge_loss: 0.9968, tse_loss: 0.9274, Base Lr: 1.13e-06
+2024-03-19 04:08:51,982 RDE.train INFO: Epoch 49 done. Time per batch: 0.541[s] Speed: 118.3[samples/s]
+2024-03-19 04:08:51,982 RDE.train INFO: Validation Results - Epoch: 49
+2024-03-19 04:11:36,377 RDE.eval INFO: 
++-------------+-------+-------+-------+-------+------+-----------+
+|     task    |   R1  |   R5  |  R10  |  mAP  | mINP |    rSum   |
++-------------+-------+-------+-------+-------+------+-----------+
+|   BGE-t2i   | 64.88 | 81.22 | 86.45 | 37.78 | 6.96 | 232.54736 |
+|   TSE-t2i   | 67.02 | 82.32 | 87.16 | 39.95 | 7.83 | 236.50241 |
+| BGE+TSE-t2i | 67.41 | 82.54 | 87.30 | 40.05 | 7.95 | 237.24808 |
++-------------+-------+-------+-------+-------+------+-----------+
+2024-03-19 04:11:41,977 RDE.train INFO: compute loss batch 0
+2024-03-19 04:12:01,944 RDE.train INFO: compute loss batch 100
+2024-03-19 04:12:21,041 RDE.train INFO: compute loss batch 200
+2024-03-19 04:12:39,291 RDE.train INFO: compute loss batch 300
+2024-03-19 04:12:53,150 RDE.train INFO: compute loss batch 400
+2024-03-19 04:13:06,172 RDE.train INFO: compute loss batch 500
+2024-03-19 04:13:12,014 RDE.train INFO: 
+Fitting GMM ...
+2024-03-19 04:13:12,016 RDE.train INFO: clean samples: 34674 	 noisy samples: 0
+2024-03-19 04:13:12,017 RDE.train INFO: 
+Fitting GMM ...
+2024-03-19 04:13:12,943 RDE.train INFO: Confusion Matrix by A
+2024-03-19 04:13:12,947 RDE.train INFO: 
+[[    0     0]
+ [ 2095 32579]]
+2024-03-19 04:13:12,947 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.9395529920692142
+2024-03-19 04:13:12,947 RDE.train INFO: Confusion Matrix by B
+2024-03-19 04:13:12,951 RDE.train INFO: 
+[[    0     0]
+ [ 2229 32445]]
+2024-03-19 04:13:12,951 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.935688536409517
+2024-03-19 04:13:48,923 RDE.train INFO: Epoch[50] Iteration[100/542], loss: 1.9148, bge_loss: 0.9852, tse_loss: 0.9296, Base Lr: 9.55e-07
+2024-03-19 04:14:24,964 RDE.train INFO: Epoch[50] Iteration[200/542], loss: 1.8791, bge_loss: 0.9568, tse_loss: 0.9223, Base Lr: 9.55e-07
+2024-03-19 04:15:00,218 RDE.train INFO: Epoch[50] Iteration[300/542], loss: 1.8786, bge_loss: 0.9634, tse_loss: 0.9151, Base Lr: 9.55e-07
+2024-03-19 04:15:35,295 RDE.train INFO: Epoch[50] Iteration[400/542], loss: 1.8957, bge_loss: 0.9727, tse_loss: 0.9230, Base Lr: 9.55e-07
+2024-03-19 04:16:10,570 RDE.train INFO: Epoch[50] Iteration[500/542], loss: 1.8717, bge_loss: 0.9612, tse_loss: 0.9104, Base Lr: 9.55e-07
+2024-03-19 04:16:25,957 RDE.train INFO: Epoch 50 done. Time per batch: 0.533[s] Speed: 120.1[samples/s]
+2024-03-19 04:16:25,957 RDE.train INFO: Validation Results - Epoch: 50
+2024-03-19 04:19:10,313 RDE.eval INFO: 
++-------------+-------+-------+-------+-------+------+-----------+
+|     task    |   R1  |   R5  |  R10  |  mAP  | mINP |    rSum   |
++-------------+-------+-------+-------+-------+------+-----------+
+|   BGE-t2i   | 64.82 | 81.05 | 86.41 | 37.81 | 7.01 | 232.27528 |
+|   TSE-t2i   | 67.25 | 82.32 | 87.30 | 40.01 | 7.87 | 236.86517 |
+| BGE+TSE-t2i | 67.60 | 82.54 | 87.25 | 40.11 | 8.01 |  237.3942 |
++-------------+-------+-------+-------+-------+------+-----------+
+2024-03-19 04:19:14,753 RDE.train INFO: compute loss batch 0
+2024-03-19 04:19:30,606 RDE.train INFO: compute loss batch 100
+2024-03-19 04:19:43,602 RDE.train INFO: compute loss batch 200
+2024-03-19 04:19:56,394 RDE.train INFO: compute loss batch 300
+2024-03-19 04:20:09,141 RDE.train INFO: compute loss batch 400
+2024-03-19 04:20:21,972 RDE.train INFO: compute loss batch 500
+2024-03-19 04:20:27,701 RDE.train INFO: 
+Fitting GMM ...
+2024-03-19 04:20:27,712 RDE.train INFO: clean samples: 34674 	 noisy samples: 0
+2024-03-19 04:20:27,712 RDE.train INFO: 
+Fitting GMM ...
+2024-03-19 04:20:28,533 RDE.train INFO: Confusion Matrix by A
+2024-03-19 04:20:28,540 RDE.train INFO: 
+[[    0     0]
+ [ 2432 32242]]
+2024-03-19 04:20:28,541 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.9298341744772891
+2024-03-19 04:20:28,542 RDE.train INFO: Confusion Matrix by B
+2024-03-19 04:20:28,546 RDE.train INFO: 
+[[    0     0]
+ [ 2378 32296]]
+2024-03-19 04:20:28,548 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.9313914924297044
+2024-03-19 04:21:04,746 RDE.train INFO: Epoch[51] Iteration[100/542], loss: 1.8454, bge_loss: 0.9558, tse_loss: 0.8896, Base Lr: 7.94e-07
+2024-03-19 04:21:37,777 RDE.train INFO: Epoch[51] Iteration[200/542], loss: 1.9517, bge_loss: 1.0047, tse_loss: 0.9470, Base Lr: 7.94e-07
+2024-03-19 04:22:10,548 RDE.train INFO: Epoch[51] Iteration[300/542], loss: 1.9295, bge_loss: 0.9890, tse_loss: 0.9404, Base Lr: 7.94e-07
+2024-03-19 04:22:43,022 RDE.train INFO: Epoch[51] Iteration[400/542], loss: 1.9262, bge_loss: 0.9871, tse_loss: 0.9391, Base Lr: 7.94e-07
+2024-03-19 04:23:16,266 RDE.train INFO: Epoch[51] Iteration[500/542], loss: 1.9079, bge_loss: 0.9804, tse_loss: 0.9275, Base Lr: 7.94e-07
+2024-03-19 04:23:29,768 RDE.train INFO: Epoch 51 done. Time per batch: 0.477[s] Speed: 134.0[samples/s]
+2024-03-19 04:23:29,768 RDE.train INFO: Validation Results - Epoch: 51
+2024-03-19 04:26:01,455 RDE.eval INFO: 
++-------------+-------+-------+-------+-------+------+-----------+
+|     task    |   R1  |   R5  |  R10  |  mAP  | mINP |    rSum   |
++-------------+-------+-------+-------+-------+------+-----------+
+|   BGE-t2i   | 64.90 | 81.08 | 86.43 | 37.82 | 6.97 | 232.40628 |
+|   TSE-t2i   | 67.11 | 82.45 | 87.26 | 40.02 | 7.83 | 236.82487 |
+| BGE+TSE-t2i | 67.52 | 82.60 | 87.32 | 40.11 | 7.97 | 237.44458 |
++-------------+-------+-------+-------+-------+------+-----------+
+2024-03-19 04:26:05,740 RDE.train INFO: compute loss batch 0
+2024-03-19 04:26:20,555 RDE.train INFO: compute loss batch 100
+2024-03-19 04:26:33,341 RDE.train INFO: compute loss batch 200
+2024-03-19 04:26:46,064 RDE.train INFO: compute loss batch 300
+2024-03-19 04:26:58,661 RDE.train INFO: compute loss batch 400
+2024-03-19 04:27:11,300 RDE.train INFO: compute loss batch 500
+2024-03-19 04:27:16,784 RDE.train INFO: 
+Fitting GMM ...
+2024-03-19 04:27:16,785 RDE.train INFO: clean samples: 34674 	 noisy samples: 0
+2024-03-19 04:27:16,786 RDE.train INFO: 
+Fitting GMM ...
+2024-03-19 04:27:17,587 RDE.train INFO: Confusion Matrix by A
+2024-03-19 04:27:17,590 RDE.train INFO: 
+[[    0     0]
+ [ 2301 32373]]
+2024-03-19 04:27:17,590 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.9336121124729633
+2024-03-19 04:27:17,590 RDE.train INFO: Confusion Matrix by B
+2024-03-19 04:27:17,592 RDE.train INFO: 
+[[    0     0]
+ [ 2231 32443]]
+2024-03-19 04:27:17,592 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.9356308579668349
+2024-03-19 04:27:52,424 RDE.train INFO: Epoch[52] Iteration[100/542], loss: 1.9316, bge_loss: 1.0002, tse_loss: 0.9314, Base Lr: 6.46e-07
+2024-03-19 04:28:24,033 RDE.train INFO: Epoch[52] Iteration[200/542], loss: 1.9240, bge_loss: 0.9910, tse_loss: 0.9330, Base Lr: 6.46e-07
+2024-03-19 04:28:55,464 RDE.train INFO: Epoch[52] Iteration[300/542], loss: 1.9071, bge_loss: 0.9897, tse_loss: 0.9174, Base Lr: 6.46e-07
+2024-03-19 04:29:27,184 RDE.train INFO: Epoch[52] Iteration[400/542], loss: 1.8679, bge_loss: 0.9685, tse_loss: 0.8995, Base Lr: 6.46e-07
+2024-03-19 04:29:59,763 RDE.train INFO: Epoch[52] Iteration[500/542], loss: 1.8611, bge_loss: 0.9648, tse_loss: 0.8963, Base Lr: 6.46e-07
+2024-03-19 04:30:14,286 RDE.train INFO: Epoch 52 done. Time per batch: 0.465[s] Speed: 137.5[samples/s]
+2024-03-19 04:30:14,287 RDE.train INFO: Validation Results - Epoch: 52
+2024-03-19 04:32:58,112 RDE.eval INFO: 
++-------------+-------+-------+-------+-------+------+-----------+
+|     task    |   R1  |   R5  |  R10  |  mAP  | mINP |    rSum   |
++-------------+-------+-------+-------+-------+------+-----------+
+|   BGE-t2i   | 64.97 | 81.17 | 86.48 | 37.83 | 6.95 | 232.61789 |
+|   TSE-t2i   | 67.27 | 82.46 | 87.23 | 40.01 | 7.81 | 236.96594 |
+| BGE+TSE-t2i | 67.63 | 82.54 | 87.33 | 40.11 | 7.94 | 237.49496 |
++-------------+-------+-------+-------+-------+------+-----------+
+2024-03-19 04:33:03,566 RDE.train INFO: compute loss batch 0
+2024-03-19 04:33:21,519 RDE.train INFO: compute loss batch 100
+2024-03-19 04:33:36,945 RDE.train INFO: compute loss batch 200
+2024-03-19 04:33:51,234 RDE.train INFO: compute loss batch 300
+2024-03-19 04:34:05,914 RDE.train INFO: compute loss batch 400
+2024-03-19 04:34:19,543 RDE.train INFO: compute loss batch 500
+2024-03-19 04:34:25,740 RDE.train INFO: 
+Fitting GMM ...
+2024-03-19 04:34:25,742 RDE.train INFO: clean samples: 34674 	 noisy samples: 0
+2024-03-19 04:34:25,743 RDE.train INFO: 
+Fitting GMM ...
+2024-03-19 04:34:26,724 RDE.train INFO: Confusion Matrix by A
+2024-03-19 04:34:26,729 RDE.train INFO: 
+[[    0     0]
+ [ 2238 32436]]
+2024-03-19 04:34:26,729 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.9354289834174477
+2024-03-19 04:34:26,729 RDE.train INFO: Confusion Matrix by B
+2024-03-19 04:34:26,731 RDE.train INFO: 
+[[    0     0]
+ [ 2261 32413]]
+2024-03-19 04:34:26,731 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.9347656813266042
+2024-03-19 04:35:02,463 RDE.train INFO: Epoch[53] Iteration[100/542], loss: 1.8401, bge_loss: 0.9415, tse_loss: 0.8986, Base Lr: 5.13e-07
+2024-03-19 04:35:34,174 RDE.train INFO: Epoch[53] Iteration[200/542], loss: 1.8165, bge_loss: 0.9246, tse_loss: 0.8918, Base Lr: 5.13e-07
+2024-03-19 04:36:05,947 RDE.train INFO: Epoch[53] Iteration[300/542], loss: 1.8243, bge_loss: 0.9322, tse_loss: 0.8921, Base Lr: 5.13e-07
+2024-03-19 04:36:37,617 RDE.train INFO: Epoch[53] Iteration[400/542], loss: 1.8460, bge_loss: 0.9505, tse_loss: 0.8955, Base Lr: 5.13e-07
+2024-03-19 04:37:09,363 RDE.train INFO: Epoch[53] Iteration[500/542], loss: 1.8520, bge_loss: 0.9576, tse_loss: 0.8944, Base Lr: 5.13e-07
+2024-03-19 04:37:23,247 RDE.train INFO: Epoch 53 done. Time per batch: 0.488[s] Speed: 131.2[samples/s]
+2024-03-19 04:37:23,248 RDE.train INFO: Validation Results - Epoch: 53
+2024-03-19 04:40:40,240 RDE.eval INFO: 
++-------------+-------+-------+-------+-------+------+-----------+
+|     task    |   R1  |   R5  |  R10  |  mAP  | mINP |    rSum   |
++-------------+-------+-------+-------+-------+------+-----------+
+|   BGE-t2i   | 64.91 | 81.17 | 86.44 | 37.83 | 6.96 | 232.51712 |
+|   TSE-t2i   | 67.17 | 82.39 | 87.24 | 39.99 | 7.81 | 236.79465 |
+| BGE+TSE-t2i | 67.55 | 82.57 | 87.33 | 40.10 | 7.95 | 237.44962 |
++-------------+-------+-------+-------+-------+------+-----------+
+2024-03-19 04:40:48,130 RDE.train INFO: compute loss batch 0
+2024-03-19 04:41:14,938 RDE.train INFO: compute loss batch 100
+2024-03-19 04:41:37,804 RDE.train INFO: compute loss batch 200
+2024-03-19 04:41:59,141 RDE.train INFO: compute loss batch 300
+2024-03-19 04:42:21,170 RDE.train INFO: compute loss batch 400
+2024-03-19 04:42:41,733 RDE.train INFO: compute loss batch 500
+2024-03-19 04:42:50,296 RDE.train INFO: 
+Fitting GMM ...
+2024-03-19 04:42:50,298 RDE.train INFO: clean samples: 34674 	 noisy samples: 0
+2024-03-19 04:42:50,298 RDE.train INFO: 
+Fitting GMM ...
+2024-03-19 04:42:51,245 RDE.train INFO: Confusion Matrix by A
+2024-03-19 04:42:51,250 RDE.train INFO: 
+[[    0     0]
+ [ 2373 32301]]
+2024-03-19 04:42:51,250 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.9315356885364096
+2024-03-19 04:42:51,250 RDE.train INFO: Confusion Matrix by B
+2024-03-19 04:42:51,254 RDE.train INFO: 
+[[    0     0]
+ [ 2342 32332]]
+2024-03-19 04:42:51,255 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.9324297043979812
+2024-03-19 04:43:29,782 RDE.train INFO: Epoch[54] Iteration[100/542], loss: 1.8194, bge_loss: 0.9272, tse_loss: 0.8922, Base Lr: 3.94e-07
+2024-03-19 04:44:02,081 RDE.train INFO: Epoch[54] Iteration[200/542], loss: 1.8785, bge_loss: 0.9658, tse_loss: 0.9127, Base Lr: 3.94e-07
+2024-03-19 04:44:34,944 RDE.train INFO: Epoch[54] Iteration[300/542], loss: 1.8676, bge_loss: 0.9617, tse_loss: 0.9059, Base Lr: 3.94e-07
+2024-03-19 04:45:07,455 RDE.train INFO: Epoch[54] Iteration[400/542], loss: 1.8921, bge_loss: 0.9794, tse_loss: 0.9127, Base Lr: 3.94e-07
+2024-03-19 04:45:40,155 RDE.train INFO: Epoch[54] Iteration[500/542], loss: 1.8810, bge_loss: 0.9731, tse_loss: 0.9079, Base Lr: 3.94e-07
+2024-03-19 04:45:54,150 RDE.train INFO: Epoch 54 done. Time per batch: 0.577[s] Speed: 110.9[samples/s]
+2024-03-19 04:45:54,151 RDE.train INFO: Validation Results - Epoch: 54
+2024-03-19 04:48:47,659 RDE.eval INFO: 
++-------------+-------+-------+-------+-------+------+-----------+
+|     task    |   R1  |   R5  |  R10  |  mAP  | mINP |    rSum   |
++-------------+-------+-------+-------+-------+------+-----------+
+|   BGE-t2i   | 64.93 | 81.15 | 86.41 | 37.83 | 6.95 | 232.49194 |
+|   TSE-t2i   | 67.24 | 82.49 | 87.23 | 40.01 | 7.79 | 236.95587 |
+| BGE+TSE-t2i | 67.58 | 82.58 | 87.34 | 40.11 | 7.93 | 237.50504 |
++-------------+-------+-------+-------+-------+------+-----------+
+2024-03-19 04:48:53,606 RDE.train INFO: compute loss batch 0
+2024-03-19 04:49:14,706 RDE.train INFO: compute loss batch 100
+2024-03-19 04:49:35,214 RDE.train INFO: compute loss batch 200
+2024-03-19 04:49:54,548 RDE.train INFO: compute loss batch 300
+2024-03-19 04:50:15,037 RDE.train INFO: compute loss batch 400
+2024-03-19 04:50:35,314 RDE.train INFO: compute loss batch 500
+2024-03-19 04:50:42,377 RDE.train INFO: 
+Fitting GMM ...
+2024-03-19 04:50:42,378 RDE.train INFO: clean samples: 34674 	 noisy samples: 0
+2024-03-19 04:50:42,379 RDE.train INFO: 
+Fitting GMM ...
+2024-03-19 04:50:43,441 RDE.train INFO: Confusion Matrix by A
+2024-03-19 04:50:43,445 RDE.train INFO: 
+[[    0     0]
+ [ 2108 32566]]
+2024-03-19 04:50:43,446 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.9391780821917808
+2024-03-19 04:50:43,446 RDE.train INFO: Confusion Matrix by B
+2024-03-19 04:50:43,448 RDE.train INFO: 
+[[    0     0]
+ [ 2005 32669]]
+2024-03-19 04:50:43,448 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.9421485219899063
+2024-03-19 04:51:23,147 RDE.train INFO: Epoch[55] Iteration[100/542], loss: 1.8944, bge_loss: 0.9835, tse_loss: 0.9109, Base Lr: 2.91e-07
+2024-03-19 04:52:00,214 RDE.train INFO: Epoch[55] Iteration[200/542], loss: 1.9343, bge_loss: 0.9972, tse_loss: 0.9371, Base Lr: 2.91e-07
+2024-03-19 04:52:33,955 RDE.train INFO: Epoch[55] Iteration[300/542], loss: 1.9280, bge_loss: 0.9993, tse_loss: 0.9287, Base Lr: 2.91e-07
+2024-03-19 04:53:07,134 RDE.train INFO: Epoch[55] Iteration[400/542], loss: 1.9179, bge_loss: 0.9965, tse_loss: 0.9214, Base Lr: 2.91e-07
+2024-03-19 04:53:40,133 RDE.train INFO: Epoch[55] Iteration[500/542], loss: 1.9087, bge_loss: 0.9897, tse_loss: 0.9190, Base Lr: 2.91e-07
+2024-03-19 04:53:54,228 RDE.train INFO: Epoch 55 done. Time per batch: 0.564[s] Speed: 113.5[samples/s]
+2024-03-19 04:53:54,229 RDE.train INFO: Validation Results - Epoch: 55
+2024-03-19 04:56:29,504 RDE.eval INFO: 
++-------------+-------+-------+-------+-------+------+-----------+
+|     task    |   R1  |   R5  |  R10  |  mAP  | mINP |    rSum   |
++-------------+-------+-------+-------+-------+------+-----------+
+|   BGE-t2i   | 64.96 | 81.14 | 86.40 | 37.84 | 6.95 | 232.49698 |
+|   TSE-t2i   | 67.33 | 82.48 | 87.24 | 40.03 | 7.80 |  237.0415 |
+| BGE+TSE-t2i | 67.62 | 82.62 | 87.41 | 40.12 | 7.94 | 237.65115 |
++-------------+-------+-------+-------+-------+------+-----------+
+2024-03-19 04:56:34,202 RDE.train INFO: compute loss batch 0
+2024-03-19 04:56:47,368 RDE.train INFO: compute loss batch 100
+2024-03-19 04:57:00,037 RDE.train INFO: compute loss batch 200
+2024-03-19 04:57:12,714 RDE.train INFO: compute loss batch 300
+2024-03-19 04:57:25,276 RDE.train INFO: compute loss batch 400
+2024-03-19 04:57:37,924 RDE.train INFO: compute loss batch 500
+2024-03-19 04:57:43,511 RDE.train INFO: 
+Fitting GMM ...
+2024-03-19 04:57:43,512 RDE.train INFO: clean samples: 34674 	 noisy samples: 0
+2024-03-19 04:57:43,512 RDE.train INFO: 
+Fitting GMM ...
+2024-03-19 04:57:45,226 RDE.train INFO: Confusion Matrix by A
+2024-03-19 04:57:45,229 RDE.train INFO: 
+[[    0     0]
+ [ 2275 32399]]
+2024-03-19 04:57:45,229 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.9343619322278298
+2024-03-19 04:57:45,229 RDE.train INFO: Confusion Matrix by B
+2024-03-19 04:57:45,233 RDE.train INFO: 
+[[    0     0]
+ [ 2022 32652]]
+2024-03-19 04:57:45,234 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.9416582552271089
+2024-03-19 04:58:19,871 RDE.train INFO: Epoch[56] Iteration[100/542], loss: 1.8341, bge_loss: 0.9658, tse_loss: 0.8683, Base Lr: 2.03e-07
+2024-03-19 04:58:51,274 RDE.train INFO: Epoch[56] Iteration[200/542], loss: 1.7897, bge_loss: 0.9301, tse_loss: 0.8596, Base Lr: 2.03e-07
+2024-03-19 04:59:22,572 RDE.train INFO: Epoch[56] Iteration[300/542], loss: 1.8346, bge_loss: 0.9556, tse_loss: 0.8790, Base Lr: 2.03e-07
+2024-03-19 04:59:54,410 RDE.train INFO: Epoch[56] Iteration[400/542], loss: 1.8274, bge_loss: 0.9479, tse_loss: 0.8795, Base Lr: 2.03e-07
+2024-03-19 05:00:26,566 RDE.train INFO: Epoch[56] Iteration[500/542], loss: 1.8375, bge_loss: 0.9540, tse_loss: 0.8835, Base Lr: 2.03e-07
+2024-03-19 05:00:40,809 RDE.train INFO: Epoch 56 done. Time per batch: 0.462[s] Speed: 138.4[samples/s]
+2024-03-19 05:00:40,810 RDE.train INFO: Validation Results - Epoch: 56
+2024-03-19 05:03:21,673 RDE.eval INFO: 
++-------------+-------+-------+-------+-------+------+-----------+
+|     task    |   R1  |   R5  |  R10  |  mAP  | mINP |    rSum   |
++-------------+-------+-------+-------+-------+------+-----------+
+|   BGE-t2i   | 64.96 | 81.20 | 86.42 | 37.85 | 6.96 |  232.5776 |
+|   TSE-t2i   | 67.34 | 82.43 | 87.21 | 40.03 | 7.81 | 236.98105 |
+| BGE+TSE-t2i | 67.55 | 82.62 | 87.39 | 40.13 | 7.95 | 237.55542 |
++-------------+-------+-------+-------+-------+------+-----------+
+2024-03-19 05:03:26,179 RDE.train INFO: compute loss batch 0
+2024-03-19 05:03:39,960 RDE.train INFO: compute loss batch 100
+2024-03-19 05:03:52,669 RDE.train INFO: compute loss batch 200
+2024-03-19 05:04:05,422 RDE.train INFO: compute loss batch 300
+2024-03-19 05:04:18,138 RDE.train INFO: compute loss batch 400
+2024-03-19 05:04:30,767 RDE.train INFO: compute loss batch 500
+2024-03-19 05:04:36,320 RDE.train INFO: 
+Fitting GMM ...
+2024-03-19 05:04:36,321 RDE.train INFO: clean samples: 34674 	 noisy samples: 0
+2024-03-19 05:04:36,322 RDE.train INFO: 
+Fitting GMM ...
+2024-03-19 05:04:37,169 RDE.train INFO: Confusion Matrix by A
+2024-03-19 05:04:37,173 RDE.train INFO: 
+[[    0     0]
+ [ 2527 32147]]
+2024-03-19 05:04:37,173 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.9270944484498919
+2024-03-19 05:04:37,173 RDE.train INFO: Confusion Matrix by B
+2024-03-19 05:04:37,175 RDE.train INFO: 
+[[    0     0]
+ [ 2528 32146]]
+2024-03-19 05:04:37,175 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.9270656092285509
+2024-03-19 05:05:11,832 RDE.train INFO: Epoch[57] Iteration[100/542], loss: 1.7828, bge_loss: 0.9281, tse_loss: 0.8547, Base Lr: 1.30e-07
+2024-03-19 05:05:43,669 RDE.train INFO: Epoch[57] Iteration[200/542], loss: 1.7985, bge_loss: 0.9324, tse_loss: 0.8661, Base Lr: 1.30e-07
+2024-03-19 05:06:15,686 RDE.train INFO: Epoch[57] Iteration[300/542], loss: 1.7981, bge_loss: 0.9264, tse_loss: 0.8718, Base Lr: 1.30e-07
+2024-03-19 05:06:47,567 RDE.train INFO: Epoch[57] Iteration[400/542], loss: 1.7740, bge_loss: 0.9127, tse_loss: 0.8613, Base Lr: 1.30e-07
+2024-03-19 05:07:19,357 RDE.train INFO: Epoch[57] Iteration[500/542], loss: 1.7742, bge_loss: 0.9130, tse_loss: 0.8613, Base Lr: 1.30e-07
+2024-03-19 05:07:33,691 RDE.train INFO: Epoch 57 done. Time per batch: 0.464[s] Speed: 138.0[samples/s]
+2024-03-19 05:07:33,692 RDE.train INFO: Validation Results - Epoch: 57
+2024-03-19 05:10:26,141 RDE.eval INFO: 
++-------------+-------+-------+-------+-------+------+-----------+
+|     task    |   R1  |   R5  |  R10  |  mAP  | mINP |    rSum   |
++-------------+-------+-------+-------+-------+------+-----------+
+|   BGE-t2i   | 64.95 | 81.18 | 86.44 | 37.85 | 6.96 | 232.57759 |
+|   TSE-t2i   | 67.32 | 82.45 | 87.21 | 40.03 | 7.81 | 236.97603 |
+| BGE+TSE-t2i | 67.56 | 82.62 | 87.40 | 40.13 | 7.95 | 237.59067 |
++-------------+-------+-------+-------+-------+------+-----------+
+2024-03-19 05:10:33,279 RDE.train INFO: compute loss batch 0
+2024-03-19 05:10:51,892 RDE.train INFO: compute loss batch 100
+2024-03-19 05:11:10,688 RDE.train INFO: compute loss batch 200
+2024-03-19 05:11:28,557 RDE.train INFO: compute loss batch 300
+2024-03-19 05:11:47,194 RDE.train INFO: compute loss batch 400
+2024-03-19 05:12:05,694 RDE.train INFO: compute loss batch 500
+2024-03-19 05:12:13,296 RDE.train INFO: 
+Fitting GMM ...
+2024-03-19 05:12:13,299 RDE.train INFO: clean samples: 34674 	 noisy samples: 0
+2024-03-19 05:12:13,302 RDE.train INFO: 
+Fitting GMM ...
+2024-03-19 05:12:14,184 RDE.train INFO: Confusion Matrix by A
+2024-03-19 05:12:14,190 RDE.train INFO: 
+[[    0     0]
+ [ 2328 32346]]
+2024-03-19 05:12:14,190 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.9328334534967556
+2024-03-19 05:12:14,191 RDE.train INFO: Confusion Matrix by B
+2024-03-19 05:12:14,192 RDE.train INFO: 
+[[    0     0]
+ [ 2225 32449]]
+2024-03-19 05:12:14,192 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.935803893294881
+2024-03-19 05:12:51,928 RDE.train INFO: Epoch[58] Iteration[100/542], loss: 1.7830, bge_loss: 0.9305, tse_loss: 0.8526, Base Lr: 7.32e-08
+2024-03-19 05:13:25,468 RDE.train INFO: Epoch[58] Iteration[200/542], loss: 1.7787, bge_loss: 0.9213, tse_loss: 0.8574, Base Lr: 7.32e-08
+2024-03-19 05:14:00,107 RDE.train INFO: Epoch[58] Iteration[300/542], loss: 1.8647, bge_loss: 0.9618, tse_loss: 0.9029, Base Lr: 7.32e-08
+2024-03-19 05:14:35,065 RDE.train INFO: Epoch[58] Iteration[400/542], loss: 1.8353, bge_loss: 0.9489, tse_loss: 0.8864, Base Lr: 7.32e-08
+2024-03-19 05:15:10,279 RDE.train INFO: Epoch[58] Iteration[500/542], loss: 1.8300, bge_loss: 0.9450, tse_loss: 0.8850, Base Lr: 7.32e-08
+2024-03-19 05:15:25,649 RDE.train INFO: Epoch 58 done. Time per batch: 0.551[s] Speed: 116.1[samples/s]
+2024-03-19 05:15:25,653 RDE.train INFO: Validation Results - Epoch: 58
+2024-03-19 05:18:20,397 RDE.eval INFO: 
++-------------+-------+-------+-------+-------+------+-----------+
+|     task    |   R1  |   R5  |  R10  |  mAP  | mINP |    rSum   |
++-------------+-------+-------+-------+-------+------+-----------+
+|   BGE-t2i   | 64.97 | 81.18 | 86.43 | 37.85 | 6.96 | 232.58264 |
+|   TSE-t2i   | 67.33 | 82.48 | 87.20 | 40.03 | 7.81 | 237.01128 |
+| BGE+TSE-t2i | 67.54 | 82.63 | 87.39 | 40.13 | 7.95 | 237.56046 |
++-------------+-------+-------+-------+-------+------+-----------+
+2024-03-19 05:18:25,881 RDE.train INFO: compute loss batch 0
+2024-03-19 05:18:44,604 RDE.train INFO: compute loss batch 100
+2024-03-19 05:19:03,337 RDE.train INFO: compute loss batch 200
+2024-03-19 05:19:20,648 RDE.train INFO: compute loss batch 300
+2024-03-19 05:19:38,341 RDE.train INFO: compute loss batch 400
+2024-03-19 05:19:55,919 RDE.train INFO: compute loss batch 500
+2024-03-19 05:20:02,070 RDE.train INFO: 
+Fitting GMM ...
+2024-03-19 05:20:02,071 RDE.train INFO: clean samples: 34674 	 noisy samples: 0
+2024-03-19 05:20:02,072 RDE.train INFO: 
+Fitting GMM ...
+2024-03-19 05:20:02,877 RDE.train INFO: Confusion Matrix by A
+2024-03-19 05:20:02,881 RDE.train INFO: 
+[[    0     0]
+ [ 2267 32407]]
+2024-03-19 05:20:02,881 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.9345926459985581
+2024-03-19 05:20:02,881 RDE.train INFO: Confusion Matrix by B
+2024-03-19 05:20:02,883 RDE.train INFO: 
+[[    0     0]
+ [ 2038 32636]]
+2024-03-19 05:20:02,884 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.9411968276856525
+2024-03-19 05:20:36,638 RDE.train INFO: Epoch[59] Iteration[100/542], loss: 1.8740, bge_loss: 0.9789, tse_loss: 0.8952, Base Lr: 3.26e-08
+2024-03-19 05:21:09,879 RDE.train INFO: Epoch[59] Iteration[200/542], loss: 1.8861, bge_loss: 0.9741, tse_loss: 0.9120, Base Lr: 3.26e-08
+2024-03-19 05:21:42,003 RDE.train INFO: Epoch[59] Iteration[300/542], loss: 1.8807, bge_loss: 0.9767, tse_loss: 0.9040, Base Lr: 3.26e-08
+2024-03-19 05:22:14,716 RDE.train INFO: Epoch[59] Iteration[400/542], loss: 1.9046, bge_loss: 0.9890, tse_loss: 0.9156, Base Lr: 3.26e-08
+2024-03-19 05:22:48,322 RDE.train INFO: Epoch[59] Iteration[500/542], loss: 1.8986, bge_loss: 0.9880, tse_loss: 0.9106, Base Lr: 3.26e-08
+2024-03-19 05:23:03,190 RDE.train INFO: Epoch 59 done. Time per batch: 0.520[s] Speed: 123.0[samples/s]
+2024-03-19 05:23:03,192 RDE.train INFO: Validation Results - Epoch: 59
+2024-03-19 05:26:01,485 RDE.eval INFO: 
++-------------+-------+-------+-------+-------+------+-----------+
+|     task    |   R1  |   R5  |  R10  |  mAP  | mINP |    rSum   |
++-------------+-------+-------+-------+-------+------+-----------+
+|   BGE-t2i   | 64.95 | 81.19 | 86.45 | 37.85 | 6.96 | 232.59271 |
+|   TSE-t2i   | 67.32 | 82.47 | 87.21 | 40.04 | 7.81 | 236.99617 |
+| BGE+TSE-t2i | 67.57 | 82.65 | 87.41 | 40.13 | 7.95 | 237.63098 |
++-------------+-------+-------+-------+-------+------+-----------+
+2024-03-19 05:26:06,712 RDE.train INFO: compute loss batch 0
+2024-03-19 05:26:21,567 RDE.train INFO: compute loss batch 100
+2024-03-19 05:26:33,772 RDE.train INFO: compute loss batch 200
+2024-03-19 05:26:45,876 RDE.train INFO: compute loss batch 300
+2024-03-19 05:26:57,905 RDE.train INFO: compute loss batch 400
+2024-03-19 05:27:09,873 RDE.train INFO: compute loss batch 500
+2024-03-19 05:27:15,156 RDE.train INFO: 
+Fitting GMM ...
+2024-03-19 05:27:15,157 RDE.train INFO: clean samples: 34674 	 noisy samples: 0
+2024-03-19 05:27:15,158 RDE.train INFO: 
+Fitting GMM ...
+2024-03-19 05:27:15,972 RDE.train INFO: Confusion Matrix by A
+2024-03-19 05:27:15,977 RDE.train INFO: 
+[[    0     0]
+ [ 2396 32278]]
+2024-03-19 05:27:15,978 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.930872386445566
+2024-03-19 05:27:15,978 RDE.train INFO: Confusion Matrix by B
+2024-03-19 05:27:15,981 RDE.train INFO: 
+[[    0     0]
+ [ 2161 32513]]
+2024-03-19 05:27:15,981 RDE.train INFO: Noise Recall: nan, Clean Recall: 0.9376496034607066
+2024-03-19 05:27:49,696 RDE.train INFO: Epoch[60] Iteration[100/542], loss: 1.7816, bge_loss: 0.9225, tse_loss: 0.8590, Base Lr: 8.15e-09
+2024-03-19 05:28:20,916 RDE.train INFO: Epoch[60] Iteration[200/542], loss: 1.7457, bge_loss: 0.9054, tse_loss: 0.8403, Base Lr: 8.15e-09
+2024-03-19 05:28:51,891 RDE.train INFO: Epoch[60] Iteration[300/542], loss: 1.7757, bge_loss: 0.9157, tse_loss: 0.8600, Base Lr: 8.15e-09
+2024-03-19 05:29:22,819 RDE.train INFO: Epoch[60] Iteration[400/542], loss: 1.7909, bge_loss: 0.9205, tse_loss: 0.8704, Base Lr: 8.15e-09
+2024-03-19 05:29:54,419 RDE.train INFO: Epoch[60] Iteration[500/542], loss: 1.8285, bge_loss: 0.9408, tse_loss: 0.8877, Base Lr: 8.15e-09
+2024-03-19 05:30:08,133 RDE.train INFO: Epoch 60 done. Time per batch: 0.454[s] Speed: 141.0[samples/s]
+2024-03-19 05:30:08,134 RDE.train INFO: Validation Results - Epoch: 60
+2024-03-19 05:32:30,540 RDE.eval INFO: 
++-------------+-------+-------+-------+-------+------+-----------+
+|     task    |   R1  |   R5  |  R10  |  mAP  | mINP |    rSum   |
++-------------+-------+-------+-------+-------+------+-----------+
+|   BGE-t2i   | 64.96 | 81.18 | 86.42 | 37.85 | 6.96 | 232.55743 |
+|   TSE-t2i   | 67.34 | 82.47 | 87.20 | 40.03 | 7.81 | 237.00624 |
+| BGE+TSE-t2i | 67.55 | 82.64 | 87.40 | 40.13 | 7.95 |  237.5907 |
++-------------+-------+-------+-------+-------+------+-----------+
+2024-03-19 05:32:31,140 RDE.train INFO: best R1: 67.66424560546875 at epoch 48
+2024-03-19 05:32:40,972 RDE INFO: ===================>start test
+2024-03-19 05:32:43,119 RDE.dataset INFO: => ICFG-PEDES Images and Captions are loaded
+2024-03-19 05:32:43,120 RDE.dataset INFO: ICFGPEDES Dataset statistics:
+2024-03-19 05:32:43,120 RDE.dataset INFO: 
++--------+------+--------+----------+
+| subset | ids  | images | captions |
++--------+------+--------+----------+
+| train  | 3102 | 34674  |  34674   |
+|  test  | 1000 | 19848  |  19848   |
+|  val   |  0   |   0    |    0     |
++--------+------+--------+----------+
+2024-03-19 05:32:47,718 RDE.test INFO: Enter inferencing
+2024-03-19 05:35:10,647 RDE.eval INFO: 
++-------------+-------+-------+-------+-------+------+-----------+
+|     task    |   R1  |   R5  |  R10  |  mAP  | mINP |    rSum   |
++-------------+-------+-------+-------+-------+------+-----------+
+|   BGE-t2i   | 64.80 | 81.12 | 86.42 | 37.78 | 6.94 | 232.33575 |
+|   TSE-t2i   | 67.15 | 82.47 | 87.24 | 39.94 | 7.68 | 236.86014 |
+| BGE+TSE-t2i | 67.68 | 82.47 | 87.36 | 40.06 | 7.87 | 237.50504 |
++-------------+-------+-------+-------+-------+------+-----------+
+2024-03-19 05:35:15,442 RDE.test INFO: Enter inferencing
+2024-03-19 05:37:37,602 RDE.eval INFO: 
++-------------+-------+-------+-------+-------+------+-----------+
+|     task    |   R1  |   R5  |  R10  |  mAP  | mINP |    rSum   |
++-------------+-------+-------+-------+-------+------+-----------+
+|   BGE-t2i   | 64.92 | 81.18 | 86.44 | 37.85 | 6.96 | 232.54233 |
+|   TSE-t2i   | 67.32 | 82.46 | 87.22 | 40.03 | 7.81 | 237.00122 |
+| BGE+TSE-t2i | 67.55 | 82.64 | 87.40 | 40.13 | 7.95 | 237.59573 |
++-------------+-------+-------+-------+-------+------+-----------+

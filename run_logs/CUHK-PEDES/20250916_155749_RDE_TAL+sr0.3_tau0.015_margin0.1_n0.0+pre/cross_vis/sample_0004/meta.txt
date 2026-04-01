@@ -1,0 +1,2 @@
+Image Path: /data01/zh_2023/text-image_retrival/CUHK-PEDES/imgs/CUHK01/0152002.png
+Caption: The man has a black jacket and grey pants. He has a black bag.
