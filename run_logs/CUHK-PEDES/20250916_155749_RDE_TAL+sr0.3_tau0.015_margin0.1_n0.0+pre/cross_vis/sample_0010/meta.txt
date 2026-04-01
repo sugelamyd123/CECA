@@ -1,2 +1,0 @@
-Image Path: /data01/zh_2023/text-image_retrival/CUHK-PEDES/imgs/train_query/p7093_s9395.jpg
-Caption: A woman is walking. She is wearing a black top and Gray bottoms.

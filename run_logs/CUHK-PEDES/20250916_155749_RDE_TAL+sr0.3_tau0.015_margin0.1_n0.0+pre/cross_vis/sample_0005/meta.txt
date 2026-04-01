@@ -1,2 +1,0 @@
-Image Path: /data01/zh_2023/text-image_retrival/CUHK-PEDES/imgs/Market/0514_c5s1_141920_00.jpg
-Caption: A woman in a white shirt, a red skirt and a pair of red shoes.

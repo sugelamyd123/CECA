@@ -1,2 +1,0 @@
-Image Path: /data01/zh_2023/text-image_retrival/CUHK-PEDES/imgs/train_query/p10586_s15542.jpg
-Caption: She has short black hair. She is wearing a light white shirt.
