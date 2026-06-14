@@ -84,8 +84,8 @@ class Evaluator():
                 chat_feat = model.encode_text(chat_ids).cpu()
             gids.append(pid.view(-1)) # flatten 
             #gfeats.append(img_feat)
-            #gfeats.append(0.7*img_feat+0.3*chat_feat)
-            gfeats.append(0.9*img_feat+0.1*chat_feat)
+            gfeats.append(0.7*img_feat+0.3*chat_feat)
+            #gfeats.append(0.9*img_feat+0.1*chat_feat)
         gids = torch.cat(gids, 0)
         gfeats = torch.cat(gfeats, 0)
         return qfeats.cpu(), gfeats.cpu(), qids.cpu(), gids.cpu()
@@ -115,8 +115,8 @@ class Evaluator():
                 img_feat, chat_feat = model.encode_chat_tse(img,chat_ids)
             gids.append(pid.view(-1)) # flatten 
             #gfeats.append(img_feat)
-            #gfeats.append(0.7*img_feat+0.3*chat_feat)
-            gfeats.append(0.9*img_feat+0.1*chat_feat)
+            gfeats.append(0.7*img_feat+0.3*chat_feat)
+            #gfeats.append(0.9*img_feat+0.1*chat_feat)
         gids = torch.cat(gids, 0)
         gfeats = torch.cat(gfeats, 0) 
         return qfeats.cpu(), gfeats.cpu(), qids.cpu(), gids.cpu()
