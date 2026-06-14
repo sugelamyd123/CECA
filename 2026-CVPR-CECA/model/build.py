@@ -1,6 +1,6 @@
 from model import objectives
-#from .ChatCrossEmbeddingLayer import TexualEmbeddingLayer,VisualEmbeddingLayer
-from .CrossEmbeddingLayer_tse import TexualEmbeddingLayer, VisualEmbeddingLayer
+from .ChatCrossEmbeddingLayer import TexualEmbeddingLayer,VisualEmbeddingLayer
+#from .CrossEmbeddingLayer_tse import TexualEmbeddingLayer, VisualEmbeddingLayer
 from .clip_model import build_CLIP_from_openai_pretrained, convert_weights
 import torch
 import torch.nn as nn 
