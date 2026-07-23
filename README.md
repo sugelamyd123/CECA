@@ -5,7 +5,7 @@ PyTorch code for *Tackling Alignment Ambiguity in Person Retrieval through Conve
 
 ### News!
 
-- We release the training code and training logs.
+- We release the training code .
 - Accepted by CVPR 2026.
 
 
